@@ -1,0 +1,25 @@
+#{$class-prefix}code-of-ethics {
+  border: 1px solid $code-of-ethics-border-color;
+  background: $corner-background;
+  padding: 5px 10px;
+  display: none;
+
+  &.visible {
+    display: block;
+  }
+
+  &-show {
+    text-decoration: none;
+    border-bottom: 1px dashed;
+    white-space: nowrap;
+    @include transition(color $transition-duration $transition-type);
+
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+    }
+
+  }
+
+}

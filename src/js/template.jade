@@ -1,0 +1,84 @@
+// ToDo: Hide corners that have no data in them
+// ToDo: Get icon types in Links section by parsing a corresponding URL not from YAML file
+
+img(src=src)
+.fc-tools(data-4c-class="collapsed: toolsHidden")
+    button.fc-btn.fc-btn-top-left(data-4c-on="mouseover: topLeftCorner.show")
+        i.fa.fa-history
+    button.fc-btn.fc-btn-top-right(data-4c-on="mouseover: topRightCorner.show")
+        i.fa.fa-external-link
+    button.fc-btn.fc-btn-bottom-left(data-4c-on="mouseover: bottomLeftCorner.show")
+        i.fa.fa-info
+    button.fc-btn.fc-btn-bottom-right(data-4c-on="mouseover: bottomRightCorner.show")
+        i.fa.fa-copyright
+.fc-content
+    .fc-content-container.fc-content-fill(data-4c-on="swipeLeft: topLeftCorner.selectNext, swipeRight: topLeftCorner.selectPrevious"
+    data-4c-class="visible: topLeftCorner.visible, pinned: topLeftCorner.pinned")
+        .fc-content-background
+        .fc-gallery(data-4c-class="expanded: !topLeftCorner.visible")
+            .fc-gallery-controls.fc-gallery-prev(data-4c-class="transparent: getPrevControllerHidden")
+                a(href="" data-4c-on="click: topLeftCorner.selectPrevious, mouseover: topLeftCorner.preselectPrevious, mouseleave: topLeftCorner.clearPreselect")
+                    i.fa.fa-angle-left
+            ul(data-4c-gallery-list)
+                each item in context.items
+                    li(data-4c-on="click: topLeftCorner.selectItem"
+                    data-4c-class="hover: topLeftCorner.getItemIsPreselected"
+                    data-4c-gallery-item)
+                        if item.src
+                            img(src=item.src)
+                        if item.youtube_id
+                            iframe(width="100%" height="100%" src="//www.youtube.com/embed/" + item.youtube_id style="border:none")
+            .fc-gallery-controls.fc-gallery-next(data-4c-class="transparent: getNextControllerHidden")
+                a(href="" data-4c-on="click: topLeftCorner.selectNext, mouseover: topLeftCorner.preselectNext, mouseleave: topLeftCorner.clearPreselect")
+                    i.fa.fa-angle-right
+            each item in context.items
+                if item.credit
+                    .fc-gallery-caption(data-4c-gallery-caption data-4c-class="visible: topLeftCorner.getCaptionVisible")
+                        .fc-gallery-caption-background
+                        .fc-gallery-caption-text #{item.credit}
+                else
+                    div(data-4c-gallery-caption data-4c-class="visible: topLeftCorner.getCaptionVisible")
+        button.fc-btn.fc-btn-top-left.fc-gallery-close(data-4c-on="click: topLeftCorner.hide")
+            i.fa.fa-times
+    .fc-content-container.fc-content-top-right(data-4c-on="mouseleave: topRightCorner.hide"
+    data-4c-class="visible: topRightCorner.visible")
+        .fc-content-body
+            .fc-content-background
+            .fc-content-text
+                button.fc-btn.fc-btn-close(data-4c-on="click: topRightCorner.hide")
+                    i.fa.fa-times
+                h1 Links
+                .fa-ul
+                    each item in links
+                        li
+                            i(class="fa-li fa fa-" + item.type)
+                            a(href=item.href) #{item.title}
+    .fc-content-container.fc-content-bottom-left(data-4c-on="mouseleave: bottomLeftCorner.hide"
+    data-4c-class="visible: bottomLeftCorner.visible")
+        .fc-content-body
+            .fc-content-background
+            .fc-content-text
+                button.fc-btn.fc-btn-close(data-4c-on="click: bottomLeftCorner.hide")
+                    i.fa.fa-times
+                h1 Backstory
+                p #{backStory.text}
+                p #{backStory.author + ', '}
+                    a(href=backStory.magazineUrl) #{backStory.magazine}
+                    | #{', ' + backStory.date}
+    .fc-content-container.fc-content-bottom-right(data-4c-on="mouseleave: bottomRightCorner.hide"
+    data-4c-class="visible: bottomRightCorner.visible")
+        .fc-content-body
+            .fc-content-background
+            .fc-content-text
+                button.fc-btn.fc-btn-close(data-4c-on="click: bottomRightCorner.hide")
+                    i.fa.fa-times
+                p.fc-content-copyright #{'Photograph by '}
+                    if creativeCommons.codeOfEthics
+                        a.fc-code-of-ethics-show(href="" data-4c-on="click: bottomRightCorner.toggleCodeOfEthics")
+                            | #{creativeCommons.copyright}
+                    else
+                        | #{creativeCommons.copyright}
+                if creativeCommons.codeOfEthics
+                    p(data-4c-class="visible: bottomRightCorner.codeOfEthicsVisible").fc-code-of-ethics
+                        | CODE OF ETHICS:  #{creativeCommons.codeOfEthics}
+                p #{creativeCommons.description}

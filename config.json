@@ -1,0 +1,19 @@
+{
+  "browserifyFrom": "src/js/index.js",
+  "browserifyTo": "src/temp/4c.js",
+  "buildJsTo": "src/temp/4c.min.js",
+  "uglifyJs": true,
+  "watchJs": false,
+  "sassFrom": "src/scss/main.scss",
+  "sassTo": "src/temp/style.css",
+  "sassWatch": "src/scss/**/**",
+  "watchSass": false,
+  "includeCssMaps": true,
+  "includeJsMaps": true,
+  "insertCssWithJs": true,
+  "watchDebounceDelay": 1000,
+  "demoFolder": "demo/",
+  "distributionFolder": "dist/",
+  "dataAttributeBase": "data-4c",
+  "fontAwesomeCdnUrl": "https://use.fontawesome.com/dcbd51b54b.js"
+}

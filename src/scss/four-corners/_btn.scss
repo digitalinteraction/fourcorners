@@ -1,0 +1,95 @@
+@import "../mixins/main";
+@import "../config";
+
+.fc {
+  &-tools {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+    @include box-sizing(border-box);
+    @include transform(scale(1.5));
+    @include transition(opacity .3s linear, transform .2s linear);
+
+    &:hover {
+      @include transform(scale(1));
+      opacity: 1;
+    }
+
+    .touch-screen & {
+      opacity: 1 !important;
+      @include transform(scale(1));
+
+      &.collapsed {
+        opacity: 0;
+        @include transform(scale(1.5));
+      }
+
+    }
+
+  }
+  &-btn {
+    $margin: 5px;
+
+    display: inline-block;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+
+    position: absolute;
+    color: $btn-color;
+    background: $btn-background;
+    border: none;
+    border-radius: 50%;
+    padding: 6px;
+    height: 30px;
+    width: 30px;
+    opacity: $btn-opacity;
+    outline: none;
+    @include transition(opacity $transition-duration $transition-type);
+
+    &:hover,
+    &:active,
+    &:focus {
+      opacity: 1;
+    }
+
+    &-top {
+      &-left {
+        top: $margin;
+        left: $margin;
+      }
+      &-right {
+        top: $margin;
+        right: $margin;
+      }
+    }
+
+    &-bottom {
+      &-left {
+        bottom: $margin;
+        left: $margin;
+      }
+      &-right {
+        bottom: $margin;
+        right: $margin;
+      }
+    }
+
+    &-close {
+      display: none;
+      position: static;
+      float: right;
+
+      .touch-screen & {
+        display: inline-block;
+      }
+
+    }
+
+  }
+}

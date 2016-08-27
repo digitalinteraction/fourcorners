@@ -1,0 +1,18 @@
+@import "../config";
+@import "../mixins/main";
+
+#{$class-prefix}image {
+  position: relative !important;
+  overflow: hidden !important;
+  height: auto !important;
+
+  * {
+    @include box-sizing(border-box);
+  }
+
+  & > img {
+    display: block;
+    max-width: 100%;
+  }
+
+}
