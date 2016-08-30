@@ -20,7 +20,7 @@ img(src=src)
                 a(href="" data-4c-on="click: topLeftCorner.selectPrevious, mouseover: topLeftCorner.preselectPrevious, mouseleave: topLeftCorner.clearPreselect")
                     i.fa.fa-angle-left
             ul(data-4c-gallery-list)
-                each item in context.items
+                each item in context
                     li(data-4c-on="click: topLeftCorner.selectItem"
                     data-4c-class="hover: topLeftCorner.getItemIsPreselected"
                     data-4c-gallery-item)
@@ -31,7 +31,7 @@ img(src=src)
             .fc-gallery-controls.fc-gallery-next(data-4c-class="transparent: getNextControllerHidden")
                 a(href="" data-4c-on="click: topLeftCorner.selectNext, mouseover: topLeftCorner.preselectNext, mouseleave: topLeftCorner.clearPreselect")
                     i.fa.fa-angle-right
-            each item in context.items
+            each item in context
                 if item.credit
                     .fc-gallery-caption(data-4c-gallery-caption data-4c-class="visible: topLeftCorner.getCaptionVisible")
                         .fc-gallery-caption-background
@@ -52,7 +52,7 @@ img(src=src)
                     each item in links
                         li
                             i(class="fa-li fa fa-" + item.type)
-                            a(href=item.href) #{item.title}
+                            a(href=item.url) #{item.title}
     .fc-content-container.fc-content-bottom-left(data-4c-on="mouseleave: bottomLeftCorner.hide"
     data-4c-class="visible: bottomLeftCorner.visible")
         .fc-content-body
