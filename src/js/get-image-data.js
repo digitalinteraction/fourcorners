@@ -2,9 +2,6 @@
  * Created by Tim Osadchiy on 15/08/2016.
  */
 
-// ToDo: Error in console if yaml has got a wrong structure
-// ToDo: Warning in console if some of the corners were not found in yaml
-
 'use strict';
 
 var yaml = require('js-yaml'),
