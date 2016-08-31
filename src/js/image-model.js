@@ -101,6 +101,9 @@ module.exports = function (dom) {
         }
 
         function gotToIndex() {
+            if (!galleryDom) {
+                return;
+            }
             var index = this.selectedIndex,
                 scaleConstant = 0.8,
                 imageOffsets = getImageOffsets(galleryItemDoms);
