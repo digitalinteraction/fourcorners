@@ -23,6 +23,7 @@ function loadYaml(path, success, error) {
                 if (!dataIsValid(path, data)) {
                     error();
                 } else {
+                    addLinkTypes(data.links);
                     success(data);
                 }
             } else {
@@ -109,4 +110,13 @@ function creativeCommonsAreValid(path, data) {
         return true;
     }
     return true;
+}
+
+function addLinkTypes(linksList) {
+    for (var i= 0, l=linksList.length; i<l; i++) {
+        var link = linksList[i],
+            a = document.createElement('a');
+        a.href = link.url;
+        link.type = a.hostname.match('wikipedia')!=null ? 'wikipedia-w' : 'link';
+    }
 }
