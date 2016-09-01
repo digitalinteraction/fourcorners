@@ -16,6 +16,7 @@
     opacity: 0;
     color: $btn-color;
     overflow-y: auto;
+    overflow-x: hidden;
     @include transition(opacity $transition-duration $transition-type);
 
     &.visible,

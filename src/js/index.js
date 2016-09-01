@@ -42,8 +42,7 @@ function build(imgDom) {
 }
 
 function insertFontawesome() {
-    // ToDo: Minimum: Check if fontawesome was already loaded.
-    // ToDo: Maximum: Should not be loaded from external CDN.
+    // ToDo: fontawesome should not be loaded from external CDN.
     if (!fontawesomeIsLoaded()) {
         require('./helpers/insert-script')(process.env.fontAwesomeCdnUrl);
     }

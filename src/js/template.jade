@@ -1,4 +1,4 @@
-// ToDo: Slice long text
+// ToDo: Disable left and right controls if the length is 0
 
 img(src=src)
 .fc-tools(data-4c-class="collapsed: toolsHidden")
@@ -57,7 +57,7 @@ img(src=src)
                         each item in links
                             li
                                 i(class="fa-li fa fa-" + item.type)
-                                a(href=item.url) #{item.title || item.url}
+                                a(href=item.url) #{item.title}
 
     if backStory && backStory.text
         .fc-content-container.fc-content-bottom-left(data-4c-on="mouseleave: bottomLeftCorner.hide"
@@ -69,9 +69,17 @@ img(src=src)
                         i.fa.fa-times
                     h1 Backstory
                     p #{backStory.text}
-                    p #{backStory.author + ', '}
-                        a(href=backStory.magazineUrl) #{backStory.magazine}
-                        | #{', ' + backStory.date}
+                    p
+                        if backStory.author
+                            | #{backStory.author + (backStory.magazine || backStory.date ? ', ' : '')}
+                        if backStory.magazine
+                            if backStory.magazineUrl
+                                a(href=backStory.magazineUrl) #{backStory.magazine}
+                            else
+                                | #{backStory.magazine}
+                            | #{backStory.date ? ', ' : ''}
+                        if backStory.date
+                            | #{backStory.date}
     if creativeCommons && creativeCommons.copyright
         .fc-content-container.fc-content-bottom-right(data-4c-on="mouseleave: bottomRightCorner.hide"
         data-4c-class="visible: bottomRightCorner.visible")

@@ -52,6 +52,7 @@
     opacity: 0;
     color: #fff;
     overflow-y: auto;
+    overflow-x: hidden;
     -webkit-transition: opacity 0.1s linear;
     -moz-transition: opacity 0.1s linear;
     -ms-transition: opacity 0.1s linear;

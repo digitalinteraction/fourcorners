@@ -5,7 +5,12 @@
 'use strict';
 
 var yaml = require('js-yaml'),
-    baseAttr = process.env.dataAttributeBase;
+    shortenText = require('./helpers/shorten-text'),
+    baseAttr = process.env.dataAttributeBase,
+    MAX_CONTEXT_CREDIT_LENGTH = 50,
+    MAX_LINKS_TITLE_LENGTH = 50,
+    MAX_BACKSTORY_AUTHOR_LENGTH = 50,
+    MAX_BACKSTORY_MAGAZINE_LENGTH = 50;
 
 module.exports = function (onSuccess, onFailure) {
     var yamlPath = this.getAttribute(baseAttr) || this.src.substr(0, this.src.lastIndexOf(".")) + ".yaml";
@@ -24,6 +29,7 @@ function loadYaml(path, success, error) {
                     error();
                 } else {
                     addLinkTypes(data.links);
+                    shortenDataText(data);
                     success(data);
                 }
             } else {
@@ -113,10 +119,57 @@ function creativeCommonsAreValid(path, data) {
 }
 
 function addLinkTypes(linksList) {
-    for (var i= 0, l=linksList.length; i<l; i++) {
+    if (!linksList) {
+        return;
+    }
+    for (var i = 0, l = linksList.length; i < l; i++) {
         var link = linksList[i],
             a = document.createElement('a');
         a.href = link.url;
-        link.type = a.hostname.match('wikipedia')!=null ? 'wikipedia-w' : 'link';
+        link.type = a.hostname.match('wikipedia') != null ? 'wikipedia-w' : 'link';
+    }
+}
+
+function shortenDataText(data) {
+    shortenContextText(data.context);
+    shortenLinksText(data.links);
+    shortenBackstory(data.backStory);
+}
+
+function shortenContextText(contextList) {
+    if (!contextList) {
+        return;
+    }
+    for (var i= 0, l=contextList.length; i<l; i++) {
+        var context = contextList[i];
+        if (context.credit) {
+            context.credit = shortenText(context.credit, MAX_CONTEXT_CREDIT_LENGTH);
+        }
+    }
+}
+
+function shortenLinksText(linksList) {
+    if (!linksList) {
+        return;
+    }
+    for (var i= 0, l=linksList.length; i<l; i++) {
+        var link = linksList[i];
+        if (link.title) {
+            link.title = shortenText(link.title, MAX_LINKS_TITLE_LENGTH);
+        } else {
+            link.title = shortenText(link.url, MAX_LINKS_TITLE_LENGTH);
+        }
+    }
+}
+
+function shortenBackstory(backStory) {
+    if (!backStory) {
+        return;
+    }
+    if (backStory.author) {
+        backStory.author = shortenText(backStory.author, MAX_BACKSTORY_AUTHOR_LENGTH);
+    }
+    if (backStory.magazine) {
+        backStory.magazine = shortenText(backStory.magazine, MAX_BACKSTORY_MAGAZINE_LENGTH);
     }
 }
