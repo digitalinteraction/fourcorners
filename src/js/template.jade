@@ -1,5 +1,3 @@
-// ToDo: Disable left and right controls if the length is 0
-
 img(src=src)
 .fc-tools(data-4c-class="collapsed: toolsHidden")
     if context && context.length
@@ -20,9 +18,10 @@ img(src=src)
         data-4c-class="visible: topLeftCorner.visible, pinned: topLeftCorner.pinned")
             .fc-content-background
             .fc-gallery(data-4c-class="expanded: !topLeftCorner.visible")
-                .fc-gallery-controls.fc-gallery-prev(data-4c-class="transparent: getPrevControllerHidden")
-                    a(href="" data-4c-on="click: topLeftCorner.selectPrevious, mouseover: topLeftCorner.preselectPrevious, mouseleave: topLeftCorner.clearPreselect")
-                        i.fa.fa-angle-left
+                if context.length > 1
+                    .fc-gallery-controls.fc-gallery-prev(data-4c-class="transparent: getPrevControllerHidden")
+                        a(href="" data-4c-on="click: topLeftCorner.selectPrevious, mouseover: topLeftCorner.preselectPrevious, mouseleave: topLeftCorner.clearPreselect")
+                            i.fa.fa-angle-left
                 ul(data-4c-gallery-list)
                     each item in context
                         li(data-4c-on="click: topLeftCorner.selectItem"
@@ -32,9 +31,10 @@ img(src=src)
                                 img(src=item.src)
                             if item.youtube_id
                                 iframe(width="100%" height="100%" src="//www.youtube.com/embed/" + item.youtube_id style="border:none")
-                .fc-gallery-controls.fc-gallery-next(data-4c-class="transparent: getNextControllerHidden")
-                    a(href="" data-4c-on="click: topLeftCorner.selectNext, mouseover: topLeftCorner.preselectNext, mouseleave: topLeftCorner.clearPreselect")
-                        i.fa.fa-angle-right
+                if context.length > 1
+                    .fc-gallery-controls.fc-gallery-next(data-4c-class="transparent: getNextControllerHidden")
+                        a(href="" data-4c-on="click: topLeftCorner.selectNext, mouseover: topLeftCorner.preselectNext, mouseleave: topLeftCorner.clearPreselect")
+                            i.fa.fa-angle-right
                 each item in context
                     if item.credit
                         .fc-gallery-caption(data-4c-gallery-caption data-4c-class="visible: topLeftCorner.getCaptionVisible")
