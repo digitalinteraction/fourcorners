@@ -12,8 +12,7 @@ module.exports = function (el, className) {
 
 function getChildNodesByClass(el, className) {
     var result = [];
-    for (var i = 0; i < el.childNodes.length; i++) {
-        var child = el.childNodes[i];
+    el.childNodes.forEach(function(child) {
         if (hasClass(child, className)) {
             result.push(child);
         }
@@ -21,6 +20,6 @@ function getChildNodesByClass(el, className) {
         for (var j = 0; j < childResults.length; j++) {
             result.push(childResults[j]);
         }
-    }
+    });
     return result;
 }

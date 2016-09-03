@@ -56,18 +56,17 @@ function contextIsValid(path, data) {
         throw path + ': \'context\' must be a list';
     } else if (data.context) {
         var toDelete = [];
-        for (var i = 0, l = data.context.length; i < l; i++) {
-            var el = data.context[i];
+        data.context.forEach(function (el, i) {
             if (!el.src && !el.youtube_id) {
                 console.warn(path, ': \'context\', element number', String(i + 1),
                     ' - \'src\' and \'youtube_id\' are not defined');
                 toDelete.push(el);
             }
-        }
-        for (var i = 0, l = toDelete.length; i < l; i++) {
-            var j = data.context.indexOf(toDelete[i]);
+        });
+        toDelete.forEach(function (el) {
+            var j = data.context.indexOf(el);
             data.context.splice(j, 1);
-        }
+        });
     }
     return true;
 }
@@ -80,18 +79,17 @@ function linksAreValid(path, data) {
         throw path + ': \'links\' must be a list';
     } else if (data.links) {
         var toDelete = [];
-        for (var i = 0, l = data.links.length; i < l; i++) {
-            var el = data.links[i];
+        data.links.forEach(function (el, i) {
             if (!el.url) {
                 console.warn(path, ': \'links\', element number', String(i + 1),
                     ' - \'url\' is not defined');
                 toDelete.push(el);
             }
-        }
-        for (var i = 0, l = toDelete.length; i < l; i++) {
-            var j = data.links.indexOf(toDelete[i]);
+        });
+        toDelete.forEach(function(el) {
+            var j = data.links.indexOf(el);
             data.links.splice(j, 1);
-        }
+        });
     }
     return true;
 }
@@ -122,12 +120,11 @@ function addLinkTypes(linksList) {
     if (!linksList) {
         return;
     }
-    for (var i = 0, l = linksList.length; i < l; i++) {
-        var link = linksList[i],
-            a = document.createElement('a');
+    linksList.forEach(function(link) {
+        var a = document.createElement('a');
         a.href = link.url;
         link.type = a.hostname.match('wikipedia') != null ? 'wikipedia-w' : 'link';
-    }
+    });
 }
 
 function shortenDataText(data) {
@@ -140,26 +137,24 @@ function shortenContextText(contextList) {
     if (!contextList) {
         return;
     }
-    for (var i= 0, l=contextList.length; i<l; i++) {
-        var context = contextList[i];
+    contextList.forEach(function(context) {
         if (context.credit) {
             context.credit = shortenText(context.credit, MAX_CONTEXT_CREDIT_LENGTH);
         }
-    }
+    });
 }
 
 function shortenLinksText(linksList) {
     if (!linksList) {
         return;
     }
-    for (var i= 0, l=linksList.length; i<l; i++) {
-        var link = linksList[i];
+    linksList.forEach(function(link) {
         if (link.title) {
             link.title = shortenText(link.title, MAX_LINKS_TITLE_LENGTH);
         } else {
             link.title = shortenText(link.url, MAX_LINKS_TITLE_LENGTH);
         }
-    }
+    });
 }
 
 function shortenBackstory(backStory) {

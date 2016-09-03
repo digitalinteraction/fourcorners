@@ -89,14 +89,14 @@ module.exports = function (dom) {
         this.getItemIsPreselected = function (domElement) {
             return domElement == this.preselectedItem;
         };
-        this.getCaptionVisible = function(domElement) {
+        this.getCaptionVisible = function (domElement) {
             return domElement == captionDoms[this.selectedIndex];
         };
         function getImageOffsets(elements) {
             var offsets = [];
-            for (var i = 0; i < elements.length; i++) {
-                offsets.push(elements[i].offsetLeft);
-            }
+            elements.forEach(function (el) {
+                offsets.push(el.offsetLeft);
+            });
             return offsets;
         }
 
@@ -107,13 +107,13 @@ module.exports = function (dom) {
             var index = this.selectedIndex,
                 scaleConstant = 0.8,
                 imageOffsets = getImageOffsets(galleryItemDoms);
-            for (var i = 0; i < galleryItemDoms.length; i++) {
+            galleryItemDoms.forEach(function (dom, i) {
                 if (i == index) {
-                    addClass(galleryItemDoms[i], 'selected');
+                    addClass(dom, 'selected');
                 } else {
-                    removeClass(galleryItemDoms[i], 'selected');
+                    removeClass(dom, 'selected');
                 }
-            }
+            });
             galleryDom.style.marginLeft = -imageOffsets[index] * scaleConstant + 'px';
         }
 

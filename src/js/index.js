@@ -6,6 +6,8 @@
 
 'use strict';
 
+require('./polyfills')();
+
 var getAllElementsWithAttribute = require('./helpers/get-all-elements-with-attribute'),
     baseAttr = process.env.dataAttributeBase,
     imgs = getAllElementsWithAttribute(baseAttr),

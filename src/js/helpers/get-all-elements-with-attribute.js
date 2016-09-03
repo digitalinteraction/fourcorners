@@ -10,11 +10,11 @@ module.exports = function getAllElementsWithAttribute(attribute, el) {
     }
     var matchingElements = [];
     var allElements = el.getElementsByTagName('*');
-    for (var i = 0, n = allElements.length; i < n; i++) {
-        if (allElements[i].getAttribute(attribute) !== null) {
+    Array.prototype.forEach.call(allElements, function(element) {
+        if (element.getAttribute(attribute) !== null) {
             // Element exists with attribute. Add to array.
-            matchingElements.push(allElements[i]);
+            matchingElements.push(element);
         }
-    }
+    });
     return matchingElements;
 };

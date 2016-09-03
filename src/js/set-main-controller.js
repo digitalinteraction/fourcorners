@@ -26,9 +26,9 @@ module.exports = function (domContainer, model) {
     function setEventListeners() {
         var attr = baseAttr + '-on',
             doms = getAllElementsWithAttribute(attr, domContainer);
-        for (var i = 0; i < doms.length; i++) {
-            setEventListenersFromExpression(doms[i], doms[i].getAttribute(attr));
-        }
+        doms.forEach(function(dom) {
+            setEventListenersFromExpression(dom, dom.getAttribute(attr));
+        });
     }
 
     function setEventListenersFromExpression(el, expression) {
@@ -41,19 +41,19 @@ module.exports = function (domContainer, model) {
     function setClassWatchers() {
         var attr = baseAttr + '-class',
             doms = getAllElementsWithAttribute(attr, domContainer);
-        for (var i = 0; i < doms.length; i++) {
-            var classWatchers = getClassWatchersForElement(doms[i], doms[i].getAttribute(attr));
+        doms.forEach(function(dom) {
+            var classWatchers = getClassWatchersForElement(dom, dom.getAttribute(attr));
             watchers.push.apply(watchers, classWatchers);
-        }
+        });
     }
 
     function setTextWatchers() {
         var attr = baseAttr + '-text',
             doms = getAllElementsWithAttribute(attr, domContainer);
-        for (var i = 0; i < doms.length; i++) {
-            var textWatcher = getTextWatcherForElement(doms[i], doms[i].getAttribute(attr));
+        doms.forEach(function(dom) {
+            var textWatcher = getTextWatcherForElement(dom, dom.getAttribute(attr));
             watchers.push(textWatcher);
-        }
+        });
     }
 
     function getClassWatchersForElement(el, expression) {
@@ -84,10 +84,10 @@ module.exports = function (domContainer, model) {
     function parseAttribute(str) {
         var keyValStrs = str.split(/,\s*/),
             keyVal = {};
-        for (var i = 0; i < keyValStrs.length; i++) {
-            var kv = keyValStrs[i].split(/:\s*/);
+        keyValStrs.forEach(function(el) {
+            var kv = el.split(/:\s*/);
             keyVal[kv[0]] = kv[1];
-        }
+        });
         return keyVal;
     }
 
@@ -157,8 +157,8 @@ module.exports = function (domContainer, model) {
     }
 
     function executeWatchers() {
-        for (var i = 0; i < watchers.length; i++) {
-            watchers[i]();
-        }
+        watchers.forEach(function(watcher) {
+            watcher();
+        });
     }
 };
