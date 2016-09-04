@@ -6,7 +6,11 @@
 
 'use strict';
 
-(require('./cross-module-format')('fourcorners', function () {
+(function (name, definition) {
+    if (typeof module != 'undefined') module.exports = definition();
+    else if (typeof define == 'function' && typeof define.amd == 'object') define(definition);
+    else this[name] = definition();
+})('fourcorners', function () {
 
     var getAllElementsWithAttribute = require('./helpers/get-all-elements-with-attribute'),
         baseAttr = process.env.dataAttributeBase,
@@ -19,6 +23,7 @@
     window.onload = init;
 
     function init() {
+        console.log('Four corners');
         require('./polyfills')();
         require('./helpers/add-swipe-events')();
         require('./insert-fontawesome')();
@@ -44,4 +49,4 @@
         });
     }
 
-}));
+});
