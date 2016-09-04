@@ -1,8 +1,8 @@
 {
   "name": "fourcorners",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Add a rich meta-data driven overlay to your photo-journalism images just by dropping in javascript and a text file http://fourcorners.io",
-  "main": "index.js",
+  "main": "./dist/4c.min",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,13 +10,21 @@
     "type": "git",
     "url": "git+https://github.com/digitalinteraction/fourcorners.git"
   },
-  "author": "Tim Osadchiy",
+  "keywords": [
+    "fourcorners",
+    "4Corners",
+    "4",
+    "four",
+    "corners"
+  ],
+  "author": "Tim Osadchiy <timurosadchiy@gmail.com> (http://osacci.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/digitalinteraction/fourcorners/issues"
   },
   "homepage": "https://github.com/digitalinteraction/fourcorners#readme",
   "devDependencies": {
+    "browserify": "^13.1.0",
     "browserify-css": "^0.9.1",
     "envify": "^3.4.1",
     "grunt": "^1.0.1",
