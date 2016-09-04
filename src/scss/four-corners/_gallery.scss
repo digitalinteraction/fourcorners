@@ -83,11 +83,11 @@
     padding: 5px;
     font-size: 12px;
     width: 100%;
-    opacity: 0;
+    display: none;
     @include transition(opacity $transition-duration $transition-type);
 
     &.visible {
-      opacity: 1;
+      display: block;
     }
 
     &-background {
