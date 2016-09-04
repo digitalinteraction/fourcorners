@@ -47,7 +47,13 @@ function getStyleSheetMargins(dom) {
         for (var r in rules) {
             var selector = rules[r].selectorText,
                 rule = rules[r].cssText;
-            if (!dom.matches(selector) || rule.match("margin") == null) {
+            try {
+                // To avoid Uncaught SyntaxError: Failed to execute 'matches' on 'Element': '[ng:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate)' is not a valid selector.
+                // Occurs when using with angular
+                if (!dom.matches(selector) || rule.match("margin") == null) {
+                    continue;
+                }
+            } catch (e) {
                 continue;
             }
             var styleRules = splitCssRule(rule);
