@@ -1,6 +1,6 @@
 {
   "name": "fourcorners",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Add a rich meta-data driven overlay to your photo-journalism images just by dropping in javascript and a text file http://fourcorners.io",
   "main": "dist/4c.min.js",
   "scripts": {
@@ -37,10 +37,6 @@
     "grunt-sass": "^1.2.1"
   },
   "dependencies": {
-    "angular": "^1.5.8",
-    "angular-animate": "^1.5.8",
-    "angular-sanitize": "^1.5.8",
-    "angular-touch": "^1.5.8",
     "jade": "^1.11.0",
     "jadeify": "^4.6.0",
     "js-yaml": "^3.6.1"
