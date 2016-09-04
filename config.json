@@ -1,9 +1,9 @@
 {
   "browserifyFrom": "src/js/index.js",
-  "browserifyTo": "src/temp/4c.js",
-  "buildJsTo": "src/temp/4c.min.js",
+  "buildJsTo": "src/temp/4c.js",
   "uglifyJs": true,
   "watchJs": true,
+  "watchJsSrc": "src/js/**/**",
   "sassFrom": "src/scss/main.scss",
   "sassTo": "src/temp/style.css",
   "sassWatch": "src/scss/**/**",

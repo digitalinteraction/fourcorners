@@ -23,7 +23,6 @@
     window.onload = init;
 
     function init() {
-        console.log('Four corners');
         require('./polyfills')();
         require('./helpers/add-swipe-events')();
         require('./insert-fontawesome')();

@@ -14,7 +14,6 @@ module.exports = function (grunt) {
     grunt.config.set('environment', config);
     grunt.config.set('pkg', grunt.file.readJSON('package.json'));
 
-    require('./grunt-tasks/clean')(grunt);
     require('./grunt-tasks/browserify')(grunt);
     require('./grunt-tasks/copy')(grunt);
     require('./grunt-tasks/sass')(grunt);
@@ -22,7 +21,6 @@ module.exports = function (grunt) {
     require('./grunt-tasks/uglify')(grunt);
     require('./grunt-tasks/watch')(grunt);
 
-    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -30,14 +28,17 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-sass');
 
-    tskList = ['clean', 'sass', 'cssmin', 'browserify'];
+    tskList = ['sass', 'cssmin', 'browserify'];
 
     if (config.uglifyJs) {
         tskList.push('uglify');
     }
 
-    tskList.push.apply(tskList, ['copy:scripts', 'copy:jsToDemo', 'copy:cssToDemo']);
+    tskList.push.apply(tskList, ['copy:scripts', 'copy:jsToDemo']);
 
+    if (!config.insertCssWithJs) {
+        tskList.push('copy:cssToDemo');
+    }
     if (config.watchSass && config.watchJs) {
         tskList.push('watch');
     }
