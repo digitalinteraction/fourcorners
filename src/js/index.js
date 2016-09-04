@@ -20,7 +20,10 @@
         imageModelFactory = require('./image-model'),
         getImageData = require('./get-image-data');
 
-    window.onload = init;
+    window.addEventListener("load", function load(event) {
+        window.removeEventListener("load", load, false);
+        init();
+    }, false);
 
     function init() {
         require('./polyfills')();

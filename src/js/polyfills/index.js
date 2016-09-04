@@ -8,4 +8,5 @@ module.exports = function() {
     require('./for-each')();
     require('./filter')();
     require('./map')();
+    require('./add-event-listener')();
 };
