@@ -57,6 +57,7 @@ module.exports = function (dom) {
         this.preselectedItem = undefined;
         this.selectItem = function (event, el) {
             this.selectedIndex = galleryItemDoms.indexOf(el);
+            gotToIndex.call(this);
         };
         this.selectNext = function () {
             if (this.selectedIndex < galleryItemDoms.length - 1) {
