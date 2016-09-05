@@ -39,7 +39,7 @@ If you want to manually create these files (by hand or code), read the [4C YAML 
 
 ## Mark Your Images
 
-For each image that you want to augment with a Four Corners overlay, add the following attribute:
+For each image that you want to augment with a Four Corners overlay, add the `data-4c` attribute:
 
 ```html
 <img src="/imgs/myimage1.jpg" data-4c />
