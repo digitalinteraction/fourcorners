@@ -4,10 +4,12 @@
 
 'use strict';
 
-module.exports = function (str, len) {
+module.exports = function (str, len, cutFromStart) {
     if (str.length < len) {
         return str;
-    } else {
+    } else if (!cutFromStart) {
         return str.substr(0, len).replace(/\s+$/, '') + '...';
+    } else {
+        return '...' + str.substr(str.length - len, str.length).replace(/^\s+/, '');
     }
 };
