@@ -11,6 +11,7 @@ var envify = require('envify/custom'),
 module.exports = function (grunt) {
 
     var config = grunt.config.get('environment'),
+        packageJson = grunt.config.get('pkg'),
         browserifyFileOptions = {};
 
     browserifyFileOptions[config.buildJsTo] = config.browserifyFrom;
@@ -20,7 +21,8 @@ module.exports = function (grunt) {
             files: browserifyFileOptions,
             options: {
                 browserifyOptions: {
-                    debug: config.includeJsMaps
+                    debug: config.includeJsMaps,
+                    standalone: packageJson.name
                 },
                 transform: [envify({
                     dataAttributeBase: config.dataAttributeBase,
