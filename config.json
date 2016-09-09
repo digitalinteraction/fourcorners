@@ -1,7 +1,7 @@
 {
   "browserifyFrom": "src/js/index.js",
   "buildJsTo": "src/temp/4c.js",
-  "uglifyJs": false,
+  "uglifyJs": true,
   "watchJs": true,
   "watchJsSrc": "src/js/**/**",
   "sassFrom": "src/scss/main.scss",
