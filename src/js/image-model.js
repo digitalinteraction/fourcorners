@@ -32,6 +32,7 @@ module.exports = function (dom) {
             this.visible = true;
         };
         this.hide = function () {
+            // ToDo: Stop YouTube video on close
             if (this.pinned) {
                 return;
             }
