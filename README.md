@@ -4,7 +4,9 @@
 
 **Four Corners** is a way for photo-journalists and content creators to display a rich visual overlay of metadata onto their web-based images. Announced at World Press Photo Foundation awards ceremony 2016, this simple drop-in javascript library automatically augments seleted photos with additional content, curated by the content owner.
 
-![Example - Context Overlayed on Image](docs/screen1.png)
+<p align="center">
+<img src="docs/screen1.png" />
+</p>
 
 See the [Project Site](https://fourcorners.io) for more background on the project and future directions.
 
