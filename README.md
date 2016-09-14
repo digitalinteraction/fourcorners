@@ -41,9 +41,9 @@ This data is stored in a *sidecar* [YAML](http://yaml.org/) file for each image.
 
 This file needs to be uploaded to your server to the same directory as the image. Often you can use your content managment platform (e.g. Wordpress, Drupal or FTP) to do this.
 
-**You can use the [Online Editor](https://digitalinteraction.github.io/fourcorners-editor) to create and edit your sidecar files:
+**You can use the [Online Editor](https://digitalinteraction.github.io/fourcorners-editor) to create and edit your sidecar files:**
 
-https://digitalinteraction.github.io/fourcorners-editor**
+**https://digitalinteraction.github.io/fourcorners-editor**
 
 If you want to manually create these files (by hand or code), read the [4C YAML Documentation](docs/4cyaml.md).
 
