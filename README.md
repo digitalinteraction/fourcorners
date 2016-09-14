@@ -6,8 +6,6 @@
 
 ![Example - Context Overlayed on Image](docs/screen1.png)
 
-*Example - Context Overlayed on Image*
-
 See the [Project Site](https://fourcorners.io) for more background on the project and future directions.
 
 [Click Here](https://digitalinteraction.github.io/fourcorners/docs/) to see a live demo in action.
