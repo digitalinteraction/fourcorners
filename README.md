@@ -1,8 +1,13 @@
-# Four Corners
+<div style="text-align:center;">
+<img src="docs/logo_small.png" />
+<h1>Four Corners</h1>
+</div>
 
 Four Corners is a way for photo-journalists and content creators to display a rich visual overlay of metadata onto their web-based images. Announced at World Press Photo Foundation awards ceremony 2016, this simple drop-in javascript library automatically augments seleted photos with additional content, curated by the content owner.
 
-See the [Project Site](https://fourcorners.io) for more background and a live demo.
+See the [Project Site](https://fourcorners.io) for more background on the project and future directions.
+
+[Click Here](demo) to see a live demo in action.
 
 ## Getting Your Site Ready
 
@@ -29,14 +34,15 @@ You can host the file yourself, just download the distribution version from this
 
 The Four Corners overlay will dynamically adjust to the metadata you have available. 
 
-This data is stored in a *sidecar* YAML file for each image. This is a simple text file following a particular format.
+This data is stored in a *sidecar* [YAML](http://yaml.org/) file for each image. This is a simple text file following a particular format.
 
 This file needs to be uploaded to your server to the same directory as the image. Often you can use your content managment platform (e.g. Wordpress, Drupal or FTP) to do this.
 
-**You can use the online editor to create and edit your sidecar files:
+**You can use the [Online Editor](https://digitalinteraction.github.io/fourcorners-editor) to create and edit your sidecar files:
+
 https://digitalinteraction.github.io/fourcorners-editor**
 
-If you want to manually create these files (by hand or code), read the [4C YAML Documentation](4cyaml.md).
+If you want to manually create these files (by hand or code), read the [4C YAML Documentation](docs/4cyaml.md).
 
 ## Mark Your Images
 
@@ -51,3 +57,7 @@ Four Corners automatically loads sidecar files with the same name as the image e
 ```html
 <img src="/imgs/myimage1.jpg" data-4c="metadata/1-0.yaml" />
 ```
+
+----
+
+> Four Corners is an open source initiate delivered as part of a collaboration between leading universities and journalist organisations. If you would like to find out more, please contact us directly <info@authograph.org>.
