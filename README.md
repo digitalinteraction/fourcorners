@@ -63,4 +63,4 @@ Four Corners automatically loads sidecar files with the same name as the image e
 
 ----
 
-> Four Corners is an open source initiate delivered as part of a collaboration between leading universities and journalist organisations. If you would like to find out more, please contact us directly <info@authograph.org>.
+> Four Corners is an open source initiate delivered as part of a collaboration between leading universities and journalist organisations. If you would like to find out more, please contact us directly <info@authograph.org>.  Content imagery used in the demo is photography by Eddie Adams/© Associated Press.
