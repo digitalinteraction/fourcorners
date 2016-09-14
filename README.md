@@ -17,7 +17,7 @@ Using Fourcorners on your site is as simple is pasting our hosted Javascript lin
 
 Just insert the following line at the *end* of your html, as seen below:
 
-`<script src="https://github.com/digitalinteraction/fourcorners/blob/master/dist/4c.js"></script>`
+`<script src="https://github.com/digitalinteraction/fourcorners/raw/master/dist/4c.js"></script>`
 
 ```html
 <body>
@@ -25,7 +25,7 @@ Just insert the following line at the *end* of your html, as seen below:
 ...
 ...
 <!-- Insert this line to enable 4C on your site -->
-<script src="https://github.com/digitalinteraction/fourcorners/blob/master/dist/4c.js"></script>
+<script src="https://github.com/digitalinteraction/fourcorners/raw/master/dist/4c.js"></script>
 </body>
 </html>
 ```
