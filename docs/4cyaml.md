@@ -16,9 +16,13 @@ Context information is rendered as 'before and after' images and videos. Its an 
 ```
 context:
 
+  # Image (relative or absolute url)
   - credit: Eddie Adams/AP
     src: img/1-0.jpg
 
+  # Youtube Video
+  - credit: ''
+    youtube_id: S9Jy3cLmqrE
   ...
 ```
 
