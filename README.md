@@ -5,11 +5,12 @@
 **Four Corners** is a way for photo-journalists and content creators to display a rich visual overlay of metadata onto their web-based images. Announced at World Press Photo Foundation awards ceremony 2016, this simple drop-in javascript library automatically augments seleted photos with additional content, curated by the content owner.
 
 ![Example - Context Overlayed on Image](docs/screen1.png)
+
 *Example - Context Overlayed on Image*
 
 See the [Project Site](https://fourcorners.io) for more background on the project and future directions.
 
-[Click Here](https://digitalinteraction.github.io/fourcorners/) to see a live demo in action.
+[Click Here](https://digitalinteraction.github.io/fourcorners/docs/) to see a live demo in action.
 
 ## Getting Your Site Ready
 
@@ -17,7 +18,7 @@ Using Fourcorners on your site is as simple is pasting our hosted Javascript lin
 
 Just insert the following line at the *end* of your html, as seen below:
 
-`<script src="https://github.com/digitalinteraction/fourcorners/raw/master/dist/4c.js"></script>`
+`<script src="https://digitalinteraction.github.io/fourcorners/dist/4c.js"></script>`
 
 ```html
 <body>
@@ -25,7 +26,7 @@ Just insert the following line at the *end* of your html, as seen below:
 ...
 ...
 <!-- Insert this line to enable 4C on your site -->
-<script src="https://github.com/digitalinteraction/fourcorners/raw/master/dist/4c.js"></script>
+<script src="https://digitalinteraction.github.io/fourcorners/dist/4c.js"></script>
 </body>
 </html>
 ```
