@@ -37,6 +37,7 @@
     "grunt-sass": "^1.2.1"
   },
   "dependencies": {
+    "hammerjs": "^2.0.8",
     "jade": "^1.11.0",
     "jadeify": "^4.6.0",
     "js-yaml": "^3.6.1"

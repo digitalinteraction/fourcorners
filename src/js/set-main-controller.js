@@ -9,7 +9,8 @@ var baseAttr = process.env.dataAttributeBase,
     getAllElementsWithAttribute = require('./helpers/get-all-elements-with-attribute'),
     addClass = require('./helpers/add-class'),
     removeClass = require('./helpers/remove-class'),
-    addEventListener = require('./helpers/add-event-listener');
+    addEventListener = require('./helpers/add-event-listener'),
+    Hammer = require('hammerjs');
 
 module.exports = function (domContainer, model) {
     var watchers = [];
@@ -26,7 +27,7 @@ module.exports = function (domContainer, model) {
     function setEventListeners() {
         var attr = baseAttr + '-on',
             doms = getAllElementsWithAttribute(attr, domContainer);
-        doms.forEach(function(dom) {
+        doms.forEach(function (dom) {
             setEventListenersFromExpression(dom, dom.getAttribute(attr));
         });
     }
@@ -34,14 +35,19 @@ module.exports = function (domContainer, model) {
     function setEventListenersFromExpression(el, expression) {
         var eventMap = parseAttribute(expression);
         for (var eventName in eventMap) {
-            addEventListener(el, eventName, getEventListener(el, model, eventMap[eventName]));
+            var eventListener = getEventListener(el, model, eventMap[eventName]);
+            addEventListener(el, eventName, eventListener);
+            if (['click', 'mouseover'].indexOf(eventName) > -1) {
+                var hammertime = new Hammer(el);
+                hammertime.on('tap', eventListener);
+            }
         }
     }
 
     function setClassWatchers() {
         var attr = baseAttr + '-class',
             doms = getAllElementsWithAttribute(attr, domContainer);
-        doms.forEach(function(dom) {
+        doms.forEach(function (dom) {
             var classWatchers = getClassWatchersForElement(dom, dom.getAttribute(attr));
             watchers.push.apply(watchers, classWatchers);
         });
@@ -50,7 +56,7 @@ module.exports = function (domContainer, model) {
     function setTextWatchers() {
         var attr = baseAttr + '-text',
             doms = getAllElementsWithAttribute(attr, domContainer);
-        doms.forEach(function(dom) {
+        doms.forEach(function (dom) {
             var textWatcher = getTextWatcherForElement(dom, dom.getAttribute(attr));
             watchers.push(textWatcher);
         });
@@ -84,7 +90,7 @@ module.exports = function (domContainer, model) {
     function parseAttribute(str) {
         var keyValStrs = str.split(/,\s*/),
             keyVal = {};
-        keyValStrs.forEach(function(el) {
+        keyValStrs.forEach(function (el) {
             var kv = el.split(/:\s*/);
             keyVal[kv[0]] = kv[1];
         });
@@ -149,8 +155,7 @@ module.exports = function (domContainer, model) {
             event.preventDefault();
             // Timeout is for preventing events firing on elements
             // standing one behind another (e.g. open and close button)
-            console.log(event);
-            setTimeout(function() {
+            setTimeout(function () {
                 subModel[funName].call(subModel, event, el);
                 executeWatchers();
             }, 100);
@@ -158,7 +163,7 @@ module.exports = function (domContainer, model) {
     }
 
     function executeWatchers() {
-        watchers.forEach(function(watcher) {
+        watchers.forEach(function (watcher) {
             watcher();
         });
     }
