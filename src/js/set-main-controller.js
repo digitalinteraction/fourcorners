@@ -36,7 +36,7 @@ module.exports = function (domContainer, model) {
         var eventMap = parseAttribute(expression);
         for (var eventName in eventMap) {
             var eventListener = getEventListener(el, model, eventMap[eventName]);
-            addEventListener(el, eventName, eventListener);
+            //addEventListener(el, eventName, eventListener);
             if (['click', 'mouseover'].indexOf(eventName) > -1) {
                 var hammertime = new Hammer(el);
                 hammertime.on('tap', eventListener);
