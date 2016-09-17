@@ -7,7 +7,8 @@
 module.exports = function (grunt) {
 
     var config = grunt.config.get('environment'),
-        jsTask = ['browserify'];
+        jsTask = ['browserify'],
+        cssTask = ['sass', 'cssmin', 'browserify', 'copy:cssToDemo'];
 
     if (config.uglifyJs) {
         jsTask.push('uglify');
@@ -16,7 +17,7 @@ module.exports = function (grunt) {
     grunt.config.set('watch', {
         sass: {
             files: [config.sassWatch],
-            tasks: ['sass', 'cssmin', 'browserify', 'copy:cssToDemo'],
+            tasks: cssTask.concat(jsTask.concat(['copy:scripts', 'copy:jsToDemo'])),
             options: {
                 debounceDelay: config.watchDebounceDelay
             }

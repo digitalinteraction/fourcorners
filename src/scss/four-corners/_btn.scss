@@ -86,7 +86,11 @@
       float: right;
 
       .touch-screen & {
-        display: inline-block;
+
+        &.visible {
+          display: inline-block;
+        }
+
       }
 
     }

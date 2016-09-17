@@ -42,7 +42,7 @@ img(src=src)
                             .fc-gallery-caption-text #{item.credit}
                     else
                         div(data-4c-gallery-caption data-4c-class="visible: topLeftCorner.getCaptionVisible")
-            button.fc-btn.fc-btn-top-left.fc-gallery-close(data-4c-on="click: topLeftCorner.hide")
+            button.fc-btn.fc-btn-top-left.fc-gallery-close(data-4c-on="click: topLeftCorner.hide" data-4c-class="visible: topLeftCorner.visible")
                 i.fa.fa-times
     if links && links.length
         .fc-content-container.fc-content-top-right(data-4c-on="mouseleave: topRightCorner.hide"
@@ -50,7 +50,7 @@ img(src=src)
             .fc-content-body
                 .fc-content-background
                 .fc-content-text
-                    button.fc-btn.fc-btn-close(data-4c-on="click: topRightCorner.hide")
+                    button.fc-btn.fc-btn-close(data-4c-on="click: topRightCorner.hide" data-4c-class="visible: topRightCorner.visible")
                         i.fa.fa-times
                     h1 Links
                     .fa-ul
@@ -65,7 +65,7 @@ img(src=src)
             .fc-content-body
                 .fc-content-background
                 .fc-content-text
-                    button.fc-btn.fc-btn-close(data-4c-on="click: bottomLeftCorner.hide")
+                    button.fc-btn.fc-btn-close(data-4c-on="click: bottomLeftCorner.hide" data-4c-class="visible: bottomLeftCorner.visible")
                         i.fa.fa-times
                     h1 Backstory
                     p #{backStory.text}
@@ -86,7 +86,7 @@ img(src=src)
             .fc-content-body
                 .fc-content-background
                 .fc-content-text
-                    button.fc-btn.fc-btn-close(data-4c-on="click: bottomRightCorner.hide")
+                    button.fc-btn.fc-btn-close(data-4c-on="click: bottomRightCorner.hide" data-4c-class="visible: bottomRightCorner.visible")
                         i.fa.fa-times
                     p.fc-content-copyright #{'Photograph by '}
                         if creativeCommons.codeOfEthics

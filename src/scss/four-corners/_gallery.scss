@@ -186,6 +186,12 @@
 
   &-close {
     z-index: 2;
+    display: none;
+
+    &.visible {
+      display: inline-block;
+    }
+
   }
 
 }

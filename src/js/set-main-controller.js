@@ -152,7 +152,7 @@ module.exports = function (domContainer, model) {
             setTimeout(function() {
                 subModel[funName].call(subModel, event, el);
                 executeWatchers();
-            }, 100);
+            }, 50);
         }
     }
 

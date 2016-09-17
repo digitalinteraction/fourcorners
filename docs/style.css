@@ -68,7 +68,9 @@
   .fc-content-text {
     padding: 5px 15px 15px 10px;
     position: relative;
-    z-index: 2; }
+    z-index: 2;
+    text-align: left;
+    word-wrap: break-word; }
   .fc-content-background {
     position: absolute;
     top: 0;
@@ -94,6 +96,106 @@
     right: 0; }
   .fc-content-copyright {
     display: inline-block; }
+
+.fc-code-of-ethics {
+  border: 1px solid #337ab7;
+  background: #000;
+  padding: 5px 10px;
+  display: none; }
+  .fc-code-of-ethics.visible {
+    display: block; }
+  .fc-code-of-ethics-show {
+    text-decoration: none;
+    border-bottom: 1px dashed;
+    white-space: nowrap;
+    -webkit-transition: color 0.1s linear;
+    -moz-transition: color 0.1s linear;
+    -ms-transition: color 0.1s linear;
+    -o-transition: color 0.1s linear;
+    transition: color 0.1s linear; }
+    .fc-code-of-ethics-show:hover, .fc-code-of-ethics-show:active, .fc-code-of-ethics-show:focus {
+      text-decoration: none; }
+
+.fc-tools {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 1;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+  -webkit-transition: opacity 0.3s linear, transform 0.2s linear;
+  -moz-transition: opacity 0.3s linear, transform 0.2s linear;
+  -ms-transition: opacity 0.3s linear, transform 0.2s linear;
+  -o-transition: opacity 0.3s linear, transform 0.2s linear;
+  transition: opacity 0.3s linear, transform 0.2s linear; }
+  .fc-tools:hover {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1; }
+  .touch-screen .fc-tools {
+    opacity: 1 !important;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); }
+    .touch-screen .fc-tools.collapsed {
+      opacity: 0;
+      -webkit-transform: scale(1.5);
+      -moz-transform: scale(1.5);
+      -ms-transform: scale(1.5);
+      transform: scale(1.5); }
+
+.fc-btn {
+  display: inline-block;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  position: absolute;
+  color: #fff;
+  background: #000;
+  border: none;
+  border-radius: 50%;
+  padding: 6px;
+  height: 30px;
+  width: 30px;
+  opacity: 0.7;
+  outline: none;
+  -webkit-transition: opacity 0.1s linear;
+  -moz-transition: opacity 0.1s linear;
+  -ms-transition: opacity 0.1s linear;
+  -o-transition: opacity 0.1s linear;
+  transition: opacity 0.1s linear; }
+  .fc-btn:hover, .fc-btn:active, .fc-btn:focus {
+    opacity: 1; }
+  .fc-btn-top-left {
+    top: 5px;
+    left: 5px; }
+  .fc-btn-top-right {
+    top: 5px;
+    right: 5px; }
+  .fc-btn-bottom-left {
+    bottom: 5px;
+    left: 5px; }
+  .fc-btn-bottom-right {
+    bottom: 5px;
+    right: 5px; }
+  .fc-btn-close {
+    display: none;
+    position: static;
+    float: right; }
+    .touch-screen .fc-btn-close.visible {
+      display: inline-block; }
 
 .fc-gallery {
   position: relative;
@@ -244,106 +346,9 @@
   .fc-gallery-next {
     right: 0; }
   .fc-gallery-close {
-    z-index: 2; }
-
-.fc-code-of-ethics {
-  border: 1px solid #337ab7;
-  background: #000;
-  padding: 5px 10px;
-  display: none; }
-  .fc-code-of-ethics.visible {
-    display: block; }
-  .fc-code-of-ethics-show {
-    text-decoration: none;
-    border-bottom: 1px dashed;
-    white-space: nowrap;
-    -webkit-transition: color 0.1s linear;
-    -moz-transition: color 0.1s linear;
-    -ms-transition: color 0.1s linear;
-    -o-transition: color 0.1s linear;
-    transition: color 0.1s linear; }
-    .fc-code-of-ethics-show:hover, .fc-code-of-ethics-show:active, .fc-code-of-ethics-show:focus {
-      text-decoration: none; }
-
-.fc-tools {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  z-index: 1;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-transform: scale(1.5);
-  -moz-transform: scale(1.5);
-  -ms-transform: scale(1.5);
-  transform: scale(1.5);
-  -webkit-transition: opacity 0.3s linear, transform 0.2s linear;
-  -moz-transition: opacity 0.3s linear, transform 0.2s linear;
-  -ms-transition: opacity 0.3s linear, transform 0.2s linear;
-  -o-transition: opacity 0.3s linear, transform 0.2s linear;
-  transition: opacity 0.3s linear, transform 0.2s linear; }
-  .fc-tools:hover {
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
-    opacity: 1; }
-  .touch-screen .fc-tools {
-    opacity: 1 !important;
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1); }
-    .touch-screen .fc-tools.collapsed {
-      opacity: 0;
-      -webkit-transform: scale(1.5);
-      -moz-transform: scale(1.5);
-      -ms-transform: scale(1.5);
-      transform: scale(1.5); }
-
-.fc-btn {
-  display: inline-block;
-  margin: 0;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  position: absolute;
-  color: #fff;
-  background: #000;
-  border: none;
-  border-radius: 50%;
-  padding: 6px;
-  height: 30px;
-  width: 30px;
-  opacity: 0.7;
-  outline: none;
-  -webkit-transition: opacity 0.1s linear;
-  -moz-transition: opacity 0.1s linear;
-  -ms-transition: opacity 0.1s linear;
-  -o-transition: opacity 0.1s linear;
-  transition: opacity 0.1s linear; }
-  .fc-btn:hover, .fc-btn:active, .fc-btn:focus {
-    opacity: 1; }
-  .fc-btn-top-left {
-    top: 5px;
-    left: 5px; }
-  .fc-btn-top-right {
-    top: 5px;
-    right: 5px; }
-  .fc-btn-bottom-left {
-    bottom: 5px;
-    left: 5px; }
-  .fc-btn-bottom-right {
-    bottom: 5px;
-    right: 5px; }
-  .fc-btn-close {
-    display: none;
-    position: static;
-    float: right; }
-    .touch-screen .fc-btn-close {
+    z-index: 2;
+    display: none; }
+    .fc-gallery-close.visible {
       display: inline-block; }
 
 /*# sourceMappingURL=style.css.map */
