@@ -1,10 +1,10 @@
 context:
   - credit: Eddie Adams/AP
-    src: img/1-0.jpg
+    src: docs/img/1-0.jpg
   - credit: John Smith
-    src: img/1-1.jpg
+    src: docs/img/1-1.jpg
   - credit: Some Guy
-    src: img/1-2.jpg
+    src: docs/img/1-2.jpg
   - credit: ''
     youtube_id: S9Jy3cLmqrE
 links:
