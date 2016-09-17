@@ -43,7 +43,12 @@ function getStyleSheetMargins(dom) {
     // Get element's browser specific css rules match method
     dom.matches = dom.matches || dom.webkitMatchesSelector || dom.mozMatchesSelector || dom.msMatchesSelector || dom.oMatchesSelector;
     for (var i in sheets) {
-        var rules = sheets[i].rules || sheets[i].cssRules;
+        try {
+            // Firefox throws error when reading stylesheets from external resources
+            var rules = sheets[i].rules || sheets[i].cssRules;
+        } catch (e) {
+            continue;
+        }
         for (var r in rules) {
             var selector = rules[r].selectorText,
                 rule = rules[r].cssText;
