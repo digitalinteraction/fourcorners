@@ -12,7 +12,7 @@ var template = require("./template.jade"),
     shortenText = require('./helpers/shorten-text');
 
 module.exports = function (imageData) {
-    var touchScreen = 'ontouchstart' in window || navigator.maxTouchPoints,
+    var touchScreen = require('./helpers/is-touch-screen')(),
         div = document.createElement("div"),
         parentNode = this.parentNode;
 
