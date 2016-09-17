@@ -12,7 +12,7 @@
   "includeJsMaps": true,
   "insertCssWithJs": true,
   "watchDebounceDelay": 1000,
-  "demoFolder": "demo/",
+  "demoFolder": "docs/",
   "distributionFolder": "dist/",
   "dataAttributeBase": "data-4c",
   "fontAwesomeCdnUrl": "https://use.fontawesome.com/dcbd51b54b.js"

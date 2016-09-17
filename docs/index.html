@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="docs/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap.min.css" rel="stylesheet">
 
     <style>
         .img-in-text {
@@ -31,7 +31,7 @@
                 deserunt mollit anim id est laborum.
             </p>
             <p>
-                <img src="docs/img/1-1.jpg" class="img-rounded pull-left img-in-text" data-4c="img/1-0.yaml">
+                <img src="img/1-1.jpg" class="img-rounded pull-left img-in-text" data-4c="img/1-0.yaml">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
                 ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
@@ -39,7 +39,7 @@
                 deserunt mollit anim id est laborum.
             </p>
             <p>
-                <img src="docs/img/2-0.jpg"
+                <img src="img/2-0.jpg"
                      style="display: block; width: 320px; margin-left: auto; margin-right: auto; margin-top: 15px;"
                      data-4c="img/1-0.yaml">
             </p>
@@ -47,13 +47,13 @@
     </div>
 </div>
 
-<script src="docs/4c.js"></script>
+<script src="4c.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 <script>
     var app = angular.module('DemoApp', []);
     app.controller('DemoController', ['$scope', function ($scope) {
         $scope.title = 'Demo title';
-        $scope.src = 'demo/img/1-0.jpg';
+        $scope.src = 'img/1-0.jpg';
     }]);
 </script>
 
