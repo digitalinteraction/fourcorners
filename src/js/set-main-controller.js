@@ -149,10 +149,11 @@ module.exports = function (domContainer, model) {
             event.preventDefault();
             // Timeout is for preventing events firing on elements
             // standing one behind another (e.g. open and close button)
+            console.log(event);
             setTimeout(function() {
                 subModel[funName].call(subModel, event, el);
                 executeWatchers();
-            }, 50);
+            }, 100);
         }
     }
 
