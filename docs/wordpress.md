@@ -47,9 +47,12 @@ Then download and save the file to your computer.
 
 ![](tutorials/save.png)
 
+> Sometimes this file might not download, but instead display in your browser. If this happens, just `right-click` and `save as` on your computer.
+
 > If you are using additional images, it may help to upload them to your Wordpress media manager before completing this step, and using the URL's from the media manager in your metadata to avoid missing links. See below about how to get these links.
 
-> At this point, most Wordpress sites won't allow you to upload this `.yaml` file, so we have to rename it. Use whatever is your normal way for renaming files, to add a `.txt` extension.
+
+## At this point, most Wordpress sites won't allow you to upload this `.yaml` file, so we have to rename it. Use whatever is your normal way for renaming files, to add a `.txt` extension.
 
 ![](tutorials/rn1.png)
 ![](tutorials/rn2.png)
@@ -89,9 +92,15 @@ Turn on `Text` mode (top right of the editor):
 
 ![](tutorials/textmode.png)
 
-Find the image line, and insert the following text:
+Find the image line, it should look something like this:
 
-`data-4c="<the thing you copied>"`
+> <img class="alignnone wp-image-11 size-full" *src="http://myimage.jpg"* alt="1-0" width="990" height="656" />
+
+Then insert the four corners text:
+
+> <img class="alignnone wp-image-11 size-full" src="http://myimage.jpg" alt="1-0" width="990" height="656" **data-4c="http://myimage.txt"** />
+
+Where http://myimage.txt is the copied URL for your metadata file, like the example below:
 
 ![](tutorials/insert1.png)
 
