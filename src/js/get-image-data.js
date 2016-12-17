@@ -6,6 +6,7 @@
 
 var yaml = require('js-yaml'),
     getAllElementsWithAttribute = require("./helpers/get-all-elements-with-attribute"),
+    // Might be used in future for parsing XMP
     xmlToJson = require("./helpers/xml-to-json"),
     baseAttr = process.env.dataAttributeBase;
 
@@ -16,11 +17,13 @@ module.exports = function (onSuccess, onFailure) {
 };
 
 function tryGetMeta(img, onSuccess, onFailure) {
-    var q = [tryGetFromScript, tryLoadFileByAttribute, tryLoadYamlBySrc, tryLoadXmlBySrc],
+    var q = [tryGetFromScript, tryLoadFileByAttribute, tryLoadJsonBySrc, tryLoadYamlBySrc],
         exec = function () {
             var fn = q.shift();
             if (!fn) {
-                onFailure();
+                if (onFailure) {
+                    onFailure();
+                }
             } else {
                 fn(img, function (data) {
                     if (!data) {
@@ -41,18 +44,20 @@ function tryGetFromScript(img, onFinish) {
         onFinish();
     } else {
         for (var i = 0, l = els.length; i < l; i++) {
-            if (el[i].getAttribute(META_TAG) == path) {
-                var data = parseMeta(el[i].innerHTML, el[i].type.replace("text/", ""));
+            var el = els[i];
+            if (el.getAttribute(META_TAG) == path) {
+                var data = parseMeta(el.innerHTML, el.type.replace("text/", ""));
                 onFinish(data);
                 return;
             }
         }
+        onFinish();
     }
 }
 
 function tryLoadFileByAttribute(img, onFinish) {
     var path = img.getAttribute(baseAttr),
-        extL = path.match(/\.(yaml|xml)$/),
+        extL = path.match(/\.(yaml|json)$/),
         ext = extL ? extL[1] : extL;
     if (!ext) {
         onFinish();
@@ -64,13 +69,13 @@ function tryLoadFileByAttribute(img, onFinish) {
 function tryLoadYamlBySrc(img, onFinish) {
     var ext = "yaml",
         path = img.src.substr(0, img.src.lastIndexOf(".")) + "." + ext;
-    tryToLoadBySrc(path, ext, onFinish);
+    tryToLoadFile(path, ext, onFinish);
 }
 
-function tryLoadXmlBySrc(img, onFinish) {
-    var ext = "xml",
+function tryLoadJsonBySrc(img, onFinish) {
+    var ext = "json",
         path = img.src.substr(0, img.src.lastIndexOf(".")) + "." + ext;
-    tryToLoadBySrc(path, ext, onFinish);
+    tryToLoadFile(path, ext, onFinish);
 }
 
 function tryToLoadFile(path, ext, onFinish) {
@@ -83,9 +88,9 @@ function tryToLoadFile(path, ext, onFinish) {
 }
 
 function parseMeta(rawText, format) {
-    if (format == "xml") {
-        return JSON.parse(xmlToJson(rawText));
-    } else if (scriptDom.type == "yaml") {
+    if (format == "json") {
+        return JSON.parse(rawText);
+    } else if (format == "yaml") {
         return yaml.safeLoad(rawText);
     }
 }

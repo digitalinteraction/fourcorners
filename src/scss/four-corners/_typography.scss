@@ -3,7 +3,7 @@
 
 #{$class-prefix}image {
 
-  *:not(.fa) {
+  * {
     @include common-text-style();
   }
 
