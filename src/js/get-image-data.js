@@ -91,6 +91,10 @@ function parseMeta(rawText, format) {
     if (format == "json") {
         return JSON.parse(rawText);
     } else if (format == "yaml") {
+        console.warn("Four Corners:",
+            "Reading from YAML is deprecated.",
+            "You can convert existing YAML file into JSON on",
+            "https://digitalinteraction.github.io/fourcorners-editor/");
         return yaml.safeLoad(rawText);
     }
 }
