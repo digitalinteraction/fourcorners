@@ -38,8 +38,8 @@
   },
   "dependencies": {
     "hammerjs": "^2.0.8",
-    "jade": "^1.11.0",
-    "jadeify": "^4.6.0",
-    "js-yaml": "^3.6.1"
+    "js-yaml": "^3.6.1",
+    "pug": "^2.0.0-beta6",
+    "pugify": "^2.1.0"
   }
 }

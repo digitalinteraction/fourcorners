@@ -5,7 +5,7 @@
 'use strict';
 
 var envify = require('envify/custom'),
-    jadeify = require('jadeify'),
+    pugify = require('pugify'),
     browserifyCss = require('browserify-css');
 
 module.exports = function (grunt) {
@@ -32,7 +32,9 @@ module.exports = function (grunt) {
                     "autoInject": true,
                     "minify": true,
                     "rootDir": "."
-                }], jadeify]
+                }], pugify.pug({
+                    pretty: false
+                })]
             }
         }
     });

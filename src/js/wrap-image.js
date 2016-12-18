@@ -4,8 +4,8 @@
 
 'use strict';
 
-var template = require("./template.jade"),
-    failedImageTemplate = require("./failed-image.jade"),
+var template = require("./template.pug"),
+    failedImageTemplate = require("./failed-image.pug"),
     copyStyle = require('./helpers/copy-style'),
     baseAttr = process.env.dataAttributeBase,
     getAllElementsWithAttribute = require('./helpers/get-all-elements-with-attribute'),
