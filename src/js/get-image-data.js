@@ -43,8 +43,11 @@ function tryGetFromScript(img, onFinish) {
         onFinish();
     } else {
         for (var i = 0, l = els.length; i < l; i++) {
-            var el = els[i];
-            if (el.getAttribute(META_TAG) == path) {
+            var el = els[i],
+                img = document.createElement("img"),
+                attr = el.getAttribute(META_TAG);
+            img.src = attr;
+            if (attr == path || img.src == path) {
                 var data = parseMeta(el.innerHTML, el.type.replace("text/", ""));
                 onFinish(data);
                 return;
