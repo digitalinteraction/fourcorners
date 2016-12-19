@@ -4,8 +4,7 @@
 
 'use strict';
 
-var yaml = require('js-yaml'),
-    getAllElementsWithAttribute = require("./helpers/get-all-elements-with-attribute"),
+var getAllElementsWithAttribute = require("./helpers/get-all-elements-with-attribute"),
     // Might be used in future for parsing XMP
     xmlToJson = require("./helpers/xml-to-json"),
     baseAttr = process.env.dataAttributeBase;
@@ -92,10 +91,10 @@ function parseMeta(rawText, format) {
         return JSON.parse(rawText);
     } else if (format == "yaml") {
         console.warn("Four Corners:",
-            "Reading from YAML is deprecated.",
-            "You can convert existing YAML file into JSON on",
+            "YAML sidecar files are deprecated.",
+            "You can convert existing YAML file into JSON format on",
             "https://digitalinteraction.github.io/fourcorners-editor/");
-        return yaml.safeLoad(rawText);
+        return;
     }
 }
 
