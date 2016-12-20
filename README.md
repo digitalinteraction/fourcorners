@@ -16,6 +16,8 @@ See the [Project Site](https://fourcorners.io) for more background on the projec
 
 > Using Wordpress? [Download the Wordpress Plugin](https://github.com/digitalinteraction/authograph-wordpress/releases/download/1.0/wp-authograph.zip) to skip the rest of this process.
 
+
+
 Using Authograph on your site is as simple is pasting our hosted Javascript link into the bottom of your website page or template.
 
 Just insert the following line at the *end* of your html, as seen below:
