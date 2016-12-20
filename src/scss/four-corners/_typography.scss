@@ -3,9 +3,11 @@
 
 #{$class-prefix}image {
 
-  &-typo {
-    font-family: $font-family;
-    @include common-text-style();
+  h1, p, ul, button, span {
+    &#{$class-prefix}image-typo {
+      @include common-text-style();
+      font-family: $font-family;
+    }
   }
 
   &-i {
@@ -27,8 +29,10 @@
     }
   }
 
-  #{$class-prefix}image-typo {
-    a {
+  a {
+    &#{$class-prefix}image-a {
+      @include common-text-style();
+      font-family: $font-family;
       color: $code-of-ethics-border-color;
       text-decoration: none;
       @include transition(color $transition-duration $transition-type);

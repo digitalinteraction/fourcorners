@@ -39,7 +39,8 @@ img(src=src)
                     if item.credit
                         .fc-gallery-caption(data-4c-gallery-caption data-4c-class="visible: topLeftCorner.getCaptionVisible")
                             .fc-gallery-caption-background
-                            .fc-gallery-caption-text.fc-image-typo #{item.credit}
+                            .fc-gallery-caption-text
+                                span.fc-image-typo #{item.credit}
                     else
                         div(data-4c-gallery-caption data-4c-class="visible: topLeftCorner.getCaptionVisible")
             button.fc-btn.fc-btn-top-left.fc-gallery-close.fc-image-typo(data-4c-on="click: topLeftCorner.hide" data-4c-class="visible: topLeftCorner.visible")
@@ -53,11 +54,11 @@ img(src=src)
                     button.fc-btn.fc-btn-close.fc-image-typo(data-4c-on="click: topRightCorner.hide" data-4c-class="visible: topRightCorner.visible")
                         i.fa.fa-times.fc-image-i
                     h1.fc-image-typo Links
-                    .fa-ul
+                    ul.fa-ul
                         each item in links
                             li
                                 i.fa.fa-li.fc-image-i(class="fa-" + item.type)
-                                a.fc-image-typo(href=item.url) #{item.title}
+                                a.fc-image-a(href=item.url) #{item.title}
 
     if backStory && backStory.text
         .fc-content-container.fc-content-bottom-left(data-4c-on="mouseleave: bottomLeftCorner.hide"

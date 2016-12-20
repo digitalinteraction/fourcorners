@@ -10,14 +10,15 @@
     display: block;
     max-width: 100%; }
 
-.fc-image-typo {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+.fc-image h1.fc-image-typo, .fc-image p.fc-image-typo, .fc-image ul.fc-image-typo, .fc-image button.fc-image-typo, .fc-image span.fc-image-typo {
   font-size: 13px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
   letter-spacing: 0.03em;
   -webkit-text-emphasis: initial;
-  -webkit-text-fill-color: initial; }
+  -webkit-text-fill-color: initial;
+  color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 .fc-image-i {
   font-size: 13px;
@@ -25,7 +26,8 @@
   font-weight: 300;
   letter-spacing: 0.03em;
   -webkit-text-emphasis: initial;
-  -webkit-text-fill-color: initial; }
+  -webkit-text-fill-color: initial;
+  color: #fff; }
 
 .fc-image h1.fc-image-typo {
   font-size: 24px;
@@ -36,7 +38,15 @@
 .fc-image p.fc-image-typo {
   margin: 0 0 10px; }
 
-.fc-image .fc-image-typo a {
+.fc-image a.fc-image-a {
+  font-size: 13px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  -webkit-text-emphasis: initial;
+  -webkit-text-fill-color: initial;
+  color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #337ab7;
   text-decoration: none;
   -webkit-transition: color 0.1s linear;
@@ -44,7 +54,7 @@
   -ms-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear; }
-  .fc-image .fc-image-typo a:hover, .fc-image .fc-image-typo a:active, .fc-image .fc-image-typo a:focus {
+  .fc-image a.fc-image-a:hover, .fc-image a.fc-image-a:active, .fc-image a.fc-image-a:focus {
     color: #4f93ce; }
 
 .fc-content {
