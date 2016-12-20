@@ -10,7 +10,8 @@
     display: block;
     max-width: 100%; }
 
-.fc-image * {
+.fc-image-typo {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
@@ -18,16 +19,24 @@
   -webkit-text-emphasis: initial;
   -webkit-text-fill-color: initial; }
 
-.fc-image h1 {
+.fc-image-i {
+  font-size: 13px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  -webkit-text-emphasis: initial;
+  -webkit-text-fill-color: initial; }
+
+.fc-image h1.fc-image-typo {
   font-size: 24px;
   letter-spacing: 0.1em;
   font-weight: 300;
   margin: 10px 0 10px 0; }
 
-.fc-image p {
+.fc-image p.fc-image-typo {
   margin: 0 0 10px; }
 
-.fc-image a {
+.fc-image .fc-image-typo a {
   color: #337ab7;
   text-decoration: none;
   -webkit-transition: color 0.1s linear;
@@ -35,7 +44,7 @@
   -ms-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear; }
-  .fc-image a:hover, .fc-image a:active, .fc-image a:focus {
+  .fc-image .fc-image-typo a:hover, .fc-image .fc-image-typo a:active, .fc-image .fc-image-typo a:focus {
     color: #4f93ce; }
 
 .fc-content {

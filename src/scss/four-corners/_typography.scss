@@ -3,32 +3,42 @@
 
 #{$class-prefix}image {
 
-  * {
+  &-typo {
+    font-family: $font-family;
+    @include common-text-style();
+  }
+
+  &-i {
     @include common-text-style();
   }
 
   h1 {
-    font-size: $title-font-size;
-    letter-spacing: $title-letter-spacing;
-    font-weight: $title-font-weight;
-    margin: $title-margin 0 $title-margin 0;
+    &#{$class-prefix}image-typo {
+      font-size: $title-font-size;
+      letter-spacing: $title-letter-spacing;
+      font-weight: $title-font-weight;
+      margin: $title-margin 0 $title-margin 0;
+    }
   }
 
   p {
-    margin: 0 0 $paragraph-margin;
+    &#{$class-prefix}image-typo {
+      margin: 0 0 $paragraph-margin;
+    }
   }
 
-  a {
-    color: $code-of-ethics-border-color;
-    text-decoration: none;
-    @include transition(color $transition-duration $transition-type);
+  #{$class-prefix}image-typo {
+    a {
+      color: $code-of-ethics-border-color;
+      text-decoration: none;
+      @include transition(color $transition-duration $transition-type);
 
-    &:hover,
-    &:active,
-    &:focus {
-      color: lighten($code-of-ethics-border-color, 10%);
+      &:hover,
+      &:active,
+      &:focus {
+        color: lighten($code-of-ethics-border-color, 10%);
+      }
     }
-
   }
 
 }
