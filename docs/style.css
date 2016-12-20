@@ -12,7 +12,6 @@
 
 .fc-image h1.fc-image-typo, .fc-image p.fc-image-typo, .fc-image ul.fc-image-typo, .fc-image button.fc-image-typo, .fc-image span.fc-image-typo {
   font-size: 13px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
   letter-spacing: 0.03em;
   -webkit-text-emphasis: initial;
@@ -22,7 +21,6 @@
 
 .fc-image-i {
   font-size: 13px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
   letter-spacing: 0.03em;
   -webkit-text-emphasis: initial;
@@ -40,7 +38,6 @@
 
 .fc-image a.fc-image-a {
   font-size: 13px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
   letter-spacing: 0.03em;
   -webkit-text-emphasis: initial;
