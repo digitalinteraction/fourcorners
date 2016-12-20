@@ -10,7 +10,7 @@
 
 See the [Project Site](https://fourcorners.io) for more background on the project and future directions.
 
-[Click Here](https://digitalinteraction.github.io/authograph/docs/) to see a live demo in action.
+[Click Here](https://digitalinteraction.github.io/fourcorners/docs/) to see a live demo in action.
 
 ## Getting Your Site Ready
 
@@ -24,7 +24,7 @@ Using Authograph on your site is as simple is pasting our hosted Javascript link
 
 Just insert the following line at the *end* of your html, as seen below:
 
-`<script src="https://digitalinteraction.github.io/authograph/dist/4c.js"></script>`
+`<script src="https://digitalinteraction.github.io/fourcorners/dist/4c.js"></script>`
 
 ```html
 <body>
@@ -32,7 +32,7 @@ Just insert the following line at the *end* of your html, as seen below:
 ...
 ...
 <!-- Insert this line to enable 4C on your site -->
-<script src="https://digitalinteraction.github.io/authgraph/dist/4c.js"></script>
+<script src="https://digitalinteraction.github.io/fourcorners/dist/4c.js"></script>
 </body>
 </html>
 ```
@@ -45,9 +45,9 @@ The Authograph overlay will dynamically adjust to the metadata you have availabl
 
 This data is stored in a `<script>` tag embedded in the page for each image. This is simple JSON following a particular format.
 
-**You can use the [Online Editor](https://digitalinteraction.github.io/authograph-editor) to create and edit your metadata:**
+**You can use the [Online Editor](https://digitalinteraction.github.io/fourcorners-editor) to create and edit your metadata:**
 
-**https://digitalinteraction.github.io/authograph-editor**
+**https://digitalinteraction.github.io/fourcorners-editor**
 
 If you want to manually create or edit this data (by hand or code), read the [Authograph JSON format](docs/4cjson.md).
 
