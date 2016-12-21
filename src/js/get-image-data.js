@@ -94,8 +94,8 @@ function parseMeta(rawText, format) {
         return JSON.parse(rawText);
     } else if (format == "yaml") {
         console.warn("Four Corners:",
-            "YAML sidecar files are deprecated.",
-            "You can convert existing YAML file into JSON format on",
+            "YAML files are deprecated.",
+            "You can create new meta data files on",
             "https://digitalinteraction.github.io/fourcorners-editor/");
         return;
     }
