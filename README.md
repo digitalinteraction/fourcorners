@@ -62,7 +62,23 @@ For each image that you want to augment with a Authograph overlay, add the `data
 Authograph automatically loads the JSON metadata located in a matching `<script>` tag in the document with an attribute of `data-4c-meta` e.g.
 
 ```html
-<script data-4c-meta='xmp_1-1.jpg' type='text/json'>{"context":[],"links":[],"backStory":{"text":"","author":"Eddie Adams","magazine":"Time magazine","magazineUrl":"http://www.time.com","date":"February 1, 1968"},"creativeCommons":{"copyright":"Photograph by Eddie Adams / Associated Press © 1968","description":"Police Chief General Nguyen Ngoc Loan executing a Vietcong officer captured in Saigon, February 1, 1968."}}</script>
+<script data-4c-meta='xmp_1-1.jpg' type='text/json'>
+{
+	"context": [],
+	"links": [],
+	"backStory": {
+		"text": "",
+		"author": "Eddie Adams",
+		"magazine": "Time magazine",
+		"magazineUrl": "http://www.time.com",
+		"date": "February 1, 1968"
+	},
+	"creativeCommons": {
+		"copyright": "Photograph by Eddie Adams / Associated Press © 1968",
+		"description": "Police Chief General Nguyen Ngoc Loan executing a Vietcong officer captured in Saigon, February 1, 1968."
+	}
+}
+</script>
 
 ```
 
