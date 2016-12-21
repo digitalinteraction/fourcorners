@@ -16,7 +16,7 @@ See the [Project Site](https://fourcorners.io) for more background on the projec
 
 ### Wordpress
 
-> Using Wordpress? [Download the Wordpress Plugin](https://github.com/digitalinteraction/authograph-wordpress/releases/download/1.0/wp-authograph.zip) to get started right away.
+> Using Wordpress? [Download the Wordpress Plugin](https://github.com/digitalinteraction/fourcorners-wordpress/releases/download/1.0/wp-authograph.zip) to get started right away.
 
 ### Other Sites
 
