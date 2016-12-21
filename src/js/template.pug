@@ -20,7 +20,7 @@ img(src=src)
             .fc-gallery(data-4c-class="expanded: !topLeftCorner.visible")
                 if context.length > 1
                     .fc-gallery-controls.fc-gallery-prev(data-4c-class="transparent: getPrevControllerHidden")
-                        a.fc-image-typo(href="" data-4c-on="click: topLeftCorner.selectPrevious, mouseover: topLeftCorner.preselectPrevious, mouseleave: topLeftCorner.clearPreselect")
+                        a.fc-image-typo(data-4c-on="click: topLeftCorner.selectPrevious, mouseover: topLeftCorner.preselectPrevious, mouseleave: topLeftCorner.clearPreselect")
                             i.fa.fa-angle-left.fc-image-i
                 ul(data-4c-gallery-list)
                     each item in context
@@ -33,7 +33,7 @@ img(src=src)
                                 iframe(width="100%" height="100%" src="//www.youtube.com/embed/" + item.youtube_id style="border:none")
                 if context.length > 1
                     .fc-gallery-controls.fc-gallery-next(data-4c-class="transparent: getNextControllerHidden")
-                        a.fc-image-typo(href="" data-4c-on="click: topLeftCorner.selectNext, mouseover: topLeftCorner.preselectNext, mouseleave: topLeftCorner.clearPreselect")
+                        a.fc-image-typo(data-4c-on="click: topLeftCorner.selectNext, mouseover: topLeftCorner.preselectNext, mouseleave: topLeftCorner.clearPreselect")
                             i.fa.fa-angle-right.fc-image-i
                 each item in context
                     if item.credit
@@ -91,7 +91,7 @@ img(src=src)
                         i.fa.fa-times.fc-image-i
                     p.fc-content-copyright.fc-image-typo #{'Photograph by '}
                         if creativeCommons.codeOfEthics
-                            a.fc-code-of-ethics-show.fc-image-typo(href="" data-4c-on="click: bottomRightCorner.toggleCodeOfEthics")
+                            a.fc-code-of-ethics-show.fc-image-a(data-4c-on="click: bottomRightCorner.toggleCodeOfEthics")
                                 | #{creativeCommons.copyright}
                         else
                             span.fc-image-typo #{creativeCommons.copyright}
