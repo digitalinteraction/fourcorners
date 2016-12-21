@@ -39,8 +39,8 @@ function init() {
     });
 }
 
-function buildFromJson(imgDom, json, yamlPath) {
-    if (!dataIsValid(yamlPath || 'Four Corners - JSON', json)) {
+function buildFromJson(imgDom, json, filePath) {
+    if (!dataIsValid(filePath || 'Four Corners - JSON', json)) {
         return;
     }
     amendImageData(json);
@@ -51,8 +51,8 @@ function buildFromJson(imgDom, json, yamlPath) {
 }
 
 function autoBuild(imgDom) {
-    getImageData.call(imgDom, function (imageData, yamlPath) {
-        buildFromJson(imgDom, imageData, yamlPath);
+    getImageData.call(imgDom, function (imageData, filePath) {
+        buildFromJson(imgDom, imageData, filePath);
     });
 }
 
