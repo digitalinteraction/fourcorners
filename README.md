@@ -56,10 +56,17 @@ If you want to manually create or edit this data (by hand or code), read the [Au
 For each image that you want to augment with a Authograph overlay, add the `data-4c` attribute:
 
 ```html
-<img src="/imgs/myimage1.jpg" data-4c />
+<img src="/imgs/myimage1.jpg" data-4c="xmp_1-1.jpg" />
 ```
 
-Authograph automatically loads the metadata located in a matching `<script>` tag in the document with an attribute of `data-4c-myfilename`.
+Authograph automatically loads the JSON metadata located in a matching `<script>` tag in the document with an attribute of `data-4c-meta` e.g.
+
+```html
+<script data-4c-meta='xmp_1-1.jpg' type='text/json'>{"context":[],"links":[],"backStory":{"text":"","author":"Eddie Adams","magazine":"Time magazine","magazineUrl":"http://www.time.com","date":"February 1, 1968"},"creativeCommons":{"copyright":"Photograph by Eddie Adams / Associated Press © 1968","description":"Police Chief General Nguyen Ngoc Loan executing a Vietcong officer captured in Saigon, February 1, 1968."}}</script>
+
+```
+
+
 
 ----
 
