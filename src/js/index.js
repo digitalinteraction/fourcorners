@@ -56,4 +56,9 @@ function autoBuild(imgDom) {
     });
 }
 
-window.buildFourcorners = buildFromJson;
+module.exports = function () {
+    return {
+        buildFromJson: buildFromJson,
+        autoBuild: autoBuild
+    }
+};
