@@ -33,14 +33,14 @@
     &#{$class-prefix}image-a {
       @include common-text-style();
       font-family: $font-family;
-      color: $code-of-ethics-border-color;
-      text-decoration: none;
-      @include transition(color $transition-duration $transition-type);
+      color: $btn-color;
+      text-decoration: underline;
+      @include transition(opacity $transition-duration $transition-type);
 
       &:hover,
       &:active,
       &:focus {
-        color: lighten($code-of-ethics-border-color, 10%);
+        opacity: $btn-opacity;
       }
     }
   }

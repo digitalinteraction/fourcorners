@@ -75,7 +75,7 @@ img(src=src)
                             | #{backStory.author + (backStory.magazine || backStory.date ? ', ' : '')}
                         if backStory.magazine
                             if backStory.magazineUrl
-                                a.fc-image-typo(href=backStory.magazineUrl) #{backStory.magazine}
+                                a.fc-image-a(href=backStory.magazineUrl) #{backStory.magazine}
                             else
                                 | #{backStory.magazine}
                             | #{backStory.date ? ', ' : ''}
@@ -91,7 +91,7 @@ img(src=src)
                         i.fa.fa-times.fc-image-i
                     p.fc-content-copyright.fc-image-typo #{'Photograph by '}
                         if creativeCommons.codeOfEthics
-                            a.fc-code-of-ethics-show.fc-image-a(data-4c-on="click: bottomRightCorner.toggleCodeOfEthics")
+                            a.fc-image-a.fc-code-of-ethics-show(data-4c-on="click: bottomRightCorner.toggleCodeOfEthics")
                                 | #{creativeCommons.copyright}
                         else
                             span.fc-image-typo #{creativeCommons.copyright}
