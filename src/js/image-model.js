@@ -38,6 +38,9 @@ module.exports = function (dom) {
             }
             this.visible = false;
         };
+        this.forceHide = function () {
+            this.pin(false);
+        };
         this.pin = function (pinned) {
             if (pinned != null) {
                 this.pinned = pinned;

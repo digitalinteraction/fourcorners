@@ -43,7 +43,7 @@ img(src=src)
                                 span.fc-image-typo #{item.credit}
                     else
                         div(data-4c-gallery-caption data-4c-class="visible: topLeftCorner.getCaptionVisible")
-            button.fc-btn.fc-btn-top-left.fc-gallery-close.fc-image-typo(data-4c-on="click: topLeftCorner.hide" data-4c-class="visible: topLeftCorner.visible")
+            button.fc-btn.fc-btn-top-left.fc-gallery-close.fc-image-typo(data-4c-on="click: topLeftCorner.forceHide" data-4c-class="visible: topLeftCorner.visible")
                 i.fa.fa-times.fc-image-i
     if links && links.length
         .fc-content-container.fc-content-top-right(data-4c-on="mouseleave: topRightCorner.hide"
@@ -51,7 +51,7 @@ img(src=src)
             .fc-content-body
                 .fc-content-background
                 .fc-content-text
-                    button.fc-btn.fc-btn-close.fc-image-typo(data-4c-on="click: topRightCorner.hide" data-4c-class="visible: topRightCorner.visible")
+                    button.fc-btn.fc-btn-close.fc-image-typo(data-4c-on="click: topRightCorner.forceHide" data-4c-class="visible: topRightCorner.visible")
                         i.fa.fa-times.fc-image-i
                     h1.fc-image-typo Links
                     ul.fa-ul
@@ -66,7 +66,7 @@ img(src=src)
             .fc-content-body
                 .fc-content-background
                 .fc-content-text
-                    button.fc-btn.fc-btn-close.fc-image-typo(data-4c-on="click: bottomLeftCorner.hide" data-4c-class="visible: bottomLeftCorner.visible")
+                    button.fc-btn.fc-btn-close.fc-image-typo(data-4c-on="click: bottomLeftCorner.forceHide" data-4c-class="visible: bottomLeftCorner.visible")
                         i.fa.fa-times.fc-image-i.fc-image-i
                     h1.fc-image-typo Backstory
                     p.fc-image-typo #{backStory.text}
@@ -87,7 +87,7 @@ img(src=src)
             .fc-content-body
                 .fc-content-background
                 .fc-content-text
-                    button.fc-btn.fc-btn-close.fc-image-typo(data-4c-on="click: bottomRightCorner.hide" data-4c-class="visible: bottomRightCorner.visible")
+                    button.fc-btn.fc-btn-close.fc-image-typo(data-4c-on="click: bottomRightCorner.forceHide" data-4c-class="visible: bottomRightCorner.visible")
                         i.fa.fa-times.fc-image-i
                     p.fc-content-copyright.fc-image-typo #{'Photograph by '}
                         if creativeCommons.codeOfEthics
