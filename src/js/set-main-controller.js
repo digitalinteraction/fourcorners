@@ -174,4 +174,9 @@ module.exports = function (domContainer, model) {
             watcher();
         });
     }
+
+    return {
+        executeWatchers: executeWatchers
+    }
+
 };

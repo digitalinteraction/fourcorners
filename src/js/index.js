@@ -46,8 +46,10 @@ function buildFromJson(imgDom, json, filePath) {
     amendImageData(json);
 
     var domContainer = wrapImage.call(imgDom, json),
-        model = imageModelFactory(domContainer);
-    setMainController(domContainer, model);
+        model = imageModelFactory(domContainer),
+        controller = setMainController(domContainer, model);
+
+    return FcInterfaceFactory(model, controller);
 }
 
 function autoBuild(imgDom) {
@@ -56,9 +58,37 @@ function autoBuild(imgDom) {
     });
 }
 
-module.exports = function () {
-    return {
-        buildFromJson: buildFromJson,
-        autoBuild: autoBuild
+function FcInterfaceFactory(model, controller) {
+    var controller = controller,
+        model = model;
+
+    function FcInterface() {
+
     }
-};
+
+    FcInterface.prototype.pinTopLeft = function () {
+        model.topLeftCorner.pin();
+        controller.executeWatchers()
+    };
+
+    FcInterface.prototype.pinTopRight = function () {
+        model.topRightCorner.pin();
+        controller.executeWatchers()
+    };
+
+    FcInterface.prototype.pinBottomLeft = function () {
+        model.bottomLeftCorner.pin();
+        controller.executeWatchers()
+    };
+
+    FcInterface.prototype.pinBottomRight = function () {
+        model.bottomRightCorner.pin();
+        controller.executeWatchers()
+    };
+
+    return new FcInterface();
+
+}
+
+exports.buildFromJson = buildFromJson;
+exports.autoBuild = autoBuild;
