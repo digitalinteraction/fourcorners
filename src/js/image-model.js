@@ -38,8 +38,12 @@ module.exports = function (dom) {
             }
             this.visible = false;
         };
-        this.pin = function () {
-            this.pinned = !this.pinned;
+        this.pin = function (pinned) {
+            if (pinned != null) {
+                this.pinned = pinned;
+            } else {
+                this.pinned = !this.pinned;
+            }
             if (this.pinned) {
                 this.show();
             } else {

@@ -62,31 +62,30 @@ function FcInterfaceFactory(model, controller) {
     var controller = controller,
         model = model;
 
-    function FcInterface() {
+    return {
+        topLeft: FcCornerInterfaceFactory(model.topLeftCorner, controller),
+        topRight: FcCornerInterfaceFactory(model.topRightCorner, controller),
+        bottomLeft: FcCornerInterfaceFactory(model.bottomLeftCorner, controller),
+        bottomRight: FcCornerInterfaceFactory(model.bottomRightCorner, controller)
+    };
+
+}
+
+function FcCornerInterfaceFactory(cornerModel, controller) {
+
+    var controller = controller,
+        cornerModel = cornerModel;
+
+    function FcCornerInterface() {
 
     }
 
-    FcInterface.prototype.pinTopLeft = function () {
-        model.topLeftCorner.pin();
-        controller.executeWatchers()
+    FcCornerInterface.prototype.pin = function (pinned) {
+        cornerModel.pin(pinned);
+        controller.executeWatchers(pinned)
     };
 
-    FcInterface.prototype.pinTopRight = function () {
-        model.topRightCorner.pin();
-        controller.executeWatchers()
-    };
-
-    FcInterface.prototype.pinBottomLeft = function () {
-        model.bottomLeftCorner.pin();
-        controller.executeWatchers()
-    };
-
-    FcInterface.prototype.pinBottomRight = function () {
-        model.bottomRightCorner.pin();
-        controller.executeWatchers()
-    };
-
-    return new FcInterface();
+    return new FcCornerInterface();
 
 }
 
