@@ -24,6 +24,7 @@
   -ms-transition: opacity 0.2s linear, transform 0.1s linear;
   -o-transition: opacity 0.2s linear, transform 0.1s linear;
   transition: opacity 0.2s linear, transform 0.1s linear; }
+  .fc-corner-icon.hover,
   .fc-image:hover .fc-corner-icon {
     -webkit-transform: translate(20px, 20px);
     -moz-transform: translate(20px, 20px);
