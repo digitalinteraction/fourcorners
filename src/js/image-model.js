@@ -153,8 +153,12 @@ function CreativeCommonsCorner() {
 
 CreativeCommonsCorner.prototype = Object.create(CornerModel.prototype);
 
-CreativeCommonsCorner.prototype.toggleCodeOfEthics = function () {
-    this.codeOfEthicsVisible = !this.codeOfEthicsVisible;
+CreativeCommonsCorner.prototype.toggleCodeOfEthics = function (visible) {
+    if (visible!=null) {
+        this.codeOfEthicsVisible = visible;
+    } else {
+        this.codeOfEthicsVisible = !this.codeOfEthicsVisible;
+    }
 };
 
 function pauseYouTubeVideo(iframe) {

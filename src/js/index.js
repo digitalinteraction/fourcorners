@@ -63,29 +63,36 @@ function FcInterfaceFactory(model, controller) {
         model = model;
 
     return {
-        topLeft: FcCornerInterfaceFactory(model.topLeftCorner, controller),
-        topRight: FcCornerInterfaceFactory(model.topRightCorner, controller),
-        bottomLeft: FcCornerInterfaceFactory(model.bottomLeftCorner, controller),
-        bottomRight: FcCornerInterfaceFactory(model.bottomRightCorner, controller)
+        topLeft: new FcCornerInterface(model.topLeftCorner, controller),
+        topRight: new FcCornerInterface(model.topRightCorner, controller),
+        bottomLeft: new FcCornerInterface(model.bottomLeftCorner, controller),
+        bottomRight: new CodeOfEthicsCornerInterface(model.bottomRightCorner, controller)
     };
 
 }
 
-function FcCornerInterfaceFactory(cornerModel, controller) {
+function FcCornerInterface(cornerModel, controller) {
 
     var controller = controller,
         cornerModel = cornerModel;
 
-    function FcCornerInterface() {
-
-    }
-
-    FcCornerInterface.prototype.pin = function (pinned) {
+    this.pin = function (pinned) {
         cornerModel.pin(pinned);
-        controller.executeWatchers(pinned)
+        controller.executeWatchers();
     };
 
-    return new FcCornerInterface();
+}
+
+function CodeOfEthicsCornerInterface(cornerModel, controller) {
+    var controller = controller,
+        cornerModel = cornerModel;
+
+    FcCornerInterface.call(this);
+
+    this.toggleCodeOfEthics = function (visible) {
+        cornerModel.toggleCodeOfEthics(visible);
+        controller.executeWatchers();
+    };
 
 }
 
