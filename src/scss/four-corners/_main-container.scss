@@ -16,3 +16,24 @@
   }
 
 }
+
+#{$class-prefix}corner-icon {
+
+  $margin: 10px;
+
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: $margin;
+  right: $margin;
+  border-right: 10px solid #fff;
+  border-bottom: 10px solid #fff;
+  opacity: .5;
+  @include transition(opacity .2s linear, transform .1s linear);
+
+  #{$class-prefix}image:hover & {
+    @include transform(translate(2*$margin, 2*$margin));
+    opacity: 0;
+  }
+
+}

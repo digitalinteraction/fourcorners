@@ -10,6 +10,27 @@
     display: block;
     max-width: 100%; }
 
+.fc-corner-icon {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  border-right: 10px solid #fff;
+  border-bottom: 10px solid #fff;
+  opacity: .5;
+  -webkit-transition: opacity 0.2s linear, transform 0.1s linear;
+  -moz-transition: opacity 0.2s linear, transform 0.1s linear;
+  -ms-transition: opacity 0.2s linear, transform 0.1s linear;
+  -o-transition: opacity 0.2s linear, transform 0.1s linear;
+  transition: opacity 0.2s linear, transform 0.1s linear; }
+  .fc-image:hover .fc-corner-icon {
+    -webkit-transform: translate(20px, 20px);
+    -moz-transform: translate(20px, 20px);
+    -ms-transform: translate(20px, 20px);
+    transform: translate(20px, 20px);
+    opacity: 0; }
+
 .fc-image h1.fc-image-typo, .fc-image p.fc-image-typo, .fc-image ul.fc-image-typo, .fc-image button.fc-image-typo, .fc-image span.fc-image-typo {
   font-size: 13px;
   font-weight: 300;
@@ -52,7 +73,7 @@
   -o-transition: opacity 0.1s linear;
   transition: opacity 0.1s linear; }
   .fc-image a.fc-image-a:hover, .fc-image a.fc-image-a:active, .fc-image a.fc-image-a:focus {
-    opacity: 0.75; }
+    opacity: 0.8; }
 
 .fc-content {
   position: absolute;
@@ -94,7 +115,7 @@
     width: 100%;
     height: 100%;
     background: #000;
-    opacity: 0.75; }
+    opacity: 0.8; }
   .fc-content-fill {
     top: 0;
     left: 0;
@@ -165,7 +186,7 @@
   border-radius: 50%;
   height: 30px;
   width: 30px;
-  opacity: 0.75;
+  opacity: 0.8;
   outline: none;
   -webkit-transition: opacity 0.1s linear;
   -moz-transition: opacity 0.1s linear;
