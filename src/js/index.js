@@ -87,7 +87,10 @@ function CodeOfEthicsCornerInterface(cornerModel, controller) {
     var controller = controller,
         cornerModel = cornerModel;
 
-    FcCornerInterface.call(this);
+    this.pin = function (pinned) {
+        cornerModel.pin(pinned);
+        controller.executeWatchers();
+    };
 
     this.toggleCodeOfEthics = function (visible) {
         cornerModel.toggleCodeOfEthics(visible);
