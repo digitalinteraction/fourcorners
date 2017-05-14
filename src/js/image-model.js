@@ -153,7 +153,7 @@ function CreativeCommonsCorner() {
 
 CreativeCommonsCorner.prototype = Object.create(CornerModel.prototype);
 
-CreativeCommonsCorner.prototype.toggleCodeOfEthics = function (visible) {
+CreativeCommonsCorner.prototype.toggleCodeOfEthics = function (mouseEvent, htmlEl, visible) {
     if (visible!=null) {
         this.codeOfEthicsVisible = visible;
     } else {

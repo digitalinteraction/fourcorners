@@ -93,7 +93,7 @@ function CodeOfEthicsCornerInterface(cornerModel, controller) {
     };
 
     this.toggleCodeOfEthics = function (visible) {
-        cornerModel.toggleCodeOfEthics(visible);
+        cornerModel.toggleCodeOfEthics(null, null, visible);
         controller.executeWatchers();
     };
 
