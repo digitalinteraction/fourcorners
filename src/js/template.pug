@@ -31,7 +31,10 @@ img(src=src)
                             if item.src
                                 img(src=item.src)
                             if item.youtube_id
-                                iframe(width="100%" height="100%" src="//www.youtube.com/embed/" + item.youtube_id style="border:none")
+                                iframe(width="100%" height="100%"
+                                src="//www.youtube.com/embed/" + item.youtube_id + "?enablejsapi=1"
+                                data-4c-gallery-yt
+                                style="border:none")
                 if context.length > 1
                     .fc-gallery-controls.fc-gallery-next(data-4c-class="transparent: getNextControllerHidden")
                         a.fc-image-typo(data-4c-on="click: topLeftCorner.selectNext, mouseover: topLeftCorner.preselectNext, mouseleave: topLeftCorner.clearPreselect")

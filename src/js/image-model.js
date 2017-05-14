@@ -11,135 +11,152 @@ var baseAttr = process.env.dataAttributeBase,
 
 module.exports = function (dom) {
 
-    function ImageModel() {
-        this.topLeftCorner = new GalleryCornerModel();
-        this.topRightCorner = new CornerModel();
-        this.bottomLeftCorner = new CornerModel();
-        this.bottomRightCorner = new CreativeCommonsCorner();
-        this.toolsHidden = function () {
-            return this.topLeftCorner.visible ||
-                this.topRightCorner.visible ||
-                this.bottomLeftCorner.visible ||
-                this.bottomRightCorner.visible;
-        };
-    }
+    return new ImageModel(dom);
 
-    function CornerModel() {
-        this.visible = false;
-        this.pinned = false;
+};
 
-        this.show = function () {
-            this.visible = true;
-        };
-        this.hide = function () {
-            // ToDo: Stop YouTube video on close
-            if (this.pinned) {
-                return;
-            }
-            this.visible = false;
-        };
-        this.forceHide = function () {
-            this.pin(false);
-        };
-        this.pin = function (pinned) {
-            if (pinned != null) {
-                this.pinned = pinned;
-            } else {
-                this.pinned = !this.pinned;
-            }
-            if (this.pinned) {
-                this.show();
-            } else {
-                this.hide();
-            }
-        };
-        return this;
+function ImageModel(dom) {
+    this.topLeftCorner = GalleryCornerModelFactory(dom);
+    this.topRightCorner = new CornerModel();
+    this.bottomLeftCorner = new CornerModel();
+    this.bottomRightCorner = new CreativeCommonsCorner();
+}
+
+ImageModel.prototype.toolsHidden = function () {
+    return this.topLeftCorner.visible ||
+        this.topRightCorner.visible ||
+        this.bottomLeftCorner.visible ||
+        this.bottomRightCorner.visible;
+};
+
+function CornerModel() {
+    this.visible = false;
+    this.pinned = false;
+}
+
+CornerModel.prototype.show = function () {
+    this.visible = true;
+};
+CornerModel.prototype.hide = function () {
+    if (this.pinned) {
+        return;
     }
+    this.visible = false;
+};
+CornerModel.prototype.forceHide = function () {
+    this.pin(false);
+};
+CornerModel.prototype.pin = function (pinned) {
+    if (pinned != null) {
+        this.pinned = pinned;
+    } else {
+        this.pinned = !this.pinned;
+    }
+    if (this.pinned) {
+        this.show();
+    } else {
+        this.hide();
+    }
+};
+
+function GalleryCornerModelFactory(dom) {
+    var galleryDom = getAllElementsWithAttribute(baseAttr + '-gallery-list', dom)[0],
+        galleryItemDoms = getAllElementsWithAttribute(baseAttr + '-gallery-item', galleryDom),
+        youTubeIframes = getAllElementsWithAttribute(baseAttr + '-gallery-yt', galleryDom),
+        captionDoms = getAllElementsWithAttribute(baseAttr + '-gallery-caption', dom);
 
     function GalleryCornerModel() {
-        var galleryDom = getAllElementsWithAttribute(baseAttr + '-gallery-list', dom)[0],
-            galleryItemDoms = getAllElementsWithAttribute(baseAttr + '-gallery-item', galleryDom),
-            captionDoms = getAllElementsWithAttribute(baseAttr + '-gallery-caption', dom);
         CornerModel.call(this);
         this.selectedIndex = 0;
         this.preselectedItem = undefined;
-        this.selectItem = function (event, el) {
-            this.selectedIndex = galleryItemDoms.indexOf(el);
-            gotToIndex.call(this);
-        };
-        this.selectNext = function () {
-            if (this.selectedIndex < galleryItemDoms.length - 1) {
-                this.selectedIndex++;
-                gotToIndex.call(this);
-            }
-        };
-        this.selectPrevious = function () {
-            if (this.selectedIndex == 0) {
-                return;
-            }
-            this.selectedIndex--;
-            gotToIndex.call(this);
-        };
-        this.preselectPrevious = function () {
-            this.preselectedItem = galleryItemDoms[this.selectedIndex - 1];
-        };
-        this.preselectNext = function () {
-            this.preselectedItem = galleryItemDoms[this.selectedIndex + 1];
-        };
-        this.clearPreselect = function () {
-            this.preselectedItem = undefined;
-        };
-        this.getPrevControllerHidden = function () {
-            return this.selectedIndex <= 0;
-        };
-        this.getNextControllerHidden = function () {
-            return this.selectedIndex >= galleryItemDoms.length - 1;
-        };
-        this.getItemIsPreselected = function (domElement) {
-            return domElement == this.preselectedItem;
-        };
-        this.getCaptionVisible = function (domElement) {
-            return domElement == captionDoms[this.selectedIndex];
-        };
-        function getImageOffsets(elements) {
-            var offsets = [];
-            elements.forEach(function (el) {
-                offsets.push(el.offsetLeft);
-            });
-            return offsets;
-        }
-
-        function gotToIndex() {
-            if (!galleryDom) {
-                return;
-            }
-            var index = this.selectedIndex,
-                scaleConstant = 0.8,
-                imageOffsets = getImageOffsets(galleryItemDoms);
-            galleryItemDoms.forEach(function (dom, i) {
-                if (i == index) {
-                    addClass(dom, 'selected');
-                } else {
-                    removeClass(dom, 'selected');
-                }
-            });
-            galleryDom.style.marginLeft = -imageOffsets[index] * scaleConstant + 'px';
-        }
 
         gotToIndex.call(this);
-
-        return this;
     }
 
-    function CreativeCommonsCorner() {
-        CornerModel.call(this);
-        this.codeOfEthicsVisible = false;
-        this.toggleCodeOfEthics = function () {
-            this.codeOfEthicsVisible = !this.codeOfEthicsVisible;
-        };
-        return this;
+    GalleryCornerModel.prototype = Object.create(CornerModel.prototype);
+
+    GalleryCornerModel.prototype.hide = function () {
+        CornerModel.prototype.hide.call(this);
+        youTubeIframes.forEach(pauseYouTubeVideo);
+    };
+    GalleryCornerModel.prototype.selectItem = function (event, el) {
+        this.selectedIndex = galleryItemDoms.indexOf(el);
+        gotToIndex.call(this);
+    };
+    GalleryCornerModel.prototype.selectNext = function () {
+        if (this.selectedIndex < galleryItemDoms.length - 1) {
+            this.selectedIndex++;
+            gotToIndex.call(this);
+        }
+    };
+    GalleryCornerModel.prototype.selectPrevious = function () {
+        if (this.selectedIndex == 0) {
+            return;
+        }
+        this.selectedIndex--;
+        gotToIndex.call(this);
+    };
+    GalleryCornerModel.prototype.preselectPrevious = function () {
+        this.preselectedItem = galleryItemDoms[this.selectedIndex - 1];
+    };
+    GalleryCornerModel.prototype.preselectNext = function () {
+        this.preselectedItem = galleryItemDoms[this.selectedIndex + 1];
+    };
+    GalleryCornerModel.prototype.clearPreselect = function () {
+        this.preselectedItem = undefined;
+    };
+    GalleryCornerModel.prototype.getPrevControllerHidden = function () {
+        return this.selectedIndex <= 0;
+    };
+    GalleryCornerModel.prototype.getNextControllerHidden = function () {
+        return this.selectedIndex >= galleryItemDoms.length - 1;
+    };
+    GalleryCornerModel.prototype.getItemIsPreselected = function (domElement) {
+        return domElement == this.preselectedItem;
+    };
+    GalleryCornerModel.prototype.getCaptionVisible = function (domElement) {
+        return domElement == captionDoms[this.selectedIndex];
+    };
+
+    function getImageOffsets(elements) {
+        var offsets = [];
+        elements.forEach(function (el) {
+            offsets.push(el.offsetLeft);
+        });
+        return offsets;
     }
 
-    return new ImageModel();
+    function gotToIndex() {
+        if (!galleryDom) {
+            return;
+        }
+        var index = this.selectedIndex,
+            scaleConstant = 0.8,
+            imageOffsets = getImageOffsets(galleryItemDoms);
+        galleryItemDoms.forEach(function (dom, i) {
+            if (i == index) {
+                addClass(dom, 'selected');
+            } else {
+                removeClass(dom, 'selected');
+            }
+        });
+        galleryDom.style.marginLeft = -imageOffsets[index] * scaleConstant + 'px';
+    }
 
+    return new GalleryCornerModel();
+}
+
+function CreativeCommonsCorner() {
+    CornerModel.call(this);
+    this.codeOfEthicsVisible = false;
+}
+
+CreativeCommonsCorner.prototype = Object.create(CornerModel.prototype);
+
+CreativeCommonsCorner.prototype.toggleCodeOfEthics = function () {
+    this.codeOfEthicsVisible = !this.codeOfEthicsVisible;
 };
+
+function pauseYouTubeVideo(iframe) {
+    iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+}
