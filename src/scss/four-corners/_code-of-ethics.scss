@@ -12,7 +12,6 @@
     &-show {
       text-decoration: none;
       border-bottom: 1px dashed;
-      white-space: nowrap;
       cursor: pointer;
       @include transition(color $transition-duration $transition-type);
 
