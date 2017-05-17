@@ -10,7 +10,7 @@ img(src=src)
     if backStory && backStory.text
         button.fc-btn.fc-btn-bottom-left.fc-image-typo(data-4c-on="mouseover: bottomLeftCorner.show")
             i.fa.fa-info.fc-image-i
-    if creativeCommons && creativeCommons.copyright
+    if creativeCommons && creativeCommons.formattedCopyright
         button.fc-btn.fc-btn-bottom-right.fc-image-typo(data-4c-on="mouseover: bottomRightCorner.show")
             i.fa.fa-copyright.fc-image-i
 .fc-content
@@ -85,7 +85,7 @@ img(src=src)
                             | #{backStory.date ? ', ' : ''}
                         if backStory.date
                             | #{backStory.date}
-    if creativeCommons && creativeCommons.copyright
+    if creativeCommons && creativeCommons.formattedCopyright
         .fc-content-container.fc-content-bottom-right(data-4c-on="mouseleave: bottomRightCorner.hide"
         data-4c-class="visible: bottomRightCorner.visible")
             .fc-content-body
@@ -96,9 +96,9 @@ img(src=src)
                     p.fc-content-copyright.fc-image-typo
                         if creativeCommons.codeOfEthics
                             a.fc-image-a.fc-code-of-ethics-show(data-4c-on="click: bottomRightCorner.toggleCodeOfEthics")
-                                | #{creativeCommons.copyright}
+                                | #{creativeCommons.formattedCopyright}
                         else
-                            span.fc-image-typo #{creativeCommons.copyright}
+                            span.fc-image-typo #{creativeCommons.formattedCopyright}
                     if creativeCommons.codeOfEthics
                         p.fc-image-typo(data-4c-class="visible: bottomRightCorner.codeOfEthicsVisible").fc-code-of-ethics
                             | CODE OF ETHICS:  #{creativeCommons.codeOfEthics}

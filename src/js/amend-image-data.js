@@ -30,6 +30,24 @@ function shortenDataText(data) {
     shortenContextText(data.context);
     shortenLinksText(data.links);
     shortenBackstory(data.backStory);
+    formatCreativeCommons(data.creativeCommons);
+}
+
+function formatCreativeCommons(creativeCommons) {
+    if (!creativeCommons) {
+        return;
+    }
+    var parts = [];
+    if (creativeCommons.credit) {
+        parts.push(creativeCommons.credit);
+    }
+    if (creativeCommons.year) {
+        parts.push(creativeCommons.year);
+    }
+    if (creativeCommons.copyright) {
+        parts.push(creativeCommons.copyright);
+    }
+    creativeCommons.formattedCopyright = parts.length ? "© " + parts.join(", ") : "";
 }
 
 function shortenContextText(contextList) {
