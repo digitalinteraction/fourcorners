@@ -8,13 +8,13 @@
 
 var getAllElementsWithAttribute = require('./helpers/get-all-elements-with-attribute'),
     baseAttr = process.env.dataAttributeBase,
-    imgs = getAllElementsWithAttribute(baseAttr),
     setMainController = require('./set-main-controller'),
     wrapImage = require('./wrap-image'),
     imageModelFactory = require('./image-model'),
     dataIsValid = require('./image-data-is-valid'),
     getImageData = require('./get-image-data'),
-    amendImageData = require('./amend-image-data');
+    amendImageData = require('./amend-image-data'),
+    imgs;
 
 window.addEventListener("load", function load(event) {
     window.removeEventListener("load", load, false);
@@ -22,6 +22,7 @@ window.addEventListener("load", function load(event) {
 }, false);
 
 function init() {
+    imgs = getAllElementsWithAttribute(baseAttr);
     require('./polyfills')();
     require('./helpers/add-swipe-events')();
     require('./insert-fontawesome')();

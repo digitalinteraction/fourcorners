@@ -44,10 +44,12 @@ function tryGetFromScript(img, onFinish) {
     } else {
         for (var i = 0, l = els.length; i < l; i++) {
             var el = els[i],
-                img = document.createElement("img"),
+                dummyImg = document.createElement("img"),
                 attr = el.getAttribute(META_TAG);
-            img.src = attr;
-            if (attr == path || img.src == path) {
+            // We create dummy img and verify that it's src transformed by browser to the same as in target img
+            // Causes GET 404 as sets src to non existing images
+            dummyImg.src = attr;
+            if (attr == path || dummyImg.src == path) {
                 var data = parseMeta(el.innerHTML, el.type.replace("text/", ""));
                 onFinish(data);
                 return;
