@@ -7,8 +7,8 @@
     "backStory": {
         "text": "",
         "author": "Eddie Adams",
-        "magazine": "Time magazine",
-        "magazineUrl": "http://www.time.com",
+        "publication": "Time magazine",
+        "publicationUrl": "http://www.time.com",
         "date": "February 1, 1968"
     },
     "creativeCommons": {

@@ -8,7 +8,7 @@ var shortenText = require('./helpers/shorten-text'),
     MAX_CONTEXT_CREDIT_LENGTH = 50,
     MAX_LINKS_TITLE_LENGTH = 50,
     MAX_BACKSTORY_AUTHOR_LENGTH = 50,
-    MAX_BACKSTORY_MAGAZINE_LENGTH = 50;
+    MAX_BACKSTORY_publication_LENGTH = 50;
 
 module.exports = function (data) {
     addLinkTypes(data.links);
@@ -81,7 +81,7 @@ function shortenBackstory(backStory) {
     if (backStory.author) {
         backStory.author = shortenText(backStory.author, MAX_BACKSTORY_AUTHOR_LENGTH);
     }
-    if (backStory.magazine) {
-        backStory.magazine = shortenText(backStory.magazine, MAX_BACKSTORY_MAGAZINE_LENGTH);
+    if (backStory.publication) {
+        backStory.publication = shortenText(backStory.publication, MAX_BACKSTORY_publication_LENGTH);
     }
 }

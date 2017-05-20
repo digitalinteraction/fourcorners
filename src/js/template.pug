@@ -76,12 +76,12 @@ img(src=src)
                     p.fc-image-typo #{backStory.text}
                     p.fc-image-typo
                         if backStory.author
-                            | #{backStory.author + (backStory.magazine || backStory.date ? ', ' : '')}
-                        if backStory.magazine
-                            if backStory.magazineUrl
-                                a.fc-image-a(href=backStory.magazineUrl) #{backStory.magazine}
+                            | #{backStory.author + (backStory.publication || backStory.date ? ', ' : '')}
+                        if backStory.publication
+                            if backStory.publicationUrl
+                                a.fc-image-a(href=backStory.publicationUrl) #{backStory.publication}
                             else
-                                | #{backStory.magazine}
+                                | #{backStory.publication}
                             | #{backStory.date ? ', ' : ''}
                         if backStory.date
                             | #{backStory.date}
