@@ -3,31 +3,37 @@
 
 .fc {
   &-tools {
+
+    @mixin tools-visible() {
+      @include transform(scale(1));
+      opacity: 1;
+    }
+
+    @mixin tools-hidden() {
+      @include transform(scale(1.5));
+      opacity: 0;
+    }
+
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0;
     z-index: 1;
     @include box-sizing(border-box);
-    @include transform(scale(1.5));
+    @include tools-hidden();
     @include transition(opacity .3s linear, transform .2s linear);
 
     &:hover {
-      @include transform(scale(1));
-      opacity: 1;
+      @include tools-visible();
     }
 
     .touch-screen & {
-      opacity: 1 !important;
-      @include transform(scale(1));
+      @include tools-visible();
+    }
 
-      &.collapsed {
-        opacity: 0;
-        @include transform(scale(1.5));
-      }
-
+    &.collapsed {
+      @include tools-hidden();
     }
 
   }
@@ -80,18 +86,8 @@
     }
 
     &-close {
-      display: none;
       position: static;
       float: right;
-
-      .touch-screen & {
-
-        &.visible {
-          display: inline-block;
-        }
-
-      }
-
     }
 
   }

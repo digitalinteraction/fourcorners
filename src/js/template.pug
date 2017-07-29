@@ -2,16 +2,16 @@ img(src=src)
 .fc-corner-icon(data-4c-class="hover: toolsHidden")
 .fc-tools(data-4c-class="collapsed: toolsHidden")
     if context && context.length
-        button.fc-btn.fc-btn-top-left.fc-image-typo(data-4c-on="mouseover: topLeftCorner.show")
+        button.fc-btn.fc-btn-top-left.fc-image-typo(data-4c-on="click: topLeftCorner.show")
             i.fa.fa-history.fc-image-i
     if links && links.length
-        button.fc-btn.fc-btn-top-right.fc-image-typo(data-4c-on="mouseover: topRightCorner.show")
+        button.fc-btn.fc-btn-top-right.fc-image-typo(data-4c-on="click: topRightCorner.show")
             i.fa.fa-external-link.fc-image-i
     if backStory && backStory.text
-        button.fc-btn.fc-btn-bottom-left.fc-image-typo(data-4c-on="mouseover: bottomLeftCorner.show")
+        button.fc-btn.fc-btn-bottom-left.fc-image-typo(data-4c-on="click: bottomLeftCorner.show")
             i.fa.fa-info.fc-image-i
     if creativeCommons && creativeCommons.formattedCopyright
-        button.fc-btn.fc-btn-bottom-right.fc-image-typo(data-4c-on="mouseover: bottomRightCorner.show")
+        button.fc-btn.fc-btn-bottom-right.fc-image-typo(data-4c-on="click: bottomRightCorner.show")
             i.fa.fa-copyright.fc-image-i
 .fc-content
     if context && context.length
@@ -50,8 +50,7 @@ img(src=src)
             button.fc-btn.fc-btn-top-left.fc-gallery-close.fc-image-typo(data-4c-on="click: topLeftCorner.forceHide" data-4c-class="visible: topLeftCorner.visible")
                 i.fa.fa-times.fc-image-i
     if links && links.length
-        .fc-content-container.fc-content-top-right(data-4c-on="mouseleave: topRightCorner.hide"
-        data-4c-class="visible: topRightCorner.visible")
+        .fc-content-container.fc-content-top-right(data-4c-class="visible: topRightCorner.visible")
             .fc-content-body
                 .fc-content-background
                 .fc-content-text
@@ -65,8 +64,7 @@ img(src=src)
                                 a.fc-image-a(href=item.url) #{item.title}
 
     if backStory && backStory.text
-        .fc-content-container.fc-content-bottom-left(data-4c-on="mouseleave: bottomLeftCorner.hide"
-        data-4c-class="visible: bottomLeftCorner.visible")
+        .fc-content-container.fc-content-bottom-left(data-4c-class="visible: bottomLeftCorner.visible")
             .fc-content-body
                 .fc-content-background
                 .fc-content-text
@@ -86,8 +84,7 @@ img(src=src)
                         if backStory.date
                             | #{backStory.date}
     if creativeCommons && creativeCommons.formattedCopyright
-        .fc-content-container.fc-content-bottom-right(data-4c-on="mouseleave: bottomRightCorner.hide"
-        data-4c-class="visible: bottomRightCorner.visible")
+        .fc-content-container.fc-content-bottom-right(data-4c-class="visible: bottomRightCorner.visible")
             .fc-content-body
                 .fc-content-background
                 .fc-content-text
