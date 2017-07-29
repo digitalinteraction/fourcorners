@@ -10,7 +10,6 @@
   "watchSass": true,
   "includeCssMaps": true,
   "includeJsMaps": true,
-  "insertCssWithJs": true,
   "watchDebounceDelay": 1000,
   "demoFolder": "docs/",
   "distributionFolder": "dist/",

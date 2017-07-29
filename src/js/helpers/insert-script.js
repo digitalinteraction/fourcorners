@@ -4,8 +4,8 @@
 
 'use strict';
 
-module.exports = function (fileName) {
-    var script = document.createElement('script');
+module.exports = function (fileName, targetDocument) {
+    var script = targetDocument.createElement('script');
     script.src = fileName;
-    document.body.appendChild(script)
+    targetDocument.body.appendChild(script)
 };

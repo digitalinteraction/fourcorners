@@ -1,6 +1,11 @@
 @import "../config";
 @import "../mixins/main";
 
+body {
+  // Normalise body within iframe
+  margin: 0;
+}
+
 #{$class-prefix}image {
   position: relative !important;
   overflow: hidden !important;

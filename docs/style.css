@@ -1,3 +1,6 @@
+body {
+  margin: 0; }
+
 .fc-image {
   position: relative !important;
   overflow: hidden !important;
@@ -380,7 +383,6 @@
   .fc-image .fc-code-of-ethics-show {
     text-decoration: none;
     border-bottom: 1px dashed;
-    white-space: nowrap;
     cursor: pointer;
     -webkit-transition: color 0.1s linear;
     -moz-transition: color 0.1s linear;

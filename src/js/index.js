@@ -17,6 +17,7 @@ var getAllElementsWithAttribute = require('./helpers/get-all-elements-with-attri
     imgs;
 
 window.addEventListener("load", function load(event) {
+    // Fixme: addEventListener must be initiated only in auto build mode
     window.removeEventListener("load", load, false);
     init();
 }, false);
@@ -25,10 +26,6 @@ function init() {
     imgs = getAllElementsWithAttribute(baseAttr);
     require('./polyfills')();
     require('./helpers/add-swipe-events')();
-    require('./insert-fontawesome')();
-    if (process.env.insertCssWithJs) {
-        require('../temp/style.min.css');
-    }
     imgs.forEach(function (el) {
         if (el.complete) {
             autoBuild(el);

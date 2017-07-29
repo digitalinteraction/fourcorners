@@ -26,10 +26,8 @@ module.exports = function (grunt) {
                 },
                 transform: [envify({
                     dataAttributeBase: config.dataAttributeBase,
-                    insertCssWithJs: config.insertCssWithJs,
                     fontAwesomeCdnUrl: config.fontAwesomeCdnUrl
                 }), [browserifyCss, {
-                    "autoInject": true,
                     "minify": true,
                     "rootDir": "."
                 }], pugify.pug({
