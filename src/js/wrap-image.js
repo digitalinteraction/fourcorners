@@ -10,27 +10,25 @@ var template = require("./template.pug"),
     baseAttr = process.env.dataAttributeBase,
     getAllElementsWithAttribute = require("./helpers/get-all-elements-with-attribute"),
     shortenText = require("./helpers/shorten-text"),
-    getIsTouch = require("./helpers/is-touch-screen"),
     insertScript = require('./helpers/insert-script'),
     css = require('../temp/style.min.css');
 
 module.exports = function (imageData) {
     var iframe = document.createElement("iframe"),
-        div = makeContentDiv.call(this, imageData),
-        dummyDiv = document.createElement("div"),
         parentNode = this.parentNode;
 
     copyStyle(this, iframe);
     if (iframe.style.getPropertyValue("display") === "inline") {
         iframe.style.display = "inline-block";
     }
-    dummyDiv.appendChild(div);
     parentNode.replaceChild(iframe, this);
 
     var iframeDocument = iframe.contentWindow.document;
 
     iframeDocument.open();
-    iframeDocument.write(dummyDiv.innerHTML);
+    // Set image src in data to render it in template
+    imageData.src = this.src;
+    iframeDocument.write(template(imageData));
     iframeDocument.head.appendChild(makeStyle());
     insertScript(process.env.fontAwesomeCdnUrl, iframeDocument);
     iframeDocument.close();
@@ -40,17 +38,6 @@ module.exports = function (imageData) {
     treatFaultyImages(newDiv);
     return newDiv;
 };
-
-function makeContentDiv(imageData) {
-    var touchScreen = getIsTouch(),
-        div = document.createElement("div");
-
-    imageData.src = this.src;
-    div.innerHTML = template(imageData);
-    div.className = "fc-image" + (touchScreen ? " touch-screen" : "");
-
-    return div;
-}
 
 function makeStyle() {
     var style = document.createElement("style");
