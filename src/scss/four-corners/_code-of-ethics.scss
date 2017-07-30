@@ -1,5 +1,5 @@
-#{$class-prefix}image {
-  #{$class-prefix}code-of-ethics {
+#{$class-prefix}-image {
+  #{$class-prefix}-code-of-ethics {
     border: 1px solid $code-of-ethics-border-color;
     background: $corner-background;
     padding: 5px 10px;
@@ -14,7 +14,7 @@
       cursor: pointer;
       @include transition(color $transition-duration $transition-type);
 
-      &#{$class-prefix}image-a {
+      &#{$class-prefix}-image-a {
         text-decoration: none;
       }
 

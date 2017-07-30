@@ -2,9 +2,9 @@ body {
   margin: 0; }
 
 .fc-image {
-  position: relative !important;
-  overflow: hidden !important;
-  height: auto !important; }
+  position: relative;
+  overflow: hidden;
+  height: auto; }
   .fc-image * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -35,40 +35,24 @@ body {
     transform: translate(20px, 20px);
     opacity: 0; }
 
-.fc-image h1.fc-image-typo, .fc-image p.fc-image-typo, .fc-image ul.fc-image-typo, .fc-image button.fc-image-typo, .fc-image span.fc-image-typo {
+body {
   font-size: 13px;
   font-weight: 300;
   letter-spacing: 0.03em;
   -webkit-text-emphasis: initial;
   -webkit-text-fill-color: initial;
-  color: #fff;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
-.fc-image-i {
-  font-size: 13px;
-  font-weight: 300;
-  letter-spacing: 0.03em;
-  -webkit-text-emphasis: initial;
-  -webkit-text-fill-color: initial;
-  color: #fff; }
-
-.fc-image h1.fc-image-typo {
+h1 {
   font-size: 24px;
   letter-spacing: 0.1em;
   font-weight: 300;
   margin: 10px 0 10px 0; }
 
-.fc-image p.fc-image-typo {
+p {
   margin: 0 0 10px; }
 
-.fc-image a.fc-image-a {
-  font-size: 13px;
-  font-weight: 300;
-  letter-spacing: 0.03em;
-  -webkit-text-emphasis: initial;
-  -webkit-text-fill-color: initial;
-  color: #fff;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+a {
   color: #fff;
   text-decoration: underline;
   -webkit-transition: opacity 0.1s linear;
@@ -76,8 +60,11 @@ body {
   -ms-transition: opacity 0.1s linear;
   -o-transition: opacity 0.1s linear;
   transition: opacity 0.1s linear; }
-  .fc-image a.fc-image-a:hover, .fc-image a.fc-image-a:active, .fc-image a.fc-image-a:focus {
+  a:hover, a:active, a:focus {
     opacity: 0.8; }
+
+.fc-image {
+  color: #fff; }
 
 .fc-content {
   position: absolute;

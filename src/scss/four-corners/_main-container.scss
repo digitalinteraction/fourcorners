@@ -6,10 +6,10 @@ body {
   margin: 0;
 }
 
-#{$class-prefix}image {
-  position: relative !important;
-  overflow: hidden !important;
-  height: auto !important;
+#{$class-prefix}-image {
+  position: relative;
+  overflow: hidden;
+  height: auto;
 
   * {
     @include box-sizing(border-box);
@@ -22,7 +22,7 @@ body {
 
 }
 
-#{$class-prefix}corner-icon {
+#{$class-prefix}-corner-icon {
 
   $margin: 10px;
 
@@ -37,7 +37,7 @@ body {
   @include transition(opacity .2s linear, transform .1s linear);
 
   &.hover,
-  #{$class-prefix}image:hover & {
+  #{$class-prefix}-image:hover & {
     @include transform(translate(2*$margin, 2*$margin));
     opacity: 0;
   }

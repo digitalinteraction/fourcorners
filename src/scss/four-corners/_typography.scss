@@ -1,48 +1,34 @@
 @import "../config";
 @import "../mixins/main";
 
-#{$class-prefix}image {
+body {
+  @include common-text-style();
+  font-family: $font-family;
+}
 
-  h1, p, ul, button, span {
-    &#{$class-prefix}image-typo {
-      @include common-text-style();
-      font-family: $font-family;
-    }
+h1 {
+  font-size: $title-font-size;
+  letter-spacing: $title-letter-spacing;
+  font-weight: $title-font-weight;
+  margin: $title-margin 0 $title-margin 0;
+}
+
+p {
+  margin: 0 0 $paragraph-margin;
+}
+
+a {
+  color: $btn-color;
+  text-decoration: underline;
+  @include transition(opacity $transition-duration $transition-type);
+
+  &:hover,
+  &:active,
+  &:focus {
+    opacity: $btn-opacity;
   }
+}
 
-  &-i {
-    @include common-text-style();
-  }
-
-  h1 {
-    &#{$class-prefix}image-typo {
-      font-size: $title-font-size;
-      letter-spacing: $title-letter-spacing;
-      font-weight: $title-font-weight;
-      margin: $title-margin 0 $title-margin 0;
-    }
-  }
-
-  p {
-    &#{$class-prefix}image-typo {
-      margin: 0 0 $paragraph-margin;
-    }
-  }
-
-  a {
-    &#{$class-prefix}image-a {
-      @include common-text-style();
-      font-family: $font-family;
-      color: $btn-color;
-      text-decoration: underline;
-      @include transition(opacity $transition-duration $transition-type);
-
-      &:hover,
-      &:active,
-      &:focus {
-        opacity: $btn-opacity;
-      }
-    }
-  }
-
+#{$class-prefix}-image {
+  color: $font-color;
 }

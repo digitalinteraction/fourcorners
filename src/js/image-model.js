@@ -7,6 +7,7 @@
 var baseAttr = process.env.dataAttributeBase,
     getAllElementsWithAttribute = require('./helpers/get-all-elements-with-attribute'),
     addClass = require('./helpers/add-class'),
+    getIsTouch = require("./helpers/is-touch-screen"),
     removeClass = require('./helpers/remove-class');
 
 module.exports = function (dom) {
@@ -27,6 +28,10 @@ ImageModel.prototype.toolsHidden = function () {
         this.topRightCorner.visible ||
         this.bottomLeftCorner.visible ||
         this.bottomRightCorner.visible;
+};
+
+ImageModel.prototype.getIsTouch = function () {
+    return getIsTouch();
 };
 
 function CornerModel() {

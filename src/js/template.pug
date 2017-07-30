@@ -1,19 +1,19 @@
-.fc-image
+.fc-image(data-4c-class="touch-screen: getIsTouch")
     img(src=src)
     .fc-corner-icon(data-4c-class="hover: toolsHidden")
     .fc-tools(data-4c-class="collapsed: toolsHidden")
         if context && context.length
-            button.fc-btn.fc-btn-top-left.fc-image-typo(data-4c-on="click: topLeftCorner.show")
-                i.fa.fa-history.fc-image-i
+            button.fc-btn.fc-btn-top-left(data-4c-on="click: topLeftCorner.show")
+                i.fa.fa-history
         if links && links.length
-            button.fc-btn.fc-btn-top-right.fc-image-typo(data-4c-on="click: topRightCorner.show")
-                i.fa.fa-external-link.fc-image-i
+            button.fc-btn.fc-btn-top-right(data-4c-on="click: topRightCorner.show")
+                i.fa.fa-external-link
         if backStory && backStory.text
-            button.fc-btn.fc-btn-bottom-left.fc-image-typo(data-4c-on="click: bottomLeftCorner.show")
-                i.fa.fa-info.fc-image-i
+            button.fc-btn.fc-btn-bottom-left(data-4c-on="click: bottomLeftCorner.show")
+                i.fa.fa-info
         if creativeCommons && creativeCommons.formattedCopyright
-            button.fc-btn.fc-btn-bottom-right.fc-image-typo(data-4c-on="click: bottomRightCorner.show")
-                i.fa.fa-copyright.fc-image-i
+            button.fc-btn.fc-btn-bottom-right(data-4c-on="click: bottomRightCorner.show")
+                i.fa.fa-copyright
     .fc-content
         if context && context.length
             .fc-content-container.fc-content-fill(data-4c-on="swipeLeft: topLeftCorner.selectNext, swipeRight: topLeftCorner.selectPrevious"
@@ -22,8 +22,8 @@
                 .fc-gallery(data-4c-class="expanded: !topLeftCorner.visible")
                     if context.length > 1
                         .fc-gallery-controls.fc-gallery-prev(data-4c-class="transparent: getPrevControllerHidden")
-                            a.fc-image-typo(data-4c-on="click: topLeftCorner.selectPrevious, mouseover: topLeftCorner.preselectPrevious, mouseleave: topLeftCorner.clearPreselect")
-                                i.fa.fa-angle-left.fc-image-i
+                            a(data-4c-on="click: topLeftCorner.selectPrevious, mouseover: topLeftCorner.preselectPrevious, mouseleave: topLeftCorner.clearPreselect")
+                                i.fa.fa-angle-left
                     ul(data-4c-gallery-list)
                         each item in context
                             li(data-4c-on="click: topLeftCorner.selectItem"
@@ -38,30 +38,30 @@
                                     style="border:none")
                     if context.length > 1
                         .fc-gallery-controls.fc-gallery-next(data-4c-class="transparent: getNextControllerHidden")
-                            a.fc-image-typo(data-4c-on="click: topLeftCorner.selectNext, mouseover: topLeftCorner.preselectNext, mouseleave: topLeftCorner.clearPreselect")
-                                i.fa.fa-angle-right.fc-image-i
+                            a(data-4c-on="click: topLeftCorner.selectNext, mouseover: topLeftCorner.preselectNext, mouseleave: topLeftCorner.clearPreselect")
+                                i.fa.fa-angle-right
                     each item in context
                         if item.credit
                             .fc-gallery-caption(data-4c-gallery-caption data-4c-class="visible: topLeftCorner.getCaptionVisible")
                                 .fc-gallery-caption-background
                                 .fc-gallery-caption-text
-                                    span.fc-image-typo #{item.credit}
+                                    | #{item.credit}
                         else
                             div(data-4c-gallery-caption data-4c-class="visible: topLeftCorner.getCaptionVisible")
-                button.fc-btn.fc-btn-top-left.fc-gallery-close.fc-image-typo(data-4c-on="click: topLeftCorner.forceHide" data-4c-class="visible: topLeftCorner.visible")
-                    i.fa.fa-times.fc-image-i
+                button.fc-btn.fc-btn-top-left.fc-gallery-close(data-4c-on="click: topLeftCorner.forceHide" data-4c-class="visible: topLeftCorner.visible")
+                    i.fa.fa-times
         if links && links.length
             .fc-content-container.fc-content-top-right(data-4c-class="visible: topRightCorner.visible")
                 .fc-content-body
                     .fc-content-background
                     .fc-content-text
-                        button.fc-btn.fc-btn-close.fc-image-typo(data-4c-on="click: topRightCorner.forceHide" data-4c-class="visible: topRightCorner.visible")
-                            i.fa.fa-times.fc-image-i
-                        h1.fc-image-typo Links
+                        button.fc-btn.fc-btn-close(data-4c-on="click: topRightCorner.forceHide" data-4c-class="visible: topRightCorner.visible")
+                            i.fa.fa-times
+                        h1 Links
                         ul.fa-ul
                             each item in links
                                 li
-                                    i.fa.fa-li.fc-image-i(class="fa-" + item.type)
+                                    i.fa.fa-li(class="fa-" + item.type)
                                     a.fc-image-a(href=item.url) #{item.title}
 
         if backStory && backStory.text
@@ -69,11 +69,11 @@
                 .fc-content-body
                     .fc-content-background
                     .fc-content-text
-                        button.fc-btn.fc-btn-close.fc-image-typo(data-4c-on="click: bottomLeftCorner.forceHide" data-4c-class="visible: bottomLeftCorner.visible")
-                            i.fa.fa-times.fc-image-i.fc-image-i
-                        h1.fc-image-typo Backstory
-                        p.fc-image-typo #{backStory.text}
-                        p.fc-image-typo
+                        button.fc-btn.fc-btn-close(data-4c-on="click: bottomLeftCorner.forceHide" data-4c-class="visible: bottomLeftCorner.visible")
+                            i.fa.fa-times
+                        h1 Backstory
+                        p #{backStory.text}
+                        p
                             if backStory.author
                                 | #{backStory.author + (backStory.publication || backStory.date ? ', ' : '')}
                             if backStory.publication
@@ -89,11 +89,13 @@
                 .fc-content-body
                     .fc-content-background
                     .fc-content-text
-                        button.fc-btn.fc-btn-close.fc-image-typo(data-4c-on="click: bottomRightCorner.forceHide" data-4c-class="visible: bottomRightCorner.visible")
-                            i.fa.fa-times.fc-image-i
-                        p.fc-content-copyright.fc-image-typo
-                            span.fc-image-typo #{creativeCommons.formattedCopyright}
+                        button.fc-btn.fc-btn-close(data-4c-on="click: bottomRightCorner.forceHide" data-4c-class="visible: bottomRightCorner.visible")
+                            i.fa.fa-times
+                        p.fc-content-copyright
+                            | #{creativeCommons.formattedCopyright}
                         if creativeCommons.codeOfEthics
-                            p.fc-image-typo.fc-code-of-ethics
+                            p.fc-code-of-ethics
                                 | CODE OF ETHICS:  #{creativeCommons.codeOfEthics}
-                        p.fc-image-typo #{creativeCommons.description}
+                        p #{creativeCommons.description}
+.fc-footer(data-4c-footer)
+    | Four Corners

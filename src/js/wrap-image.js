@@ -33,10 +33,9 @@ module.exports = function (imageData) {
     insertScript(process.env.fontAwesomeCdnUrl, iframeDocument);
     iframeDocument.close();
 
-    var newDiv = iframeDocument.getElementsByTagName("div")[0];
-
-    treatFaultyImages(newDiv);
-    return newDiv;
+    treatFaultyImages(iframeDocument.body);
+    adjustIframeHeightToFooter(iframe);
+    return iframeDocument.body;
 };
 
 function makeStyle() {
@@ -44,6 +43,11 @@ function makeStyle() {
     style.type = 'text/css';
     style.innerHTML = css;
     return style;
+}
+
+function adjustIframeHeightToFooter(iframe) {
+    var footer = getAllElementsWithAttribute(baseAttr + "-footer", iframe.contentWindow.document)[0];
+    iframe.style.height = iframe.offsetHeight + footer.offsetHeight + "px";
 }
 
 function treatFaultyImages(div) {

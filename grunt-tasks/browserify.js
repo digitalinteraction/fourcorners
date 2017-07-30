@@ -28,6 +28,7 @@ module.exports = function (grunt) {
                     dataAttributeBase: config.dataAttributeBase,
                     fontAwesomeCdnUrl: config.fontAwesomeCdnUrl
                 }), [browserifyCss, {
+                    "autoInject": false,
                     "minify": true,
                     "rootDir": "."
                 }], pugify.pug({
