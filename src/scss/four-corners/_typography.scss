@@ -32,3 +32,16 @@ a {
 #{$class-prefix}-image {
   color: $font-color;
 }
+
+#{$class-prefix}-footer {
+  text-align: right;
+  padding: 4px 0 4px 0;
+}
+
+#{$class-prefix}-icon {
+  vertical-align: middle;
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+  background: $fc-icon-uri;
+}
