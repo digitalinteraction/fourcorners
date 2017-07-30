@@ -91,12 +91,8 @@ img(src=src)
                     button.fc-btn.fc-btn-close.fc-image-typo(data-4c-on="click: bottomRightCorner.forceHide" data-4c-class="visible: bottomRightCorner.visible")
                         i.fa.fa-times.fc-image-i
                     p.fc-content-copyright.fc-image-typo
-                        if creativeCommons.codeOfEthics
-                            a.fc-image-a.fc-code-of-ethics-show(data-4c-on="click: bottomRightCorner.toggleCodeOfEthics")
-                                | #{creativeCommons.formattedCopyright}
-                        else
-                            span.fc-image-typo #{creativeCommons.formattedCopyright}
+                        span.fc-image-typo #{creativeCommons.formattedCopyright}
                     if creativeCommons.codeOfEthics
-                        p.fc-image-typo(data-4c-class="visible: bottomRightCorner.codeOfEthicsVisible").fc-code-of-ethics
+                        p.fc-image-typo.fc-code-of-ethics
                             | CODE OF ETHICS:  #{creativeCommons.codeOfEthics}
                     p.fc-image-typo #{creativeCommons.description}

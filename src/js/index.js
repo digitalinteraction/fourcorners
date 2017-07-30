@@ -90,11 +90,6 @@ function CodeOfEthicsCornerInterface(cornerModel, controller) {
         controller.executeWatchers();
     };
 
-    this.toggleCodeOfEthics = function (visible) {
-        cornerModel.toggleCodeOfEthics(null, null, visible);
-        controller.executeWatchers();
-    };
-
 }
 
 exports.buildFromJson = buildFromJson;

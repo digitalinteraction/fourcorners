@@ -148,18 +148,9 @@ function GalleryCornerModelFactory(dom) {
 
 function CreativeCommonsCorner() {
     CornerModel.call(this);
-    this.codeOfEthicsVisible = false;
 }
 
 CreativeCommonsCorner.prototype = Object.create(CornerModel.prototype);
-
-CreativeCommonsCorner.prototype.toggleCodeOfEthics = function (mouseEvent, htmlEl, visible) {
-    if (visible!=null) {
-        this.codeOfEthicsVisible = visible;
-    } else {
-        this.codeOfEthicsVisible = !this.codeOfEthicsVisible;
-    }
-};
 
 function pauseYouTubeVideo(iframe) {
     iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
