@@ -1,6 +1,13 @@
 @import "../mixins/main";
 @import "../config";
 
+@mixin btn-close-common() {
+  background: transparent;
+  font-size: 30px;
+  padding: 0 0 5px;
+  line-height: 0;
+}
+
 .fc {
   &-tools {
 
@@ -38,7 +45,7 @@
 
   }
   &-btn {
-    $margin: 5px;
+    $margin: 2px;
 
     display: inline-block;
     margin: 0;
@@ -51,6 +58,7 @@
     background: $btn-background;
     border: none;
     border-radius: 50%;
+    font-size: 18px;
     height: 30px;
     width: 30px;
     opacity: $btn-opacity;
@@ -86,8 +94,10 @@
     }
 
     &-close {
+      z-index: 2;
       position: static;
       float: right;
+      @include btn-close-common();
     }
 
   }

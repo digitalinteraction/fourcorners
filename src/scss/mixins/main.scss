@@ -22,7 +22,7 @@
 @mixin common-text-style() {
   font-size: $font-size;
   font-weight: $font-weight;
-  letter-spacing: $letter-spacing;
+  line-height: $font-line-height;
   -webkit-text-emphasis: initial;
   -webkit-text-fill-color: initial;
 }

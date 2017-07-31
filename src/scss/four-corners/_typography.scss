@@ -8,7 +8,6 @@ body {
 
 h1 {
   font-size: $title-font-size;
-  letter-spacing: $title-letter-spacing;
   font-weight: $title-font-weight;
   margin: $title-margin 0 $title-margin 0;
 }
@@ -18,7 +17,7 @@ p {
 }
 
 a {
-  color: $btn-color;
+  color: $font-color;
   text-decoration: underline;
   @include transition(opacity $transition-duration $transition-type);
 
@@ -43,5 +42,25 @@ a {
   display: inline-block;
   height: 1em;
   width: 1em;
-  background: $fc-icon-uri;
+
+  &-brand {
+    background: $fc-icon-uri;
+  }
+
+  &-context {
+    background: $fc-icon-context;
+  }
+
+  &-info {
+    background: $fc-icon-info;
+  }
+
+  &-links {
+    background: $fc-icon-links;
+  }
+
+  &-copyright {
+    background: $fc-icon-copyright;
+  }
+
 }

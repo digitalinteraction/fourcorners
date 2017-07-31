@@ -1,19 +1,18 @@
 .fc-image(data-4c-class="touch-screen: getIsTouch")
     img(src=src)
-    .fc-corner-icon(data-4c-class="hover: toolsHidden")
     .fc-tools(data-4c-class="collapsed: toolsHidden")
         if context && context.length
             button.fc-btn.fc-btn-top-left(data-4c-on="click: topLeftCorner.show")
-                i.fa.fa-history
+                i.fc-icon.fc-icon-context
         if links && links.length
             button.fc-btn.fc-btn-top-right(data-4c-on="click: topRightCorner.show")
-                i.fa.fa-external-link
+                i.fc-icon.fc-icon-links
         if backStory && backStory.text
             button.fc-btn.fc-btn-bottom-left(data-4c-on="click: bottomLeftCorner.show")
-                i.fa.fa-info
+                i.fc-icon.fc-icon-info
         if creativeCommons && creativeCommons.formattedCopyright
             button.fc-btn.fc-btn-bottom-right(data-4c-on="click: bottomRightCorner.show")
-                i.fa.fa-copyright
+                i.fc-icon.fc-icon-copyright
     .fc-content
         if context && context.length
             .fc-content-container.fc-content-fill(data-4c-on="swipeLeft: topLeftCorner.selectNext, swipeRight: topLeftCorner.selectPrevious"
@@ -48,15 +47,15 @@
                                     | #{item.credit}
                         else
                             div(data-4c-gallery-caption data-4c-class="visible: topLeftCorner.getCaptionVisible")
-                button.fc-btn.fc-btn-top-left.fc-gallery-close(data-4c-on="click: topLeftCorner.forceHide" data-4c-class="visible: topLeftCorner.visible")
-                    i.fa.fa-times
+                button.fc-btn.fc-btn-top-right.fc-gallery-close(data-4c-on="click: topLeftCorner.forceHide" data-4c-class="visible: topLeftCorner.visible")
+                    |&times;
         if links && links.length
             .fc-content-container.fc-content-top-right(data-4c-class="visible: topRightCorner.visible")
                 .fc-content-body
                     .fc-content-background
                     .fc-content-text
                         button.fc-btn.fc-btn-close(data-4c-on="click: topRightCorner.forceHide" data-4c-class="visible: topRightCorner.visible")
-                            i.fa.fa-times
+                            |&times;
                         h1 Links
                         ul.fa-ul
                             each item in links
@@ -70,7 +69,7 @@
                     .fc-content-background
                     .fc-content-text
                         button.fc-btn.fc-btn-close(data-4c-on="click: bottomLeftCorner.forceHide" data-4c-class="visible: bottomLeftCorner.visible")
-                            i.fa.fa-times
+                            |&times;
                         h1 Backstory
                         p #{backStory.text}
                         p
@@ -90,7 +89,7 @@
                     .fc-content-background
                     .fc-content-text
                         button.fc-btn.fc-btn-close(data-4c-on="click: bottomRightCorner.forceHide" data-4c-class="visible: bottomRightCorner.visible")
-                            i.fa.fa-times
+                            |&times;
                         p.fc-content-copyright
                             | #{creativeCommons.formattedCopyright}
                         if creativeCommons.codeOfEthics
@@ -99,4 +98,4 @@
                         p #{creativeCommons.description}
 .fc-footer(data-4c-footer)
     | Four Corners&nbsp;
-    span.fc-icon
+    i.fc-icon.fc-icon-brand
