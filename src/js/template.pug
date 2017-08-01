@@ -1,4 +1,4 @@
-.fc-image(data-4c-class="touch-screen: getIsTouch")
+.fc-image(data-4c-class="touch-screen: touched" data-4c-on="click: showTools, clickOutside: hideTools")
     img(src=src)
     .fc-tools(data-4c-class="collapsed: toolsHidden")
         if context && context.length

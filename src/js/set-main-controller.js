@@ -41,9 +41,14 @@ module.exports = function (domContainer, model) {
                 if (['click', 'mouseover'].indexOf(eventName) > -1) {
                     var hammertime = new Hammer(el);
                     hammertime.on('tap', eventListener);
+                } else if (eventName == 'clickOutside') {
+                    var hammertime = new Hammer(document);
+                    hammertime.on('tap', wrapEventListenerToOutsideClick(el, eventListener));
                 } else {
                     addEventListener(el, eventName, eventListener);
                 }
+            } else if (eventName == 'clickOutside') {
+                addEventListener(document, 'click', wrapEventListenerToOutsideClick(el, eventListener));
             } else {
                 addEventListener(el, eventName, eventListener);
             }
@@ -166,6 +171,15 @@ module.exports = function (domContainer, model) {
                 subModel[funName].call(subModel, event, el);
                 executeWatchers();
             }, 100);
+        }
+    }
+
+    function wrapEventListenerToOutsideClick(el, eventListener) {
+        return function outsideClickEventListener(event) {
+            var isClickInside = el.contains(event.target);
+            if (!isClickInside) {
+                eventListener(event);
+            }
         }
     }
 

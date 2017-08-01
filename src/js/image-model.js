@@ -17,6 +17,7 @@ module.exports = function (dom) {
 };
 
 function ImageModel(dom) {
+    this.touched = false;
     this.topLeftCorner = GalleryCornerModelFactory(dom);
     this.topRightCorner = new CornerModel();
     this.bottomLeftCorner = new CornerModel();
@@ -30,8 +31,12 @@ ImageModel.prototype.toolsHidden = function () {
         this.bottomRightCorner.visible;
 };
 
-ImageModel.prototype.getIsTouch = function () {
-    return getIsTouch();
+ImageModel.prototype.showTools = function () {
+    this.touched = getIsTouch();
+};
+
+ImageModel.prototype.hideTools = function () {
+    this.touched = false;
 };
 
 function CornerModel() {
@@ -39,7 +44,10 @@ function CornerModel() {
     this.pinned = false;
 }
 
-CornerModel.prototype.show = function () {
+CornerModel.prototype.show = function (e) {
+    if (e) {
+        this.stopEventPropagation(e);
+    }
     this.visible = true;
 };
 CornerModel.prototype.hide = function () {
@@ -48,7 +56,16 @@ CornerModel.prototype.hide = function () {
     }
     this.visible = false;
 };
-CornerModel.prototype.forceHide = function () {
+CornerModel.prototype.stopEventPropagation = function (e) {
+    // Retreive function from MouseEvent or HammerJS srcEvent
+    if (e.stopPropagation) {
+        e.stopPropagation();
+    } else {
+        e.srcEvent.stopPropagation();
+    }
+};
+CornerModel.prototype.forceHide = function (e) {
+    this.stopEventPropagation(e);
     this.pin(false);
 };
 CornerModel.prototype.pin = function (pinned) {
