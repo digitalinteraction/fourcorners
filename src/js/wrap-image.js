@@ -11,7 +11,7 @@ var template = require("./template.pug"),
     getAllElementsWithAttribute = require("./helpers/get-all-elements-with-attribute"),
     shortenText = require("./helpers/shorten-text"),
     insertScript = require('./helpers/insert-script'),
-    css = require('../temp/style.min.css');
+    css = require('../scss/main.scss');
 
 module.exports = function (imageData) {
     var iframe = document.createElement("iframe"),

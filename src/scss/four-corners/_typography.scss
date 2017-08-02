@@ -17,13 +17,15 @@ p {
 }
 
 a {
-  color: $font-color;
-  text-decoration: underline;
+  $color: darken($brand-color, 10);
+  color: $color;
+  text-decoration: none;
   @include transition(opacity $transition-duration $transition-type);
 
   &:hover,
   &:active,
   &:focus {
+    text-decoration: underline;
     opacity: $btn-opacity;
   }
 }

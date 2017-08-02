@@ -6,26 +6,31 @@
 
 module.exports = function (grunt) {
 
-    var config = grunt.config.get('environment'),
-        minifyCssTo = config.sassTo.replace(/.css$/, '.min.css');
+    var config = grunt.config.get('environment');
 
     grunt.config.set('copy', {
-        scripts: {
+        standaloneScript: {
             expand: true,
             flatten: true,
-            src: config.buildJsTo,
+            src: config.buildJsFolder + config.distStandaloneFileName,
             dest: config.distributionFolder
         },
-        jsToDemo: {
+        npmScript: {
             expand: true,
             flatten: true,
-            src: config.distributionFolder + '*',
+            src: config.buildJsFolder + config.distNpmFileName,
+            dest: config.distributionFolder
+        },
+        standaloneToDemo: {
+            expand: true,
+            flatten: true,
+            src: config.distributionFolder + config.distStandaloneFileName,
             dest: config.demoFolder
         },
-        cssToDemo: {
+        npmToDemo: {
             expand: true,
             flatten: true,
-            src: [config.sassTo, config.sassTo + '.map', minifyCssTo, minifyCssTo + '.map'],
+            src: config.distributionFolder + config.distNpmFileName,
             dest: config.demoFolder
         }
     });

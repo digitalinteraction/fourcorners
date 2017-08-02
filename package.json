@@ -1,8 +1,8 @@
 {
   "name": "fourcorners",
-  "version": "0.0.25",
+  "version": "0.0.30",
   "description": "Add a rich meta-data driven overlay to your photo-journalism images just by dropping in javascript and a text file http://fourcorners.io",
-  "main": "dist/4c.js",
+  "main": "dist/npm.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -34,7 +34,8 @@
     "grunt-contrib-cssmin": "^1.0.1",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-sass": "^1.2.1"
+    "grunt-sass": "^1.2.1",
+    "sassify": "^2.0.0"
   },
   "dependencies": {
     "hammerjs": "^2.0.8",

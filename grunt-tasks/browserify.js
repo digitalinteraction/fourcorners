@@ -6,7 +6,7 @@
 
 var envify = require('envify/custom'),
     pugify = require('pugify'),
-    browserifyCss = require('browserify-css');
+    sassify = require('sassify');
 
 module.exports = function (grunt) {
 
@@ -14,7 +14,8 @@ module.exports = function (grunt) {
         packageJson = grunt.config.get('pkg'),
         browserifyFileOptions = {};
 
-    browserifyFileOptions[config.buildJsTo] = config.browserifyFrom;
+    browserifyFileOptions[config.buildJsFolder + config.distStandaloneFileName] = config.browserifyStandaloneFrom;
+    browserifyFileOptions[config.buildJsFolder + config.distNpmFileName] = config.browserifyNpmFrom;
 
     grunt.config.set('browserify', {
         build: {
@@ -27,10 +28,10 @@ module.exports = function (grunt) {
                 transform: [envify({
                     dataAttributeBase: config.dataAttributeBase,
                     fontAwesomeCdnUrl: config.fontAwesomeCdnUrl
-                }), [browserifyCss, {
-                    "autoInject": false,
-                    "minify": true,
-                    "rootDir": "."
+                }), [sassify, {
+                    "auto-inject": false,
+                    base64Encode: false,
+                    sourceMap: config.includeCssMaps
                 }], pugify.pug({
                     pretty: false
                 })]

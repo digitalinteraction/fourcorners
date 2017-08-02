@@ -7,9 +7,12 @@
 module.exports = function (grunt) {
 
     var config = grunt.config.get('environment'),
-        uglifyJsFileOptions = {};
+        uglifyJsFileOptions = {},
+        standaloneFilePath = config.buildJsFolder + config.distStandaloneFileName,
+        npmFilePath = config.buildJsFolder + config.distNpmFileName;
 
-    uglifyJsFileOptions[config.buildJsTo] = config.buildJsTo;
+    uglifyJsFileOptions[standaloneFilePath] = standaloneFilePath;
+    uglifyJsFileOptions[npmFilePath] = npmFilePath;
 
     grunt.config.set('uglify', {
         options: {

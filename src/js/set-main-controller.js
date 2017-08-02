@@ -13,6 +13,9 @@ var baseAttr = process.env.dataAttributeBase,
     Hammer = require('hammerjs');
 
 module.exports = function (domContainer, model) {
+
+    console.log("Set main controller", module.parent);
+
     var watchers = [],
         isTouch = require('./helpers/is-touch-screen')();
 
