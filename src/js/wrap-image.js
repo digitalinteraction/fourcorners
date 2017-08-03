@@ -11,6 +11,7 @@ var template = require("./template.pug"),
     getAllElementsWithAttribute = require("./helpers/get-all-elements-with-attribute"),
     shortenText = require("./helpers/shorten-text"),
     insertScript = require('./helpers/insert-script'),
+    addEventListener = require("./helpers/add-event-listener"),
     css = require('../scss/main.scss');
 
 module.exports = function (imageData) {
@@ -39,8 +40,22 @@ module.exports = function (imageData) {
 
     treatFaultyImages(iframeDocument.body);
     adjustIframeHeightToFooter(iframe, wrapperDiv);
+    listenToResize(this, wrapperDiv, iframe);
     return iframeDocument.body;
 };
+
+function listenToResize(imgDom, wrapperDiv, iframe) {
+    var parentNode = wrapperDiv.parentNode, timeout;
+    addEventListener(window, "resize", function () {
+        clearTimeout(timeout);
+        timeout = setTimeout(function () {
+            parentNode.appendChild(imgDom);
+            copyStyle(imgDom, wrapperDiv);
+            parentNode.removeChild(imgDom);
+            adjustIframeHeightToFooter(iframe, wrapperDiv);
+        }, 500);
+    });
+}
 
 function makeStyle() {
     var style = document.createElement("style");
