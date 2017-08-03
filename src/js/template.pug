@@ -17,7 +17,6 @@
         if context && context.length
             .fc-content-container.fc-content-fill(data-4c-on="swipeLeft: topLeftCorner.selectNext, swipeRight: topLeftCorner.selectPrevious"
             data-4c-class="visible: topLeftCorner.visible, pinned: topLeftCorner.pinned")
-                .fc-content-background
                 .fc-gallery(data-4c-class="expanded: !topLeftCorner.visible")
                     if context.length > 1
                         .fc-gallery-controls.fc-gallery-prev(data-4c-class="transparent: getPrevControllerHidden")
@@ -42,7 +41,6 @@
                     each item in context
                         if item.credit
                             .fc-gallery-caption(data-4c-gallery-caption data-4c-class="visible: topLeftCorner.getCaptionVisible")
-                                .fc-gallery-caption-background
                                 .fc-gallery-caption-text
                                     | #{item.credit}
                         else
@@ -52,7 +50,6 @@
         if links && links.length
             .fc-content-container.fc-content-top-right(data-4c-class="visible: topRightCorner.visible")
                 .fc-content-body
-                    .fc-content-background
                     .fc-content-text
                         button.fc-btn.fc-btn-close(data-4c-on="click: topRightCorner.forceHide" data-4c-class="visible: topRightCorner.visible")
                             |&times;
@@ -66,7 +63,6 @@
         if backStory && backStory.text
             .fc-content-container.fc-content-bottom-left(data-4c-class="visible: bottomLeftCorner.visible")
                 .fc-content-body
-                    .fc-content-background
                     .fc-content-text
                         button.fc-btn.fc-btn-close(data-4c-on="click: bottomLeftCorner.forceHide" data-4c-class="visible: bottomLeftCorner.visible")
                             |&times;
@@ -86,7 +82,6 @@
         if creativeCommons && creativeCommons.formattedCopyright
             .fc-content-container.fc-content-bottom-right(data-4c-class="visible: bottomRightCorner.visible")
                 .fc-content-body
-                    .fc-content-background
                     .fc-content-text
                         button.fc-btn.fc-btn-close(data-4c-on="click: bottomRightCorner.forceHide" data-4c-class="visible: bottomRightCorner.visible")
                             |&times;

@@ -14,14 +14,18 @@ var template = require("./template.pug"),
     css = require('../scss/main.scss');
 
 module.exports = function (imageData) {
-    var iframe = document.createElement("iframe"),
+    var wrapperDiv = document.createElement("div"),
+        iframe = document.createElement("iframe"),
         parentNode = this.parentNode;
 
-    copyStyle(this, iframe);
-    if (iframe.style.getPropertyValue("display") === "inline") {
-        iframe.style.display = "inline-block";
+    copyStyle(this, wrapperDiv);
+    styleWrapperDiv(wrapperDiv);
+    styleIframe(iframe);
+    wrapperDiv.appendChild(iframe);
+    if (wrapperDiv.style.getPropertyValue("display") === "inline") {
+        wrapperDiv.style.display = "inline-block";
     }
-    parentNode.replaceChild(iframe, this);
+    parentNode.replaceChild(wrapperDiv, this);
 
     var iframeDocument = iframe.contentWindow.document;
 
@@ -34,7 +38,7 @@ module.exports = function (imageData) {
     iframeDocument.close();
 
     treatFaultyImages(iframeDocument.body);
-    adjustIframeHeightToFooter(iframe);
+    adjustIframeHeightToFooter(iframe, wrapperDiv);
     return iframeDocument.body;
 };
 
@@ -45,9 +49,20 @@ function makeStyle() {
     return style;
 }
 
-function adjustIframeHeightToFooter(iframe) {
+function adjustIframeHeightToFooter(iframe, wrapperDiv) {
     var footer = getAllElementsWithAttribute(baseAttr + "-footer", iframe.contentWindow.document)[0];
-    iframe.style.height = iframe.offsetHeight + footer.offsetHeight + "px";
+    wrapperDiv.style.height = wrapperDiv.offsetHeight + footer.offsetHeight + "px";
+}
+
+function styleIframe(iframe) {
+    iframe.style.width = "100%";
+    iframe.style.height = "100%";
+    iframe.style.border = "none";
+}
+
+function styleWrapperDiv(div) {
+    // To support image border-radius
+    div.style.overflow = "hidden";
 }
 
 function treatFaultyImages(div) {

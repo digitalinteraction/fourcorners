@@ -2,6 +2,7 @@
 @import "../config";
 
 @mixin btn-close-common() {
+  border: none;
   background: transparent;
   font-size: 30px;
   padding: 0 0 5px;
@@ -56,7 +57,7 @@
     position: absolute;
     color: $btn-color;
     background: $btn-background;
-    border: none;
+    border: 1px solid $btn-border-color;
     border-radius: 50%;
     font-size: 18px;
     height: 30px;

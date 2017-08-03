@@ -17,6 +17,8 @@
     color: $font-color;
     overflow-y: auto;
     overflow-x: hidden;
+    background: rgba($corner-background, $btn-opacity);
+    border: 1px solid $corner-border-color;
     @include transition(opacity $transition-duration $transition-type);
 
     &.visible,
@@ -39,16 +41,6 @@
     z-index: 2;
     text-align: left;
     word-wrap: break-word;
-  }
-
-  &-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: $corner-background;
-    opacity: $btn-opacity;
   }
 
   &-fill {
