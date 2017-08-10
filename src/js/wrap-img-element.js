@@ -10,7 +10,12 @@ var getImageData = require("./get-image-data"),
 
 function wrapImgElement(imgDom) {
     getImageData.call(imgDom, function (imageData, filePath) {
-        wrapImgElementWithJson(imgDom, imageData, filePath);
+        /**
+         * Timeout is to let Internet Explorer to render the image first and calculate its' height
+         */
+        setTimeout(function () {
+            wrapImgElementWithJson(imgDom, imageData, filePath);
+        });
     });
 }
 
