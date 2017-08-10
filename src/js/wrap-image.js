@@ -12,21 +12,23 @@ var template = require("./template.pug"),
     shortenText = require("./helpers/shorten-text"),
     insertScript = require('./helpers/insert-script'),
     addEventListener = require("./helpers/add-event-listener"),
+    removeEventListener = require("./helpers/remove-event-listener"),
     css = require('../scss/main.scss');
 
 module.exports = function (imageData) {
     var wrapperDiv = document.createElement("div"),
         iframe = document.createElement("iframe"),
-        parentNode = this.parentNode;
+        parentNode = this.parentNode,
+        imgDom = this;
 
-    copyStyle(this, wrapperDiv);
+    copyStyle(imgDom, wrapperDiv);
     styleWrapperDiv(wrapperDiv);
     styleIframe(iframe);
     wrapperDiv.appendChild(iframe);
     if (wrapperDiv.style.getPropertyValue("display") === "inline") {
         wrapperDiv.style.display = "inline-block";
     }
-    parentNode.replaceChild(wrapperDiv, this);
+    parentNode.replaceChild(wrapperDiv, imgDom);
 
     var iframeDocument = iframe.contentWindow.document;
 
@@ -40,13 +42,21 @@ module.exports = function (imageData) {
 
     treatFaultyImages(iframeDocument.body);
     adjustIframeHeightToFooter(iframe, wrapperDiv);
-    listenToResize(this, wrapperDiv, iframe);
-    return iframeDocument.body;
+    var destroyListeners = listenToResize(imgDom, wrapperDiv, iframe);
+    return {
+        element: iframeDocument.body,
+        destroy: function () {
+            destroyListeners();
+            if (wrapperDiv.parentNode == parentNode) {
+                parentNode.replaceChild(imgDom, wrapperDiv);
+            }
+        }
+    };
 };
 
 function listenToResize(imgDom, wrapperDiv, iframe) {
     var parentNode = wrapperDiv.parentNode, timeout;
-    addEventListener(window, "resize", function () {
+    var resizeListener = function () {
         clearTimeout(timeout);
         timeout = setTimeout(function () {
             parentNode.appendChild(imgDom);
@@ -54,7 +64,14 @@ function listenToResize(imgDom, wrapperDiv, iframe) {
             parentNode.removeChild(imgDom);
             adjustIframeHeightToFooter(iframe, wrapperDiv);
         }, 500);
-    });
+    };
+    addEventListener(window, "resize", resizeListener);
+    /**
+     * Return destroy event listener function
+     */
+    return function () {
+        removeEventListener(window, "resize", resizeListener);
+    };
 }
 
 function makeStyle() {

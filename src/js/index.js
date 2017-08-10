@@ -6,7 +6,7 @@
 
 var init = require("./wrap-all-img-elements-on-page");
 
-console.log("Reacts");
+window.FourCorners = require("./index-npm");
 
 window.addEventListener("load", function load(event) {
     window.removeEventListener("load", load, false);

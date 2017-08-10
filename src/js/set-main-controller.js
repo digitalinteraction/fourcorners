@@ -10,13 +10,13 @@ var baseAttr = process.env.dataAttributeBase,
     addClass = require('./helpers/add-class'),
     removeClass = require('./helpers/remove-class'),
     addEventListener = require('./helpers/add-event-listener'),
+    removeEventListener = require("./helpers/remove-event-listener"),
     Hammer = require('hammerjs');
 
 module.exports = function (domContainer, model) {
 
-    console.log("Set main controller", module.parent);
-
     var watchers = [],
+        destroyers = [],
         isTouch = require('./helpers/is-touch-screen')();
 
     init();
@@ -31,31 +31,59 @@ module.exports = function (domContainer, model) {
     function setEventListeners() {
         var attr = baseAttr + '-on',
             doms = getAllElementsWithAttribute(attr, domContainer);
-        doms.forEach(function (dom) {
-            setEventListenersFromExpression(dom, dom.getAttribute(attr));
+        destroyers = doms.map(function (dom) {
+            return setEventListenersFromExpression(dom, dom.getAttribute(attr));
         });
     }
 
     function setEventListenersFromExpression(el, expression) {
         var eventMap = parseAttribute(expression);
+        var destroyers = [];
         for (var eventName in eventMap) {
             var eventListener = getEventListener(el, model, eventMap[eventName]);
+            var destroyer = function () {
+            };
             if (isTouch) {
                 if (['click', 'mouseover'].indexOf(eventName) > -1) {
                     var hammertime = new Hammer(el);
                     hammertime.on('tap', eventListener);
+                    destroyer = function () {
+                        hammertime.destroy();
+                    };
                 } else if (eventName == 'clickOutside') {
                     var hammertime = new Hammer(document);
                     hammertime.on('tap', wrapEventListenerToOutsideClick(el, eventListener));
+                    destroyer = function () {
+                        hammertime.destroy();
+                    };
                 } else {
                     addEventListener(el, eventName, eventListener);
+                    destroyer = function () {
+                        removeEventListener(el, eventName, eventListener);
+                    };
                 }
             } else if (eventName == 'clickOutside') {
-                addEventListener(document, 'click', wrapEventListenerToOutsideClick(el, eventListener));
+                var listener = wrapEventListenerToOutsideClick(el, eventListener);
+                var evName = 'click';
+                addEventListener(document, evName, listener);
+                destroyer = function () {
+                    removeEventListener(document, evName, listener);
+                };
             } else {
                 addEventListener(el, eventName, eventListener);
+                destroyer = function () {
+                    removeEventListener(document, eventName, eventListener);
+                };
             }
-
+            destroyers.push(destroyer);
+        }
+        /**
+         * Return remove all event listeners function
+         */
+        return function () {
+            destroyers.forEach(function (fn) {
+                fn();
+            });
         }
     }
 
@@ -192,8 +220,16 @@ module.exports = function (domContainer, model) {
         });
     }
 
+    function destroy() {
+        watchers = null;
+        destroyers.forEach(function (fn) {
+            fn();
+        })
+    }
+
     return {
-        executeWatchers: executeWatchers
+        executeWatchers: executeWatchers,
+        destroy: destroy
     }
 
 };

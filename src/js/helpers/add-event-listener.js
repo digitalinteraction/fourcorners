@@ -6,10 +6,10 @@
 
 module.exports = function (el, eventName, handler) {
     if (el.addEventListener) {
-        el.addEventListener(eventName, handler);
+        el.addEventListener(eventName, handler, false);
+    } else if (el.attachEvent) {
+        el.attachEvent("on" + eventName, handler);
     } else {
-        el.attachEvent('on' + eventName, function (event) {
-            handler.call(el, event);
-        });
+        el["on" + eventName] = handler;
     }
 };

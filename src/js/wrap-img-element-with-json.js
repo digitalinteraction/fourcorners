@@ -17,14 +17,20 @@ function wrapImgElementWithJson(imgDom, json, filePath) {
     }
     amendImageData(json);
 
-    var domContainer = wrapImage.call(imgDom, json),
+    var wrapped = wrapImage.call(imgDom, json),
+        destroyContainer = wrapped.destroy,
+        domContainer = wrapped.element,
         model = imageModelFactory(domContainer),
-        controller = setMainController(domContainer, model);
+        controller = setMainController(domContainer, model),
+        destroy = function () {
+            controller.destroy();
+            destroyContainer();
+        };
 
-    return FcInterfaceFactory(model, controller);
+    return FcInterfaceFactory(model, controller, destroy);
 }
 
-function FcInterfaceFactory(model, controller) {
+function FcInterfaceFactory(model, controller, fullDestroyFn) {
     var controller = controller,
         model = model;
 
@@ -32,7 +38,8 @@ function FcInterfaceFactory(model, controller) {
         topLeft: new FcCornerInterface(model.topLeftCorner, controller),
         topRight: new FcCornerInterface(model.topRightCorner, controller),
         bottomLeft: new FcCornerInterface(model.bottomLeftCorner, controller),
-        bottomRight: new CodeOfEthicsCornerInterface(model.bottomRightCorner, controller)
+        bottomRight: new CodeOfEthicsCornerInterface(model.bottomRightCorner, controller),
+        destroy: fullDestroyFn
     };
 
 }
