@@ -64,6 +64,7 @@
     width: 30px;
     opacity: $btn-opacity;
     outline: none;
+    padding: 0;
     @include transition(opacity $transition-duration $transition-type);
 
     &:hover,
