@@ -4,6 +4,8 @@
 body {
   // Normalise body within iframe
   margin: 0;
+  // To remove scroll bar
+  overflow: hidden;
 }
 
 #{$class-prefix}-image {
