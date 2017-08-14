@@ -6,7 +6,7 @@
   background: transparent;
   font-size: 30px;
   padding: 0 0 5px;
-  line-height: 0;
+  line-height: 1em;
 }
 
 .fc {
@@ -54,7 +54,6 @@
     white-space: nowrap;
     vertical-align: middle;
 
-    position: absolute;
     color: $btn-color;
     background: $btn-background;
     border: 1px solid $btn-border-color;
@@ -71,6 +70,11 @@
     &:active,
     &:focus {
       opacity: 1;
+    }
+
+    &-corner {
+      z-index: 2;
+      position: absolute;
     }
 
     &-top {
@@ -97,8 +101,6 @@
 
     &-close {
       z-index: 2;
-      position: static;
-      float: right;
       @include btn-close-common();
     }
 

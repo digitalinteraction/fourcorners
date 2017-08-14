@@ -2,16 +2,16 @@
     img(src=src)
     .fc-tools(data-4c-class="collapsed: toolsHidden")
         if context && context.length
-            button.fc-btn.fc-btn-top-left(data-4c-on="click: topLeftCorner.show")
+            button.fc-btn.fc-btn-corner.fc-btn-top-left(data-4c-on="click: topLeftCorner.show")
                 i.fc-icon.fc-icon-context
         if links && links.length
-            button.fc-btn.fc-btn-top-right(data-4c-on="click: topRightCorner.show")
+            button.fc-btn.fc-btn-corner.fc-btn-top-right(data-4c-on="click: topRightCorner.show")
                 i.fc-icon.fc-icon-links
         if backStory && backStory.text
-            button.fc-btn.fc-btn-bottom-left(data-4c-on="click: bottomLeftCorner.show")
+            button.fc-btn.fc-btn-corner.fc-btn-bottom-left(data-4c-on="click: bottomLeftCorner.show")
                 i.fc-icon.fc-icon-info
         if creativeCommons && creativeCommons.formattedCopyright
-            button.fc-btn.fc-btn-bottom-right(data-4c-on="click: bottomRightCorner.show")
+            button.fc-btn.fc-btn-corner.fc-btn-bottom-right(data-4c-on="click: bottomRightCorner.show")
                 i.fc-icon.fc-icon-copyright
     .fc-content
         if context && context.length
@@ -45,14 +45,15 @@
                                     | #{item.credit}
                         else
                             div(data-4c-gallery-caption data-4c-class="visible: topLeftCorner.getCaptionVisible")
-                button.fc-btn.fc-btn-top-right.fc-gallery-close(data-4c-on="click: topLeftCorner.forceHide" data-4c-class="visible: topLeftCorner.visible")
-                    |&times;
+                button.fc-btn.fc-btn-corner.fc-btn-top-right.fc-gallery-close.fc-btn-close(data-4c-on="click: topLeftCorner.forceHide" data-4c-class="visible: topLeftCorner.visible")
+                    | &times;
         if links && links.length
             .fc-content-container.fc-content-top-right(data-4c-class="visible: topRightCorner.visible")
                 .fc-content-body
                     .fc-content-text
-                        button.fc-btn.fc-btn-close(data-4c-on="click: topRightCorner.forceHide" data-4c-class="visible: topRightCorner.visible")
-                            |&times;
+                        .text-right
+                            button.fc-btn.fc-btn-close(data-4c-on="click: topRightCorner.forceHide" data-4c-class="visible: topRightCorner.visible")
+                                | &times;
                         h1 Links
                         ul.fa-ul
                             each item in links
@@ -64,8 +65,9 @@
             .fc-content-container.fc-content-bottom-left(data-4c-class="visible: bottomLeftCorner.visible")
                 .fc-content-body
                     .fc-content-text
-                        button.fc-btn.fc-btn-close(data-4c-on="click: bottomLeftCorner.forceHide" data-4c-class="visible: bottomLeftCorner.visible")
-                            |&times;
+                        .text-right
+                            button.fc-btn.fc-btn-close(data-4c-on="click: bottomLeftCorner.forceHide" data-4c-class="visible: bottomLeftCorner.visible")
+                                | &times;
                         h1 Backstory
                         p #{backStory.text}
                         p
@@ -83,8 +85,9 @@
             .fc-content-container.fc-content-bottom-right(data-4c-class="visible: bottomRightCorner.visible")
                 .fc-content-body
                     .fc-content-text
-                        button.fc-btn.fc-btn-close(data-4c-on="click: bottomRightCorner.forceHide" data-4c-class="visible: bottomRightCorner.visible")
-                            |&times;
+                        .text-right
+                            button.fc-btn.fc-btn-close(data-4c-on="click: bottomRightCorner.forceHide" data-4c-class="visible: bottomRightCorner.visible")
+                                | &times;
                         p.fc-content-copyright
                             | #{creativeCommons.formattedCopyright}
                         if creativeCommons.codeOfEthics

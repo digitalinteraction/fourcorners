@@ -187,9 +187,7 @@
   }
 
   &-close {
-    z-index: 2;
     display: none;
-    @include btn-close-common();
 
     &.visible {
       display: inline-block;

@@ -9,7 +9,7 @@ body {
 h1 {
   font-size: $title-font-size;
   font-weight: $title-font-weight;
-  margin: $title-margin 0 $title-margin 0;
+  margin: 0 0 $title-margin 0;
 }
 
 p {
@@ -65,4 +65,10 @@ a {
     background: $fc-icon-copyright;
   }
 
+}
+
+.text {
+  &-right {
+    text-align: right;
+  }
 }
