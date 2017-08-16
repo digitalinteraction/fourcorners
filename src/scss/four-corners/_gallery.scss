@@ -188,6 +188,8 @@
 
   &-close {
     display: none;
+    top: 0;
+    right: 0;
 
     &.visible {
       display: inline-block;

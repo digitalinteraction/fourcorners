@@ -50,10 +50,10 @@
         if links && links.length
             .fc-content-container.fc-content-top-right(data-4c-class="visible: topRightCorner.visible")
                 .fc-content-body
+                    .text-right
+                        button.fc-btn.fc-btn-close(data-4c-on="click: topRightCorner.forceHide" data-4c-class="visible: topRightCorner.visible")
+                            | &times;
                     .fc-content-text
-                        .text-right
-                            button.fc-btn.fc-btn-close(data-4c-on="click: topRightCorner.forceHide" data-4c-class="visible: topRightCorner.visible")
-                                | &times;
                         h1 Links
                         ul.fa-ul
                             each item in links
@@ -64,10 +64,10 @@
         if backStory && backStory.text
             .fc-content-container.fc-content-bottom-left(data-4c-class="visible: bottomLeftCorner.visible")
                 .fc-content-body
+                    .text-right
+                        button.fc-btn.fc-btn-close(data-4c-on="click: bottomLeftCorner.forceHide" data-4c-class="visible: bottomLeftCorner.visible")
+                            | &times;
                     .fc-content-text
-                        .text-right
-                            button.fc-btn.fc-btn-close(data-4c-on="click: bottomLeftCorner.forceHide" data-4c-class="visible: bottomLeftCorner.visible")
-                                | &times;
                         h1 Backstory
                         p #{backStory.text}
                         p
@@ -84,10 +84,10 @@
         if creativeCommons && creativeCommons.formattedCopyright
             .fc-content-container.fc-content-bottom-right(data-4c-class="visible: bottomRightCorner.visible")
                 .fc-content-body
+                    .text-right
+                        button.fc-btn.fc-btn-close(data-4c-on="click: bottomRightCorner.forceHide" data-4c-class="visible: bottomRightCorner.visible")
+                            | &times;
                     .fc-content-text
-                        .text-right
-                            button.fc-btn.fc-btn-close(data-4c-on="click: bottomRightCorner.forceHide" data-4c-class="visible: bottomRightCorner.visible")
-                                | &times;
                         p.fc-content-copyright
                             | #{creativeCommons.formattedCopyright}
                         if creativeCommons.codeOfEthics
