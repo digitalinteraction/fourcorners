@@ -46,7 +46,7 @@
 
   }
   &-btn {
-    $margin: 2px;
+    $margin: $corner-btn-margin;
 
     display: inline-block;
     margin: 0;
