@@ -95,6 +95,7 @@ function styleIframe(iframe) {
 function styleWrapperDiv(div) {
     // To support image border-radius
     div.style.overflow = "hidden";
+    div.style.border = "1px solid #ddd";
 }
 
 function treatFaultyImages(div) {
