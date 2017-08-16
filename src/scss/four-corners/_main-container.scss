@@ -8,6 +8,10 @@ body {
   overflow: hidden;
 }
 
+ul {
+  margin-top: 0;
+}
+
 #{$class-prefix}-image {
   position: relative;
   overflow: hidden;
