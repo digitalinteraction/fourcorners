@@ -43,25 +43,27 @@ a {
   display: inline-block;
   height: 1em;
   width: 1em;
+  background-repeat: no-repeat;
+  background-position: center;
 
   &-brand {
-    background: $fc-icon-uri;
+    background-image: $fc-icon-uri;
   }
 
   &-context {
-    background: $fc-icon-context;
+    background-image: $fc-icon-context;
   }
 
   &-info {
-    background: $fc-icon-info;
+    background-image: $fc-icon-info;
   }
 
   &-links {
-    background: $fc-icon-links;
+    background-image: $fc-icon-links;
   }
 
   &-copyright {
-    background: $fc-icon-copyright;
+    background-image: $fc-icon-copyright;
   }
 
 }
