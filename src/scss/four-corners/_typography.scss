@@ -17,9 +17,8 @@ p {
 }
 
 a {
-  $color: darken($brand-color, 10);
+  $color: $font-color;
   color: $color;
-  text-decoration: none;
   @include transition(opacity $transition-duration $transition-type);
 
   &:hover,
