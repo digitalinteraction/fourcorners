@@ -107,7 +107,6 @@
     bottom: 0;
     left: 0;
     text-align: center;
-    padding: 5px;
     font-size: 12px;
     width: 100%;
     display: none;
@@ -135,44 +134,44 @@
 
   }
 
+  &-close {
+    display: none;
+    top: 0;
+    right: 0;
+
+    &.visible {
+      display: inline-block;
+    }
+
+  }
+
+}
+
+a#{$class-prefix}-gallery {
+
   &-controls {
-    background: transparent;
     height: 100%;
-    width: 40px;
+    width: 35px;
     position: absolute;
     top: 0;
     z-index: 1;
-    opacity: 0.5;
-    @include transition(opacity $gallery-animation-speed $transition-type);
+    display: block;
+    cursor: pointer;
+    color: $btn-color;
+    @include hover-opacity(.5, .8);
 
     &.transparent {
       opacity: 0;
     }
 
-    a {
-      display: block;
-      cursor: pointer;
-      width: 100%;
-      height: 100%;
-      color: $btn-color;
-
-      &:hover,
-      &:active,
-      &:focus {
-        color: darken($btn-color, 20%);
-
-      }
-
-      i {
-        $height: 70px;
-        $width: 25px;
-        position: absolute;
-        top: 50%;
-        left: 5px;
-        margin-top: -$height/2;
-        font-size: $height;
-
-      }
+    i {
+      $height: 70px;
+      $width: 25px;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      margin-top: -$height/2;
+      font-size: $height;
 
     }
 
@@ -184,17 +183,6 @@
 
   &-next {
     right: 0;
-  }
-
-  &-close {
-    display: none;
-    top: 0;
-    right: 0;
-
-    &.visible {
-      display: inline-block;
-    }
-
   }
 
 }

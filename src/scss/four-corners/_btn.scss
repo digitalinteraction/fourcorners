@@ -62,16 +62,10 @@
     font-size: $corner-btn-icon-size;
     height: $corner-btn-size;
     width: $corner-btn-size;
-    opacity: $btn-opacity;
     outline: none;
     padding: 0;
-    @include transition(opacity $transition-duration $transition-type);
 
-    &:hover,
-    &:active,
-    &:focus {
-      opacity: 1;
-    }
+    @include anchor-btn-hover-style();
 
     &-corner {
       z-index: 2;

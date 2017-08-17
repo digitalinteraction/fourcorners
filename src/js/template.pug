@@ -19,9 +19,8 @@
             data-4c-class="visible: topLeftCorner.visible, pinned: topLeftCorner.pinned")
                 .fc-gallery(data-4c-class="expanded: !topLeftCorner.visible")
                     if context.length > 1
-                        .fc-gallery-controls.fc-gallery-prev(data-4c-class="transparent: getPrevControllerHidden")
-                            a(data-4c-on="click: topLeftCorner.selectPrevious, mouseover: topLeftCorner.preselectPrevious, mouseleave: topLeftCorner.clearPreselect")
-                                i.fa.fa-angle-left
+                        a.fc-gallery-controls.fc-gallery-prev(data-4c-on="click: topLeftCorner.selectPrevious, mouseover: topLeftCorner.preselectPrevious, mouseleave: topLeftCorner.clearPreselect" data-4c-class="transparent: getPrevControllerHidden")
+                            i.fc-icon.fc-icon-angle-left
                     ul(data-4c-gallery-list)
                         each item in context
                             li(data-4c-on="click: topLeftCorner.selectItem"
@@ -35,9 +34,8 @@
                                     data-4c-gallery-yt
                                     style="border:none")
                     if context.length > 1
-                        .fc-gallery-controls.fc-gallery-next(data-4c-class="transparent: getNextControllerHidden")
-                            a(data-4c-on="click: topLeftCorner.selectNext, mouseover: topLeftCorner.preselectNext, mouseleave: topLeftCorner.clearPreselect")
-                                i.fa.fa-angle-right
+                        a.fc-gallery-controls.fc-gallery-next(data-4c-on="click: topLeftCorner.selectNext, mouseover: topLeftCorner.preselectNext, mouseleave: topLeftCorner.clearPreselect" data-4c-class="transparent: getNextControllerHidden")
+                            i.fc-icon.fc-icon-angle-right
                     each item in context
                         if item.credit
                             .fc-gallery-caption(data-4c-gallery-caption data-4c-class="visible: topLeftCorner.getCaptionVisible")

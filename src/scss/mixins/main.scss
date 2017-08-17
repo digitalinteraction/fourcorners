@@ -1,3 +1,5 @@
+@import "../config";
+
 @mixin transition($args...) {
   -webkit-transition: $args;
   -moz-transition: $args;
@@ -25,4 +27,19 @@
   line-height: $font-line-height;
   -webkit-text-emphasis: initial;
   -webkit-text-fill-color: initial;
+}
+
+@mixin hover-opacity($from, $to) {
+  opacity: $from;
+  @include transition(opacity $transition-duration $transition-type);
+
+  &:hover,
+  &:active,
+  &:focus {
+    opacity: $to;
+  }
+}
+
+@mixin anchor-btn-hover-style() {
+  @include hover-opacity($btn-opacity, 1);
 }

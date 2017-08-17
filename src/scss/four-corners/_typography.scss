@@ -19,14 +19,8 @@ p {
 a {
   $color: $font-color;
   color: $color;
-  @include transition(opacity $transition-duration $transition-type);
 
-  &:hover,
-  &:active,
-  &:focus {
-    text-decoration: underline;
-    opacity: $btn-opacity;
-  }
+  @include anchor-btn-hover-style();
 }
 
 #{$class-prefix}-image {
