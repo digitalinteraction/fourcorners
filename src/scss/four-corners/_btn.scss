@@ -56,7 +56,8 @@
 
     color: $btn-color;
     background: $btn-background;
-    border: none;
+    border: 1px solid transparent;
+    box-sizing: border-box;
     border-radius: 50%;
     font-size: $corner-btn-icon-size;
     height: $corner-btn-size;
