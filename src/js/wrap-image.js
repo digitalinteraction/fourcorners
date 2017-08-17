@@ -21,8 +21,7 @@ module.exports = function (imageData) {
         parentNode = this.parentNode,
         imgDom = this;
 
-    copyStyle(imgDom, wrapperDiv);
-    styleWrapperDiv(wrapperDiv);
+    styleWrapperDiv(imgDom, wrapperDiv);
     styleIframe(iframe);
     wrapperDiv.appendChild(iframe);
     if (wrapperDiv.style.getPropertyValue("display") === "inline") {
@@ -60,7 +59,7 @@ function listenToResize(imgDom, wrapperDiv, iframe) {
         clearTimeout(timeout);
         timeout = setTimeout(function () {
             parentNode.appendChild(imgDom);
-            copyStyle(imgDom, wrapperDiv);
+            styleWrapperDiv(imgDom, wrapperDiv);
             parentNode.removeChild(imgDom);
             adjustIframeHeightToFooter(iframe, wrapperDiv);
         }, 500);
@@ -92,7 +91,8 @@ function styleIframe(iframe) {
     iframe.style.border = "none";
 }
 
-function styleWrapperDiv(div) {
+function styleWrapperDiv(imgDom, div) {
+    copyStyle(imgDom, div);
     // To support image border-radius
     div.style.overflow = "hidden";
     div.style.border = "1px solid #ddd";
