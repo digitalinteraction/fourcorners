@@ -29,6 +29,17 @@
 
   }
 
+  &-header {
+    display: table;
+    &-title {
+      width: 100%;
+    }
+    &-cell {
+      display: table-cell;
+      height: 100%;
+    }
+  }
+
   &-body {
     height: 100%;
     width: 100%;
@@ -36,7 +47,7 @@
   }
 
   &-text {
-    padding: 0px 15px 15px 10px;
+    padding: 15px 15px 15px 10px;
     position: relative;
     z-index: 2;
     text-align: left;

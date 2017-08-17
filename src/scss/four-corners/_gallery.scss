@@ -138,6 +138,7 @@
     display: none;
     top: 0;
     right: 0;
+    position: absolute;
 
     &.visible {
       display: inline-block;

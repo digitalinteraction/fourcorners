@@ -48,11 +48,12 @@
         if links && links.length
             .fc-content-container.fc-content-top-right(data-4c-class="visible: topRightCorner.visible")
                 .fc-content-body
-                    .text-right
-                        button.fc-btn.fc-btn-close(data-4c-on="click: topRightCorner.forceHide" data-4c-class="visible: topRightCorner.visible")
-                            | &times;
                     .fc-content-text
-                        h1 Links
+                        .fc-content-header
+                            h1.fc-content-header-cell.fc-content-header-title Links
+                            .fc-content-header-cell
+                                button.fc-btn.fc-btn-close(data-4c-on="click: topRightCorner.forceHide" data-4c-class="visible: topRightCorner.visible")
+                                    | &times;
                         each item in links
                             p
                                 a.fc-image-a(href=item.url) #{item.title}
@@ -60,11 +61,12 @@
         if backStory && backStory.text
             .fc-content-container.fc-content-bottom-left(data-4c-class="visible: bottomLeftCorner.visible")
                 .fc-content-body
-                    .text-right
-                        button.fc-btn.fc-btn-close(data-4c-on="click: bottomLeftCorner.forceHide" data-4c-class="visible: bottomLeftCorner.visible")
-                            | &times;
                     .fc-content-text
-                        h1 Backstory
+                        .fc-content-header
+                            h1.fc-content-header-cell.fc-content-header-title Backstory
+                            .fc-content-header-cell
+                                button.fc-btn.fc-btn-close(data-4c-on="click: bottomLeftCorner.forceHide" data-4c-class="visible: bottomLeftCorner.visible")
+                                    | &times;
                         p #{backStory.text}
                         p
                             if backStory.author
@@ -80,12 +82,13 @@
         if creativeCommons && creativeCommons.formattedCopyright
             .fc-content-container.fc-content-bottom-right(data-4c-class="visible: bottomRightCorner.visible")
                 .fc-content-body
-                    .text-right
-                        button.fc-btn.fc-btn-close(data-4c-on="click: bottomRightCorner.forceHide" data-4c-class="visible: bottomRightCorner.visible")
-                            | &times;
                     .fc-content-text
-                        p.fc-content-copyright
-                            | #{creativeCommons.formattedCopyright}
+                        .fc-content-header
+                            p.fc-content-header-cell.fc-content-header-title
+                                span.fc-content-copyright #{creativeCommons.formattedCopyright}
+                            .fc-content-header-cell
+                                button.fc-btn.fc-btn-close.fc-content-header-cell(data-4c-on="click: bottomRightCorner.forceHide" data-4c-class="visible: bottomRightCorner.visible")
+                                    | &times;
                         if creativeCommons.codeOfEthics
                             p.fc-code-of-ethics
                                 | CODE OF ETHICS:  #{creativeCommons.codeOfEthics}
