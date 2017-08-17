@@ -13,6 +13,5 @@
   "includeJsMaps": true,
   "demoFolder": "docs/",
   "distributionFolder": "dist/",
-  "dataAttributeBase": "data-4c",
-  "fontAwesomeCdnUrl": "https://use.fontawesome.com/dcbd51b54b.js"
+  "dataAttributeBase": "data-4c"
 }

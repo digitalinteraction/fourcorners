@@ -10,7 +10,6 @@ var template = require("./template.pug"),
     baseAttr = process.env.dataAttributeBase,
     getAllElementsWithAttribute = require("./helpers/get-all-elements-with-attribute"),
     shortenText = require("./helpers/shorten-text"),
-    insertScript = require('./helpers/insert-script'),
     addEventListener = require("./helpers/add-event-listener"),
     removeEventListener = require("./helpers/remove-event-listener"),
     css = require('../scss/main.scss');
@@ -36,7 +35,6 @@ module.exports = function (imageData) {
     imageData.src = this.src;
     iframeDocument.write(template(imageData));
     iframeDocument.head.appendChild(makeStyle());
-    insertScript(process.env.fontAwesomeCdnUrl, iframeDocument);
     iframeDocument.close();
 
     treatFaultyImages(iframeDocument.body);

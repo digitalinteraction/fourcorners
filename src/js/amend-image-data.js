@@ -11,20 +11,8 @@ var shortenText = require('./helpers/shorten-text'),
     MAX_BACKSTORY_publication_LENGTH = 50;
 
 module.exports = function (data) {
-    addLinkTypes(data.links);
     shortenDataText(data);
 };
-
-function addLinkTypes(linksList) {
-    if (!linksList) {
-        return;
-    }
-    linksList.forEach(function (link) {
-        var a = document.createElement('a');
-        a.href = link.url;
-        link.type = a.hostname.match('wikipedia') != null ? 'wikipedia-w' : 'link';
-    });
-}
 
 function shortenDataText(data) {
     shortenContextText(data.context);

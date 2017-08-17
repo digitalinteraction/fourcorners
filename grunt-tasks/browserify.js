@@ -26,8 +26,7 @@ module.exports = function (grunt) {
                     standalone: packageJson.name
                 },
                 transform: [envify({
-                    dataAttributeBase: config.dataAttributeBase,
-                    fontAwesomeCdnUrl: config.fontAwesomeCdnUrl
+                    dataAttributeBase: config.dataAttributeBase
                 }), [sassify, {
                     "auto-inject": false,
                     base64Encode: false,

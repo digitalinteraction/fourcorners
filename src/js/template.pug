@@ -53,11 +53,9 @@
                             | &times;
                     .fc-content-text
                         h1 Links
-                        ul.fa-ul
-                            each item in links
-                                li
-                                    i.fa.fa-li(class="fa-" + item.type)
-                                    a.fc-image-a(href=item.url) #{item.title}
+                        each item in links
+                            p
+                                a.fc-image-a(href=item.url) #{item.title}
 
         if backStory && backStory.text
             .fc-content-container.fc-content-bottom-left(data-4c-class="visible: bottomLeftCorner.visible")
