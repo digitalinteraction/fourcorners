@@ -33,43 +33,6 @@ a {
   color: $font-color;
 }
 
-#{$class-prefix}-footer {
-  text-align: right;
-  padding: 4px;
-}
-
-#{$class-prefix}-icon {
-  vertical-align: middle;
-  display: inline-block;
-  height: 1em;
-  width: 1em;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  &-brand {
-    background-image: $fc-icon-uri;
-    width: 121px;
-    height: 17px;
-  }
-
-  &-context {
-    background-image: $fc-icon-context;
-  }
-
-  &-info {
-    background-image: $fc-icon-info;
-  }
-
-  &-links {
-    background-image: $fc-icon-links;
-  }
-
-  &-copyright {
-    background-image: $fc-icon-copyright;
-  }
-
-}
-
 .text {
   &-right {
     text-align: right;
