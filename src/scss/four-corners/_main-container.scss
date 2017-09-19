@@ -27,6 +27,14 @@ ul {
     width:100%;
   }
 
+  a {
+    color:#666666;
+  }
+
+  a:hover {
+    color:black;
+  }
+
 }
 
 #{$class-prefix}-footer {

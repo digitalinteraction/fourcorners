@@ -21,7 +21,7 @@
         <div class="col-sm-6 col-sm-offset-3">
             <h1 class="text-center">{{title}}</h1>
             <p>
-                <img ng-src="{{src}}" style="margin: 10px 15px 15px;width:60%;" data-4c="44f3cb1a-5ccf-53be-3d36-22fcd4c93ece"
+                <img ng-src="{{src}}" class="img-responsive" style="margin: 10px 15px 15px;width:100%;" data-4c="44f3cb1a-5ccf-53be-3d36-22fcd4c93ece"
                      >
             </p>
             <p>
@@ -60,7 +60,7 @@
     var app = angular.module('DemoApp', []);
     app.controller('DemoController', ['$scope', function ($scope) {
         $scope.title = 'Demo title';
-        $scope.src = 'img/1-0.jpg';
+        $scope.src = 'img/1-0_old.jpg';
     }]);
 </script>
 </body>
