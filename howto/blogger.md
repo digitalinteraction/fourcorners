@@ -1,1 +1,1 @@
-(coming soon)
+Its easy to use Four Corners on Blogger, just follow the tutorial in the video to get started.
