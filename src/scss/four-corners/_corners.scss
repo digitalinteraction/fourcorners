@@ -1,4 +1,5 @@
 @import "../config";
+@import "../mixins/scrollbars";
 
 #{$class-prefix}-content {
 
@@ -7,6 +8,7 @@
   left: 0;
   height: 100%;
   width: 100%;
+  @include scrollbars(.5em, silver);
 
   &-container {
     position: absolute;
@@ -18,7 +20,6 @@
     overflow-y: auto;
     overflow-x: hidden;
     background: rgba($corner-background, $btn-opacity);
-    border: 1px solid $corner-border-color;
     @include transition(opacity $transition-duration $transition-type);
 
     &.visible,
@@ -29,16 +30,33 @@
 
   }
 
+  &-subtitle
+  {
+    margin-top: 10px;
+    color:#888888;
+  }
+
   &-header {
     display: table;
-    &-title {
-      width: 100%;
+    width: 100%;
+    // &-cell {
+    //   float: right;
+    // }
+    // &-title {
+    //   float:left;
+    // }
+    h1
+    {
+      float:left;
+      margin-top:-6px;
     }
-    &-cell {
-      display: table-cell;
-      height: 100%;
-      vertical-align: top;
+    button{
+      float:right;
+      margin-bottom:-6px;
     }
+    border-bottom: 1px solid #efefef;
+    margin-bottom: 8px;
+    clear:both;
   }
 
   &-body {
@@ -81,6 +99,17 @@
 
   &-copyright {
     display: inline-block;
+    color:#888888;
+  }
+
+  &-coetitle {
+    font-variant: small-caps;
+    display:inline;
+    font-size: 13px;
+  }
+  
+  &-coe {
+    color:#888888;    
   }
 
 }

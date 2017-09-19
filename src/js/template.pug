@@ -56,7 +56,7 @@
                                     | &times;
                         each item in links
                             p
-                                a.fc-image-a(href=item.url) #{item.title}
+                                a.fc-image-a(href=item.url, target="_blank") #{item.title}
 
         if backStory && backStory.text
             .fc-content-container.fc-content-bottom-left(data-4c-class="visible: bottomLeftCorner.visible")
@@ -68,12 +68,12 @@
                                 button.fc-btn.fc-btn-close(data-4c-on="click: bottomLeftCorner.forceHide" data-4c-class="visible: bottomLeftCorner.visible")
                                     | &times;
                         p #{backStory.text}
-                        p
+                        p.fc-content-subtitle
                             if backStory.author
                                 | #{backStory.author + (backStory.publication || backStory.date ? ', ' : '')}
                             if backStory.publication
                                 if backStory.publicationUrl
-                                    a.fc-image-a(href=backStory.publicationUrl) #{backStory.publication}
+                                    a.fc-image-a(href=backStory.publicationUrl, target="_blank") #{backStory.publication}
                                 else
                                     | #{backStory.publication}
                                 | #{backStory.date ? ', ' : ''}
@@ -84,15 +84,17 @@
                 .fc-content-body
                     .fc-content-text
                         .fc-content-header
-                            p.fc-content-header-cell.fc-content-header-title
-                                span.fc-content-copyright #{creativeCommons.formattedCopyright}
+                            h1.fc-content-header-cell.fc-content-header-title Information
                             .fc-content-header-cell
-                                button.fc-btn.fc-btn-close.fc-content-header-cell(data-4c-on="click: bottomRightCorner.forceHide" data-4c-class="visible: bottomRightCorner.visible")
+                                button.fc-btn.fc-btn-close(data-4c-on="click: bottomRightCorner.forceHide" data-4c-class="visible: bottomRightCorner.visible")
                                     | &times;
-                        if creativeCommons.codeOfEthics
-                            p.fc-code-of-ethics
-                                | CODE OF ETHICS:  #{creativeCommons.codeOfEthics}
                         p #{creativeCommons.description}
+                        p.fc-content-copyright #{creativeCommons.formattedCopyright}
+                        if creativeCommons.codeOfEthics
+                            //p.fc-code-of-ethics
+                            h1.fc-content-header-cell.fc-content-coetitle Code of Ethics
+                            p.fc-content-header-cell.fc-content-coe #{creativeCommons.codeOfEthics}
+                        
 .fc-footer(data-4c-footer)
     a(href="https://fourcorners.io/" target="_blank")
         i.fc-icon.fc-icon-brand
