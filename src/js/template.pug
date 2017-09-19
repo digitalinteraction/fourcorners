@@ -26,6 +26,7 @@
                             li(data-4c-on="click: topLeftCorner.selectItem"
                             data-4c-class="hover: topLeftCorner.getItemIsPreselected"
                             data-4c-gallery-item)
+                                span.fc-center-helper
                                 if item.src
                                     img(src=item.src)
                                 if item.youtube_id
@@ -92,8 +93,9 @@
                         p.fc-content-copyright #{creativeCommons.formattedCopyright}
                         if creativeCommons.codeOfEthics
                             //p.fc-code-of-ethics
-                            h1.fc-content-header-cell.fc-content-coetitle Code of Ethics
-                            p.fc-content-header-cell.fc-content-coe #{creativeCommons.codeOfEthics}
+                            p.fc-content-header-cell.fc-content-coe
+                                span.fc-content-header-cell.fc-content-coetitle Code of Ethics: 
+                                span #{creativeCommons.codeOfEthics}
                         
 .fc-footer(data-4c-footer)
     a(href="https://fourcorners.io/" target="_blank")

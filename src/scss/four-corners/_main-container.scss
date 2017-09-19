@@ -23,7 +23,8 @@ ul {
 
   & > img {
     display: block;
-    max-width: 100%;
+    // max-width: 100%;
+    width:100%;
   }
 
 }
@@ -31,4 +32,10 @@ ul {
 #{$class-prefix}-footer {
   text-align: right;
   padding: 6px; 
+}
+
+#{$class-prefix}-center-helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
 }
