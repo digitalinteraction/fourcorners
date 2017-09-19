@@ -20,12 +20,13 @@ function contextIsValid(path, data) {
     } else if (data.context) {
         var toDelete = [];
         data.context.forEach(function (el, i) {
-            if (!el.src && !el.youtube_id) {
+            if (!el.src && !el.youtube_id && !el.vimeo_id) {
                 console.warn(path, ': \'context\', element number', String(i + 1),
-                    ' - \'src\' and \'youtube_id\' are not defined');
+                    ' - one of \'src\', \'youtube_id\' or \'vimeo_id\' are not defined');
                 toDelete.push(el);
             }
         });
+        
         toDelete.forEach(function (el) {
             var j = data.context.indexOf(el);
             data.context.splice(j, 1);
@@ -70,10 +71,10 @@ function backStoryIsValid(path, data) {
 
 function creativeCommonsAreValid(path, data) {
     if (!data.creativeCommons) {
-        console.warn(path, ': \'creativeCommons\' are not defined');
+        console.warn(path, ': \'rights\' are not defined');
     }
-    if (data.creativeCommons && !data.creativeCommons.copyright) {
-        console.warn(path, ': \'creativeCommons\' - author is not defined');
+    if (data.creativeCommons && !data.creativeCommons.credit) {
+        console.warn(path, ': \'rights\' - credit is not defined');
         return true;
     }
     return true;

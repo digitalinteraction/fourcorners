@@ -34,6 +34,11 @@
                                     src="//www.youtube.com/embed/" + item.youtube_id + "?enablejsapi=1"
                                     data-4c-gallery-yt
                                     style="border:none")
+                                if item.vimeo_id
+                                    iframe(width="100%" height="100%"
+                                    src="//player.vimeo.com/video/" + item.vimeo_id
+                                    data-4c-gallery-yt
+                                    style="border:none")
                     if context.length > 1
                         a.fc-gallery-controls.fc-gallery-next(data-4c-on="click: topLeftCorner.selectNext, mouseover: topLeftCorner.preselectNext, mouseleave: topLeftCorner.clearPreselect" data-4c-class="transparent: getNextControllerHidden")
                             i.fc-icon.fc-icon-angle-right
