@@ -1,6 +1,6 @@
 {
   "name": "fourcorners",
-  "version": "0.0.43",
+  "version": "0.0.44",
   "description": "Add a rich meta-data driven overlay to your photo-journalism images just by dropping in javascript and a text file http://fourcorners.io",
   "main": "dist/npm.js",
   "scripts": {
