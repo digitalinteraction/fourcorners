@@ -51,10 +51,11 @@ module.exports = function (domContainer, model) {
                         hammertime.destroy();
                     };
                 } else if (eventName == 'clickOutside') {
-                    var hammertime = new Hammer(document);
-                    hammertime.on('tap', wrapEventListenerToOutsideClick(el, eventListener));
+                    var listener = wrapEventListenerToOutsideClick(el, eventListener);
+                    var evName = 'click';
+                    addEventListener(document, evName, listener);
                     destroyer = function () {
-                        hammertime.destroy();
+                        removeEventListener(document, evName, listener);
                     };
                 } else {
                     addEventListener(el, eventName, eventListener);
