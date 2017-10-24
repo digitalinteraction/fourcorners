@@ -81,6 +81,8 @@ function makeStyle() {
 function adjustIframeHeightToFooter(iframe, wrapperDiv) {
     var footer = getAllElementsWithAttribute(baseAttr + "-footer", iframe.contentWindow.document)[0];
     wrapperDiv.style.height = wrapperDiv.offsetHeight + footer.offsetHeight + "px";
+    wrapperDiv.style.background = "#fff";
+    
 }
 
 function styleIframe(iframe) {
@@ -92,8 +94,10 @@ function styleIframe(iframe) {
 function styleWrapperDiv(imgDom, div) {
     copyStyle(imgDom, div);
     // To support image border-radius
+    div.style.display = "inline-block";
     div.style.overflow = "hidden";
     div.style.border = "1px solid #ddd";
+    div.style.background = "#fff";
 }
 
 function treatFaultyImages(div) {

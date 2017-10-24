@@ -10,13 +10,14 @@ var getAllElementsWithAttribute = require("./helpers/get-all-elements-with-attri
     baseAttr = process.env.dataAttributeBase;
 
 var META_TAG = baseAttr + "-meta";
+var DATA_TAG = baseAttr + "-metadata";
 
 module.exports = function (onSuccess, onFailure) {
     tryGetMeta(this, onSuccess, onFailure);
 };
 
 function tryGetMeta(img, onSuccess, onFailure) {
-    var q = [tryGetFromScript, tryLoadFileByAttribute, tryLoadJsonBySrc, tryLoadYamlBySrc],
+    var q = [tryGetFromAttribute, tryGetFromScript, tryLoadFileByAttribute, tryLoadJsonBySrc, tryLoadYamlBySrc],
         exec = function () {
             var fn = q.shift();
             if (!fn) {
@@ -33,7 +34,18 @@ function tryGetMeta(img, onSuccess, onFailure) {
                 })
             }
         };
-        exec();
+    exec();
+}
+
+function tryGetFromAttribute(img, onFinish) {
+    var metadata = img.getAttribute(DATA_TAG);
+    if (!metadata || metadata == '') {
+        onFinish();
+    } else {
+        var data = parseMeta(decodeURI(metadata), "json");
+        onFinish(data);
+        return;
+    }
 }
 
 function tryGetFromScript(img, onFinish) {
@@ -105,7 +117,7 @@ function parseMeta(rawText, format) {
 
 function loadFile(path, success, error) {
     error = error || function () {
-        };
+    };
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
