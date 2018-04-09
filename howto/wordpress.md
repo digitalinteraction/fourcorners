@@ -1,4 +1,4 @@
-[Download the Wordpress Plugin](https://downloads.wordpress.org/plugin/four-corners.1.3.zip) and install as a plugin in the admin panel to get started right away.
+[Download the Wordpress Plugin](https://github.com/digitalinteraction/fourcorners-wordpress/archive/1.3.zip) and install as a plugin in the admin panel to get started right away.
 
 If you are using `wordpress.com`, find the `Four Corners` plugin in the `Plugins Store` from the admin panel.
 
